@@ -31,7 +31,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-base sm:text-lg text-neutral-500 max-w-xl leading-relaxed font-normal">
-              Opposite Blue는 삼성전자·LG전자 대기업 B2B 플랫폼부터 이커머스 솔루션, 최신 생성형 AI 서비스 인프라 구축까지 비즈니스의 성공적인 디지털 전환을 완벽히 구현합니다.
+              Opposite Blue는 쇼핑몰과 웹사이트 구축부터 이커머스 솔루션, 최신 생성형 AI 서비스 인프라 구축까지 비즈니스의 성공적인 디지털 전환을 완벽히 구현합니다.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -78,8 +78,8 @@ export default function HomePage() {
                   <span className="text-[11px] text-neutral-400">완료 프로젝트</span>
                 </div>
                 <div>
-                  <span className="block text-2xl font-bold text-blue-600">B2B</span>
-                  <span className="text-[11px] text-neutral-400">삼성/LG 레퍼런스</span>
+                  <span className="block text-2xl font-bold text-neutral-950">WEB</span>
+                  <span className="text-[11px] text-neutral-400">웹사이트/쇼핑몰</span>
                 </div>
                 <div>
                   <span className="block text-2xl font-bold text-neutral-950">AI</span>
