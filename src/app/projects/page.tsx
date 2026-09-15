@@ -169,8 +169,8 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
               >
                 <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
                   <img
-                    src="/portfolio/images/웹사이트/05_삼성전자_B2B_웹사이트/01_05.png"
-                    alt="Websites Preview"
+                    src="/portfolio/images/웹사이트/31_TV브라켓_쇼핑몰/01_superbshop.png"
+                    alt="Websites Preview (TV브라켓 쇼핑몰)"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/20 to-transparent" />
