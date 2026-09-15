@@ -143,7 +143,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
             <span className="font-semibold text-neutral-950">Design</span> works.
           </h1>
           <p className="mt-6 text-base md:text-lg text-neutral-500 max-w-2xl leading-relaxed">
-            대기업 B2B 플랫폼부터 이커머스 솔루션, 브랜드 프로모션, 초고해상도 상세페이지 및 인쇄물까지 Opposite Blue의 실제 프로젝트 결과물입니다.
+            B2B 플랫폼부터 이커머스 솔루션, 브랜드 프로모션, 초고해상도 상세페이지 및 인쇄물까지 어퍼짓 블루(Opposite Blue)의 실제 프로젝트 결과물입니다.
           </p>
         </div>
       </motion.div>
@@ -190,7 +190,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
 
                 <div className="p-8 space-y-4">
                   <p className="text-sm md:text-base text-neutral-600 leading-relaxed">
-                    삼성전자·LG전자 대기업 B2B 공식 웹사이트 및 카페24, 고도몰, 그누보드 기반 커머스 쇼핑몰 구축 프로젝트입니다.
+                    삼성전자·LG전자 B2B 웹사이트 및 카페24, 고도몰, 그누보드 기반 커머스 쇼핑몰 구축 프로젝트입니다.
                   </p>
                   <div className="pt-2 flex items-center justify-between">
                     <div className="flex flex-wrap gap-2">
