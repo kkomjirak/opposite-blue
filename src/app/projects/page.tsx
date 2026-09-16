@@ -166,7 +166,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
               <motion.div
                 variants={cardVariants}
                 onClick={() => changeMainCategory('websites')}
-                className="group cursor-pointer rounded-3xl border border-gray-100 bg-white overflow-hidden hover:border-gray-200 hover:shadow-2xl hover:shadow-neutral-200/50 transition-all duration-500 flex flex-col justify-between"
+                className="group cursor-pointer rounded-[5px] border border-gray-100 bg-white overflow-hidden hover:border-gray-200 hover:shadow-2xl hover:shadow-neutral-200/50 transition-all duration-500 flex flex-col justify-between"
               >
                 <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
                   <img
@@ -211,7 +211,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
               <motion.div
                 variants={cardVariants}
                 onClick={() => changeMainCategory('design')}
-                className="group cursor-pointer rounded-3xl border border-gray-100 bg-white overflow-hidden hover:border-gray-200 hover:shadow-2xl hover:shadow-neutral-200/50 transition-all duration-500 flex flex-col justify-between"
+                className="group cursor-pointer rounded-[5px] border border-gray-100 bg-white overflow-hidden hover:border-gray-200 hover:shadow-2xl hover:shadow-neutral-200/50 transition-all duration-500 flex flex-col justify-between"
               >
                 <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
                   <img
@@ -307,7 +307,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
                   <motion.div
                     key={project.id}
                     variants={cardVariants}
-                    className="group flex flex-col bg-white border border-gray-100 rounded-2xl overflow-hidden hover:border-gray-200 hover:shadow-xl hover:shadow-neutral-100 transition-all duration-300 cursor-pointer"
+                    className="group flex flex-col bg-white border border-gray-100 rounded-[5px] overflow-hidden hover:border-gray-200 hover:shadow-xl hover:shadow-neutral-100 transition-all duration-300 cursor-pointer"
                     onClick={() => openProjectModal(project)}
                   >
                     <div className="relative aspect-[16/10] bg-neutral-100 overflow-hidden">
@@ -466,7 +466,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
                   <motion.div
                     key={project.id}
                     variants={cardVariants}
-                    className="group flex flex-col bg-white border border-gray-100 rounded-2xl overflow-hidden hover:border-gray-200 hover:shadow-xl hover:shadow-neutral-100 transition-all duration-300 cursor-pointer"
+                    className="group flex flex-col bg-white border border-gray-100 rounded-[5px] overflow-hidden hover:border-gray-200 hover:shadow-xl hover:shadow-neutral-100 transition-all duration-300 cursor-pointer"
                     onClick={() => openProjectModal(project)}
                   >
                     <div className="relative aspect-[16/10] bg-neutral-100 overflow-hidden">
@@ -558,11 +558,11 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
               {/* Image Showcase */}
               {activeModalProject.images.length > 0 && (
                 <div className="space-y-4">
-                  <div className="relative bg-neutral-50 rounded-2xl border border-gray-100 overflow-hidden flex items-center justify-center min-h-[300px] max-h-[560px]">
+                  <div className="relative bg-neutral-50 rounded-[5px] border border-gray-100 overflow-hidden flex items-center justify-center min-h-[300px] max-h-[560px]">
                     <img
                       src={encodeURI(getAssetPath(`/portfolio/${activeModalProject.images[modalImageIndex]?.relative_path}`))}
                       alt={`${activeModalProject.title} ${modalImageIndex + 1}`}
-                      className="max-w-full max-h-[560px] object-contain rounded-xl"
+                      className="max-w-full max-h-[560px] object-contain rounded-[5px]"
                     />
 
                     {activeModalProject.images.length > 1 && (
@@ -602,7 +602,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
                           key={idx}
                           type="button"
                           onClick={() => setModalImageIndex(idx)}
-                          className={`relative w-20 h-16 rounded-lg overflow-hidden shrink-0 border-2 transition-all cursor-pointer ${
+                          className={`relative w-20 h-16 rounded-[5px] overflow-hidden shrink-0 border-2 transition-all cursor-pointer ${
                             modalImageIndex === idx
                               ? 'border-neutral-900 scale-95 ring-2 ring-neutral-900/20'
                               : 'border-transparent opacity-60 hover:opacity-100'
