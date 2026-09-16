@@ -169,7 +169,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
               >
                 <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
                   <img
-                    src="/portfolio/images/웹사이트/31_TV브라켓_쇼핑몰/01_superbshop.png"
+                    src="/portfolio/images/websites/31_tv-bracket-shop/01_tv-bracket-shop.png"
                     alt="Websites Preview (TV브라켓 쇼핑몰)"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
                   />
@@ -214,7 +214,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
               >
                 <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
                   <img
-                    src="/portfolio/images/인쇄물_디자인/27_LG전자_정수기_브로셔_디자인/01_정수기-1.jpg"
+                    src="/portfolio/images/print-design/27_lg-purifier-brochure/01_lg-purifier-brochure.jpg"
                     alt="Design Works Preview"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
                   />

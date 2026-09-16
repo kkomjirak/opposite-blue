@@ -57,7 +57,7 @@ export default function HomePage() {
             <div className="relative rounded-3xl overflow-hidden border border-gray-100 bg-neutral-50 shadow-xl shadow-neutral-100 group">
               <div className="aspect-[4/3] relative overflow-hidden bg-neutral-900">
                 <img
-                  src="/portfolio/images/웹사이트/31_TV브라켓_쇼핑몰/01_superbshop.png"
+                  src="/portfolio/images/websites/31_tv-bracket-shop/01_tv-bracket-shop.png"
                   alt="TV브라켓 쇼핑몰 (수퍼브샵)"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />

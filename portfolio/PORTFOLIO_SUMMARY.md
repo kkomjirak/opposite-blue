@@ -84,7 +84,7 @@
   > 웹사이트 바로가기 :
   > http://sonliang.dothome.co.kr/ysb2b/
 - **저장된 이미지 (1장)**:
-  - `01_02.png` (1903x1080px, 526.66KB, PNG) -> [로컬 파일](images/웹사이트/02_LG전자_B2B_웹사이트/01_02.png)
+  - `01_lg-b2b-website.png` (1903x1080px, 526.66KB, PNG) -> [로컬 파일](images/websites/02_lg-b2b-website/01_lg-b2b-website.png)
 
 ### [#3] [웹사이트] LG전자 B2B 웹사이트
 
@@ -99,7 +99,7 @@
   > 웹사이트 바로가기 :
   > http://ktob.co.kr/
 - **저장된 이미지 (1장)**:
-  - `01_03.png` (1903x1080px, 916.57KB, PNG) -> [로컬 파일](images/웹사이트/03_LG전자_B2B_웹사이트/01_03.png)
+  - `01_lg-b2b-website.png` (1903x1080px, 916.57KB, PNG) -> [로컬 파일](images/websites/03_lg-b2b-website/01_lg-b2b-website.png)
 
 ### [#4] [웹사이트] LG전자 B2B 웹사이트
 
@@ -114,7 +114,7 @@
   > 웹사이트 바로가기 :
   > http://coreab2b.com/
 - **저장된 이미지 (1장)**:
-  - `01_04.png` (1903x1080px, 1624.32KB, PNG) -> [로컬 파일](images/웹사이트/04_LG전자_B2B_웹사이트/01_04.png)
+  - `01_lg-b2b-website.png` (1903x1080px, 1624.32KB, PNG) -> [로컬 파일](images/websites/04_lg-b2b-website/01_lg-b2b-website.png)
 
 ### [#5] [웹사이트] 삼성전자 B2B 웹사이트
 
@@ -129,7 +129,7 @@
   > 웹사이트 바로가기 :
   > http://samsungsg.co.kr/
 - **저장된 이미지 (1장)**:
-  - `01_05.png` (1903x1080px, 2169.59KB, PNG) -> [로컬 파일](images/웹사이트/05_삼성전자_B2B_웹사이트/01_05.png)
+  - `01_samsung-b2b-website.png` (1903x1080px, 2169.59KB, PNG) -> [로컬 파일](images/websites/05_samsung-b2b-website/01_samsung-b2b-website.png)
 
 ### [#6] [배너 디자인] 휴대폰 쇼핑몰 배너
 
@@ -137,7 +137,7 @@
 - **작성일**: 2019. 11. 22. 01:23
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_A.jpg` (860x485px, 142.55KB, JPEG) -> [로컬 파일](images/배너_디자인/06_휴대폰_쇼핑몰_배너/01_A.jpg)
+  - `01_mobile-mall-banner.jpg` (860x485px, 142.55KB, JPEG) -> [로컬 파일](images/banner-design/06_mobile-mall-banner/01_mobile-mall-banner.jpg)
 
 ### [#7] [컨텐츠 디자인] 휴대폰 쇼핑몰 안내사항
 
@@ -145,7 +145,7 @@
 - **작성일**: 2019. 11. 22. 01:24
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_B.jpg` (860x720px, 162.43KB, JPEG) -> [로컬 파일](images/컨텐츠_디자인/07_휴대폰_쇼핑몰_안내사항/01_B.jpg)
+  - `01_mobile-mall-notice.jpg` (860x720px, 162.43KB, JPEG) -> [로컬 파일](images/content-design/07_mobile-mall-notice/01_mobile-mall-notice.jpg)
 
 ### [#8] [컨텐츠 디자인] 휴대폰 쇼핑몰 컨텐츠
 
@@ -153,7 +153,7 @@
 - **작성일**: 2019. 11. 22. 01:25
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_gift.jpg` (860x6635px, 782.47KB, JPEG) -> [로컬 파일](images/컨텐츠_디자인/08_휴대폰_쇼핑몰_컨텐츠/01_gift.jpg)
+  - `01_mobile-mall-content.jpg` (860x6635px, 782.47KB, JPEG) -> [로컬 파일](images/content-design/08_mobile-mall-content/01_mobile-mall-content.jpg)
 
 ### [#9] [컨텐츠 디자인] 휴대폰 쇼핑몰 공지사항
 
@@ -161,7 +161,7 @@
 - **작성일**: 2019. 11. 22. 01:26
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_notice_kt.jpg` (900x2006px, 412.45KB, JPEG) -> [로컬 파일](images/컨텐츠_디자인/09_휴대폰_쇼핑몰_공지사항/01_notice_kt.jpg)
+  - `01_mobile-mall-announcement.jpg` (900x2006px, 412.45KB, JPEG) -> [로컬 파일](images/content-design/09_mobile-mall-announcement/01_mobile-mall-announcement.jpg)
 
 ### [#10] [인쇄물 디자인] 포토 스튜디오 광고물
 
@@ -169,7 +169,7 @@
 - **작성일**: 2019. 11. 22. 01:32
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_ibstudio_blue.jpg` (2480x1748px, 729.75KB, JPEG) -> [로컬 파일](images/인쇄물_디자인/10_포토_스튜디오_광고물/01_ibstudio_blue.jpg)
+  - `01_photo-studio-ad.jpg` (2480x1748px, 729.75KB, JPEG) -> [로컬 파일](images/print-design/10_photo-studio-ad/01_photo-studio-ad.jpg)
 
 ### [#11] [컨텐츠 디자인] 성인용품 오픈마켓 컨텐츠 디자인
 
@@ -177,7 +177,7 @@
 - **작성일**: 2019. 11. 22. 01:36
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_A-1.jpg` (800x1936px, 837.76KB, JPEG) -> [로컬 파일](images/컨텐츠_디자인/11_성인용품_오픈마켓_컨텐츠_디자인/01_A-1.jpg)
+  - `01_adult-goods-openmarket.jpg` (800x1936px, 837.76KB, JPEG) -> [로컬 파일](images/content-design/11_adult-goods-openmarket/01_adult-goods-openmarket.jpg)
 
 ### [#12] [인쇄물 디자인] 직업소개소 전단지
 
@@ -185,7 +185,7 @@
 - **작성일**: 2019. 11. 22. 01:38
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_A4.png` (2480x3508px, 195.35KB, PNG) -> [로컬 파일](images/인쇄물_디자인/12_직업소개소_전단지/01_A4.png)
+  - `01_job-agency-flyer.png` (2480x3508px, 195.35KB, PNG) -> [로컬 파일](images/print-design/12_job-agency-flyer/01_job-agency-flyer.png)
 
 ### [#13] [배너 디자인] 쌍안경 안내 배너
 
@@ -193,7 +193,7 @@
 - **작성일**: 2019. 11. 22. 01:46
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_aaa.jpg` (800x150px, 44.87KB, JPEG) -> [로컬 파일](images/배너_디자인/13_쌍안경_안내_배너/01_aaa.jpg)
+  - `01_binoculars-guide-banner.jpg` (800x150px, 44.87KB, JPEG) -> [로컬 파일](images/banner-design/13_binoculars-guide-banner/01_binoculars-guide-banner.jpg)
 
 ### [#14] [배너 디자인] 블랙프라이데이 이벤트 배너
 
@@ -201,7 +201,7 @@
 - **작성일**: 2019. 11. 22. 01:47
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_111.jpg` (800x400px, 65.99KB, JPEG) -> [로컬 파일](images/배너_디자인/14_블랙프라이데이_이벤트_배너/01_111.jpg)
+  - `01_black-friday-banner.jpg` (800x400px, 65.99KB, JPEG) -> [로컬 파일](images/banner-design/14_black-friday-banner/01_black-friday-banner.jpg)
 
 ### [#15] [인쇄물 디자인] 이벤트 경품 교환 쿠폰
 
@@ -209,7 +209,7 @@
 - **작성일**: 2019. 11. 22. 01:48
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_asdkjflskadj.png` (2205x945px, 156.8KB, PNG) -> [로컬 파일](images/인쇄물_디자인/15_이벤트_경품_교환_쿠폰/01_asdkjflskadj.png)
+  - `01_event-prize-coupon.png` (2205x945px, 156.8KB, PNG) -> [로컬 파일](images/print-design/15_event-prize-coupon/01_event-prize-coupon.png)
 
 ### [#16] [배너 디자인] 사은품 이벤트 배너
 
@@ -217,7 +217,7 @@
 - **작성일**: 2019. 11. 22. 01:48
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_12k3lj4lkfds.jpg` (800x400px, 58.81KB, JPEG) -> [로컬 파일](images/배너_디자인/16_사은품_이벤트_배너/01_12k3lj4lkfds.jpg)
+  - `01_free-gift-banner.jpg` (800x400px, 58.81KB, JPEG) -> [로컬 파일](images/banner-design/16_free-gift-banner/01_free-gift-banner.jpg)
 
 ### [#17] [배너 디자인] 연휴 전 배송 안내 배너
 
@@ -225,7 +225,7 @@
 - **작성일**: 2019. 11. 22. 01:49
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_12341234.jpg` (800x523px, 139.11KB, JPEG) -> [로컬 파일](images/배너_디자인/17_연휴_전_배송_안내_배너/01_12341234.jpg)
+  - `01_holiday-delivery-banner.jpg` (800x523px, 139.11KB, JPEG) -> [로컬 파일](images/banner-design/17_holiday-delivery-banner/01_holiday-delivery-banner.jpg)
 
 ### [#18] [컨텐츠 디자인] 오픈마켓 안내사항
 
@@ -233,7 +233,7 @@
 - **작성일**: 2019. 11. 22. 01:51
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_132rwqe5123r.jpg` (900x1470px, 183.13KB, JPEG) -> [로컬 파일](images/컨텐츠_디자인/18_오픈마켓_안내사항/01_132rwqe5123r.jpg)
+  - `01_openmarket-notice.jpg` (900x1470px, 183.13KB, JPEG) -> [로컬 파일](images/content-design/18_openmarket-notice/01_openmarket-notice.jpg)
 
 ### [#19] [배너 디자인] 배송지연 안내 배너
 
@@ -241,7 +241,7 @@
 - **작성일**: 2019. 11. 22. 01:52
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_11111.jpg` (800x450px, 37.95KB, JPEG) -> [로컬 파일](images/배너_디자인/19_배송지연_안내_배너/01_11111.jpg)
+  - `01_delivery-delay-banner.jpg` (800x450px, 37.95KB, JPEG) -> [로컬 파일](images/banner-design/19_delivery-delay-banner/01_delivery-delay-banner.jpg)
 
 ### [#20] [배너 디자인] 오픈마켓 안내사항 배너
 
@@ -249,7 +249,7 @@
 - **작성일**: 2019. 11. 22. 01:54
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_top_notice.gif` (900x406px, 598.97KB, GIF) -> [로컬 파일](images/배너_디자인/20_오픈마켓_안내사항_배너/01_top_notice.gif)
+  - `01_openmarket-notice-banner.gif` (900x406px, 598.97KB, GIF) -> [로컬 파일](images/banner-design/20_openmarket-notice-banner/01_openmarket-notice-banner.gif)
 
 ### [#21] [배너 디자인] 주말 이벤트 배너
 
@@ -257,7 +257,7 @@
 - **작성일**: 2019. 11. 22. 01:54
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_weekend.jpg` (800x355px, 63.45KB, JPEG) -> [로컬 파일](images/배너_디자인/21_주말_이벤트_배너/01_weekend.jpg)
+  - `01_weekend-event-banner.jpg` (800x355px, 63.45KB, JPEG) -> [로컬 파일](images/banner-design/21_weekend-event-banner/01_weekend-event-banner.jpg)
 
 ### [#22] [컨텐츠 디자인] 판매조건 안내
 
@@ -265,7 +265,7 @@
 - **작성일**: 2019. 11. 22. 01:55
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_1212.jpg` (800x800px, 84.29KB, JPEG) -> [로컬 파일](images/컨텐츠_디자인/22_판매조건_안내/01_1212.jpg)
+  - `01_sales-terms-guide.jpg` (800x800px, 84.29KB, JPEG) -> [로컬 파일](images/content-design/22_sales-terms-guide/01_sales-terms-guide.jpg)
 
 ### [#23] [배너 디자인] 임시공휴일 배송일정 안내 배너
 
@@ -273,7 +273,7 @@
 - **작성일**: 2019. 11. 22. 01:56
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_12341235.jpg` (800x586px, 92.53KB, JPEG) -> [로컬 파일](images/배너_디자인/23_임시공휴일_배송일정_안내_배너/01_12341235.jpg)
+  - `01_temporary-holiday-delivery-banner.jpg` (800x586px, 92.53KB, JPEG) -> [로컬 파일](images/banner-design/23_temporary-holiday-delivery-banner/01_temporary-holiday-delivery-banner.jpg)
 
 ### [#24] [컨텐츠 디자인] 오픈마켓 가전제품 배송안내 배너
 
@@ -281,9 +281,9 @@
 - **작성일**: 2019. 11. 22. 01:58
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (3장)**:
-  - `01_delivery_01.jpg` (800x881px, 92.13KB, JPEG) -> [로컬 파일](images/컨텐츠_디자인/24_오픈마켓_가전제품_배송안내_배너/01_delivery_01.jpg)
-  - `02_delivery_02.gif` (800x44px, 748.06KB, GIF) -> [로컬 파일](images/컨텐츠_디자인/24_오픈마켓_가전제품_배송안내_배너/02_delivery_02.gif)
-  - `03_delivery_03.jpg` (800x925px, 81.98KB, JPEG) -> [로컬 파일](images/컨텐츠_디자인/24_오픈마켓_가전제품_배송안내_배너/03_delivery_03.jpg)
+  - `01_appliance-delivery-banner.jpg` (800x881px, 92.13KB, JPEG) -> [로컬 파일](images/content-design/24_appliance-delivery-banner/01_appliance-delivery-banner.jpg)
+  - `02_appliance-delivery-banner.gif` (800x44px, 748.06KB, GIF) -> [로컬 파일](images/content-design/24_appliance-delivery-banner/02_appliance-delivery-banner.gif)
+  - `03_appliance-delivery-banner.jpg` (800x925px, 81.98KB, JPEG) -> [로컬 파일](images/content-design/24_appliance-delivery-banner/03_appliance-delivery-banner.jpg)
 
 ### [#25] [배너 디자인] 구매 후기 이벤트 배너
 
@@ -291,7 +291,7 @@
 - **작성일**: 2019. 11. 22. 01:59
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_12341234214.jpg` (800x800px, 126.24KB, JPEG) -> [로컬 파일](images/배너_디자인/25_구매_후기_이벤트_배너/01_12341234214.jpg)
+  - `01_review-event-banner.jpg` (800x800px, 126.24KB, JPEG) -> [로컬 파일](images/banner-design/25_review-event-banner/01_review-event-banner.jpg)
 
 ### [#26] [컨텐츠 디자인] 오픈마켓 에어컨 배송안내
 
@@ -299,7 +299,7 @@
 - **작성일**: 2019. 11. 22. 02:01
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (1장)**:
-  - `01_option_new.jpg` (800x3732px, 561.49KB, JPEG) -> [로컬 파일](images/컨텐츠_디자인/26_오픈마켓_에어컨_배송안내/01_option_new.jpg)
+  - `01_aircon-delivery-guide.jpg` (800x3732px, 561.49KB, JPEG) -> [로컬 파일](images/content-design/26_aircon-delivery-guide/01_aircon-delivery-guide.jpg)
 
 ### [#27] [인쇄물 디자인] LG전자 정수기 브로셔 디자인
 
@@ -307,13 +307,13 @@
 - **작성일**: 2019. 11. 22. 02:16
 - **본문 내용**: *(디자인 시안 중심 등록)*
 - **저장된 이미지 (7장)**:
-  - `01_정수기-1.jpg` (2464x3391px, 876.03KB, JPEG) -> [로컬 파일](images/인쇄물_디자인/27_LG전자_정수기_브로셔_디자인/01_정수기-1.jpg)
-  - `02_정수기-2.jpg` (2464x3391px, 711.76KB, JPEG) -> [로컬 파일](images/인쇄물_디자인/27_LG전자_정수기_브로셔_디자인/02_정수기-2.jpg)
-  - `03_정수기-3.jpg` (2464x3391px, 569.34KB, JPEG) -> [로컬 파일](images/인쇄물_디자인/27_LG전자_정수기_브로셔_디자인/03_정수기-3.jpg)
-  - `04_정수기-4.jpg` (2464x3391px, 714.37KB, JPEG) -> [로컬 파일](images/인쇄물_디자인/27_LG전자_정수기_브로셔_디자인/04_정수기-4.jpg)
-  - `05_정수기-5.jpg` (2464x3391px, 739.42KB, JPEG) -> [로컬 파일](images/인쇄물_디자인/27_LG전자_정수기_브로셔_디자인/05_정수기-5.jpg)
-  - `06_정수기-6.jpg` (2464x3391px, 782.68KB, JPEG) -> [로컬 파일](images/인쇄물_디자인/27_LG전자_정수기_브로셔_디자인/06_정수기-6.jpg)
-  - `07_정수기-7-copy.jpg` (2464x3391px, 778.79KB, JPEG) -> [로컬 파일](images/인쇄물_디자인/27_LG전자_정수기_브로셔_디자인/07_정수기-7-copy.jpg)
+  - `01_lg-purifier-brochure.jpg` (2464x3391px, 876.03KB, JPEG) -> [로컬 파일](images/print-design/27_lg-purifier-brochure/01_lg-purifier-brochure.jpg)
+  - `02_lg-purifier-brochure.jpg` (2464x3391px, 711.76KB, JPEG) -> [로컬 파일](images/print-design/27_lg-purifier-brochure/02_lg-purifier-brochure.jpg)
+  - `03_lg-purifier-brochure.jpg` (2464x3391px, 569.34KB, JPEG) -> [로컬 파일](images/print-design/27_lg-purifier-brochure/03_lg-purifier-brochure.jpg)
+  - `04_lg-purifier-brochure.jpg` (2464x3391px, 714.37KB, JPEG) -> [로컬 파일](images/print-design/27_lg-purifier-brochure/04_lg-purifier-brochure.jpg)
+  - `05_lg-purifier-brochure.jpg` (2464x3391px, 739.42KB, JPEG) -> [로컬 파일](images/print-design/27_lg-purifier-brochure/05_lg-purifier-brochure.jpg)
+  - `06_lg-purifier-brochure.jpg` (2464x3391px, 782.68KB, JPEG) -> [로컬 파일](images/print-design/27_lg-purifier-brochure/06_lg-purifier-brochure.jpg)
+  - `07_lg-purifier-brochure.jpg` (2464x3391px, 778.79KB, JPEG) -> [로컬 파일](images/print-design/27_lg-purifier-brochure/07_lg-purifier-brochure.jpg)
 
 ### [#28] [웹사이트] 조명 판매 쇼핑몰
 
@@ -328,7 +328,7 @@
   > 웹사이트 바로가기 :
   > http://kyeoda.com/
 - **저장된 이미지 (1장)**:
-  - `01_kyeoda.jpg` (1920x934px, 510.94KB, JPEG) -> [로컬 파일](images/웹사이트/28_조명_판매_쇼핑몰/01_kyeoda.jpg)
+  - `01_lighting-shop.jpg` (1920x934px, 510.94KB, JPEG) -> [로컬 파일](images/websites/28_lighting-shop/01_lighting-shop.jpg)
 
 ### [#29] [웹사이트] 전기자재 종합 쇼핑몰
 
@@ -343,7 +343,7 @@
   > 웹사이트 바로가기 :
   > http://simplemall.co.kr/
 - **저장된 이미지 (1장)**:
-  - `01_simplemall.jpg` (1920x934px, 465.24KB, JPEG) -> [로컬 파일](images/웹사이트/29_전기자재_종합_쇼핑몰/01_simplemall.jpg)
+  - `01_electrical-materials-mall.jpg` (1920x934px, 465.24KB, JPEG) -> [로컬 파일](images/websites/29_electrical-materials-mall/01_electrical-materials-mall.jpg)
 
 ---
 

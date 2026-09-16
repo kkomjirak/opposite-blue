@@ -21,11 +21,11 @@
 
 ## 첨부 이미지 (1개)
 
-### 01_03.png
+### 01_lg-b2b-website.png
 - 해상도: `1903 x 1080` px (PNG)
 - 용량: `916.57 KB`
 - 원본 파일명: `03.png`
-- 로컬 경로: `../images/웹사이트/03_LG전자_B2B_웹사이트/01_03.png`
+- 로컬 경로: `../images/websites/03_lg-b2b-website/01_lg-b2b-website.png`
 
-![01_03.png](../images/웹사이트/03_LG전자_B2B_웹사이트/01_03.png)
+![01_lg-b2b-website.png](../images/websites/03_lg-b2b-website/01_lg-b2b-website.png)
 
