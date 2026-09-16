@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Eye, X, ChevronLeft, ChevronRight, Layers, ArrowLeft, ArrowRight, Globe, Palette } from 'lucide-react';
 import portfolioRaw from '@/data/portfolio_data.json';
 import { PortfolioItem } from '@/types/portfolio';
+import { getAssetPath } from '@/lib/utils';
 
 const portfolioData = portfolioRaw as PortfolioItem[];
 
@@ -169,7 +170,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
               >
                 <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
                   <img
-                    src="/portfolio/images/websites/31_tv-bracket-shop/01_tv-bracket-shop.png"
+                    src={getAssetPath('/portfolio/images/websites/31_tv-bracket-shop/01_tv-bracket-shop.png')}
                     alt="Websites Preview (TV브라켓 쇼핑몰)"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
                   />
@@ -214,7 +215,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
               >
                 <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
                   <img
-                    src="/portfolio/images/print-design/27_lg-purifier-brochure/01_lg-purifier-brochure.jpg"
+                    src={getAssetPath('/portfolio/images/print-design/27_lg-purifier-brochure/01_lg-purifier-brochure.jpg')}
                     alt="Design Works Preview"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
                   />
@@ -300,7 +301,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
             <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {websiteProjects.map((project) => {
                 const firstImage = project.images[0];
-                const imageSrc = firstImage ? `/portfolio/${firstImage.relative_path}` : null;
+                const imageSrc = firstImage ? getAssetPath(`/portfolio/${firstImage.relative_path}`) : null;
 
                 return (
                   <motion.div
@@ -458,7 +459,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
             <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-2">
               {filteredDesignProjects.map((project) => {
                 const firstImage = project.images[0];
-                const imageSrc = firstImage ? `/portfolio/${firstImage.relative_path}` : null;
+                const imageSrc = firstImage ? getAssetPath(`/portfolio/${firstImage.relative_path}`) : null;
                 const totalImages = project.images.length;
 
                 return (
@@ -559,7 +560,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
                 <div className="space-y-4">
                   <div className="relative bg-neutral-50 rounded-2xl border border-gray-100 overflow-hidden flex items-center justify-center min-h-[300px] max-h-[560px]">
                     <img
-                      src={encodeURI(`/portfolio/${activeModalProject.images[modalImageIndex]?.relative_path}`)}
+                      src={encodeURI(getAssetPath(`/portfolio/${activeModalProject.images[modalImageIndex]?.relative_path}`))}
                       alt={`${activeModalProject.title} ${modalImageIndex + 1}`}
                       className="max-w-full max-h-[560px] object-contain rounded-xl"
                     />
@@ -608,7 +609,7 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
                           }`}
                         >
                           <img
-                            src={encodeURI(`/portfolio/${img.relative_path}`)}
+                            src={encodeURI(getAssetPath(`/portfolio/${img.relative_path}`))}
                             alt=""
                             className="w-full h-full object-cover"
                           />

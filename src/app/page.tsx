@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowUpRight, CheckCircle, Code2, Cpu, Globe, Layers, Sparkles } from 'lucide-react';
 import portfolioRaw from '@/data/portfolio_data.json';
 import { PortfolioItem } from '@/types/portfolio';
+import { getAssetPath } from '@/lib/utils';
 
 const portfolioData = portfolioRaw as PortfolioItem[];
 
@@ -57,7 +58,7 @@ export default function HomePage() {
             <div className="relative rounded-3xl overflow-hidden border border-gray-100 bg-neutral-50 shadow-xl shadow-neutral-100 group">
               <div className="aspect-[4/3] relative overflow-hidden bg-neutral-900">
                 <img
-                  src="/portfolio/images/websites/31_tv-bracket-shop/01_tv-bracket-shop.png"
+                  src={getAssetPath('/portfolio/images/websites/31_tv-bracket-shop/01_tv-bracket-shop.png')}
                   alt="TV브라켓 쇼핑몰 (수퍼브샵)"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
@@ -234,7 +235,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {featuredProjects.map((p) => {
               const firstImg = p.images[0];
-              const imgSrc = firstImg ? `/portfolio/${firstImg.relative_path}` : '';
+              const imgSrc = firstImg ? getAssetPath(`/portfolio/${firstImg.relative_path}`) : '';
               return (
                 <Link
                   key={p.id}
