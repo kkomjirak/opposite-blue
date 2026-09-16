@@ -55,7 +55,7 @@ export default function HomePage() {
 
           {/* Right Hero Visual Card */}
           <div className="lg:col-span-5">
-            <div className="relative rounded-[5px] overflow-hidden border border-gray-300 bg-neutral-50 shadow-xl shadow-neutral-100 group">
+            <div className="relative rounded-[5px] overflow-hidden border border-gray-200 bg-neutral-50 shadow-xl shadow-neutral-100 group">
               <div className="aspect-[4/3] relative overflow-hidden bg-neutral-900">
                 <img
                   src={getAssetPath('/portfolio/images/websites/31_tv-bracket-shop/01_tv-bracket-shop.png')}
@@ -240,7 +240,7 @@ export default function HomePage() {
                 <Link
                   key={p.id}
                   href="/projects"
-                  className="group block rounded-[5px] overflow-hidden border border-gray-300 hover:border-gray-400 bg-white hover:shadow-xl transition-all duration-300"
+                  className="group block rounded-[5px] overflow-hidden border border-gray-200 hover:border-gray-400 bg-white hover:shadow-xl transition-all duration-300"
                 >
                   <div className="aspect-[16/10] bg-neutral-100 overflow-hidden relative">
                     <img
