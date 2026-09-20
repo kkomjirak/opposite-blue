@@ -62,7 +62,7 @@ export default function ContactPage() {
     e.preventDefault();
     const mailtoSubject = encodeURIComponent(`[Opposite Blue 견적 문의] ${formData.company || formData.name}`);
     const mailtoBody = encodeURIComponent(generateMailtoBody());
-    const mailtoUrl = `mailto:contact@oppositeblue.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+    const mailtoUrl = `mailto:contact@oppositeblue.co.kr?subject=${mailtoSubject}&body=${mailtoBody}`;
     
     // Open email client
     window.location.href = mailtoUrl;
@@ -103,10 +103,10 @@ export default function ContactPage() {
               <span>직접 이메일 문의</span>
             </div>
             <a
-              href="mailto:contact@oppositeblue.com"
+              href="mailto:contact@oppositeblue.co.kr"
               className="text-sm font-medium text-neutral-700 hover:text-neutral-950 underline underline-offset-4 break-all block"
             >
-              contact@oppositeblue.com
+              contact@oppositeblue.co.kr
             </a>
             <p className="text-xs text-neutral-400 leading-relaxed">
               영업일 기준 24시간 이내에 담당자가 상세한 견적 및 제안서를 회신드립니다.
@@ -316,7 +316,7 @@ export default function ContactPage() {
             <div className="space-y-1 text-sm">
               <h4 className="font-semibold text-neutral-900">메일 클라이언트가 실행되었습니다.</h4>
               <p className="text-neutral-600 leading-relaxed text-xs">
-                만약 메일 프로그램이 자동으로 열리지 않았다면, 위의 <strong>[작성한 내용 텍스트 복사]</strong> 버튼을 눌러 <strong>contact@oppositeblue.com</strong> 으로 직접 전송해주시면 신속히 답변해 드리겠습니다.
+                만약 메일 프로그램이 자동으로 열리지 않았다면, 위의 <strong>[작성한 내용 텍스트 복사]</strong> 버튼을 눌러 <strong>contact@oppositeblue.co.kr</strong> 으로 직접 전송해주시면 신속히 답변해 드리겠습니다.
               </p>
             </div>
           </div>

@@ -48,8 +48,8 @@ export default function Footer() {
               <h3 className="text-xs uppercase tracking-wider font-semibold text-neutral-400">Contact</h3>
               <div className="flex items-center gap-2 text-sm text-neutral-600">
                 <Mail className="w-4 h-4 text-neutral-400" />
-                <a href="mailto:contact@oppositeblue.com" className="hover:text-neutral-950 underline underline-offset-4">
-                  contact@oppositeblue.com
+                <a href="mailto:contact@oppositeblue.co.kr" className="hover:text-neutral-950 underline underline-offset-4">
+                  contact@oppositeblue.co.kr
                 </a>
               </div>
               <p className="text-xs text-neutral-400">Seoul, Republic of Korea</p>
