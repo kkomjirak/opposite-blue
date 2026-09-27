@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Phone, Send, CheckCircle2, Copy, Sparkles } from 'lucide-react';
+import { Mail, Phone, Send, CheckCircle2, Copy, Sparkles, Loader2, AlertCircle } from 'lucide-react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -16,6 +16,8 @@ export default function ContactPage() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
   const serviceOptions = [
@@ -58,15 +60,43 @@ export default function ContactPage() {
       `■ 프로젝트 상세 내용:\n${formData.message}\n`;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoSubject = encodeURIComponent(`[Opposite Blue 견적 문의] ${formData.company || formData.name}`);
-    const mailtoBody = encodeURIComponent(generateMailtoBody());
-    const mailtoUrl = `mailto:contact@oppositeblue.co.kr?subject=${mailtoSubject}&body=${mailtoBody}`;
-    
-    // Open email client
-    window.location.href = mailtoUrl;
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    const submitData = new FormData();
+    submitData.append('access_key', 'b1fe9441-5663-427f-bba3-ce2ba6493c13');
+    submitData.append('subject', `[Opposite Blue 견적 문의] ${formData.company ? `${formData.company} (${formData.name}님)` : `${formData.name}님`}`);
+    submitData.append('from_name', 'Opposite Blue 견적 시스템');
+    submitData.append('name', formData.name);
+    submitData.append('email', formData.email);
+    submitData.append('replyto', formData.email);
+    submitData.append('연락처', formData.phone || '미기재');
+    submitData.append('회사 / 브랜드명', formData.company || '미기재');
+    submitData.append('요청 서비스', formData.services.length > 0 ? formData.services.join(', ') : '선택 없음');
+    submitData.append('예상 예산', formData.budget);
+    submitData.append('희망 일정', formData.timeline);
+    submitData.append('message', formData.message);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: submitData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(result.message || '전송 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+      }
+    } catch {
+      setSubmitError('네트워크 오류가 발생했습니다. 잠시 후 다시 시도해 주시거나 아래 복사 버튼을 이용해 이메일(contact@oppositeblue.co.kr)로 직접 전송해 주세요.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const copyToClipboard = () => {
@@ -294,10 +324,20 @@ export default function ContactPage() {
           <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
             <button
               type="submit"
-              className="w-full sm:w-auto px-8 py-4 bg-neutral-900 hover:bg-neutral-800 text-white font-medium rounded-full text-sm transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow cursor-pointer"
+              disabled={isSubmitting}
+              className="w-full sm:w-auto px-8 py-4 bg-neutral-900 hover:bg-neutral-800 disabled:bg-neutral-400 text-white font-medium rounded-full text-sm transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow cursor-pointer disabled:cursor-not-allowed"
             >
-              <Send className="w-4 h-4" />
-              <span>견적 의뢰 메일 작성 완료</span>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span>견적 문의 전송 중...</span>
+                </>
+              ) : (
+                <>
+                  <Send className="w-4 h-4" />
+                  <span>견적 문의 전송하기</span>
+                </>
+              )}
             </button>
             <button
               type="button"
@@ -308,16 +348,54 @@ export default function ContactPage() {
               <span>{copied ? '견적 내용 복사완료!' : '작성한 내용 텍스트 복사'}</span>
             </button>
           </div>
+
+          {submitError && (
+            <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-2xl flex items-start gap-3 text-red-700 text-xs">
+              <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+              <div>
+                <p className="font-semibold mb-1">문의 전송에 실패했습니다.</p>
+                <p>{submitError}</p>
+              </div>
+            </div>
+          )}
         </form>
 
         {submitted && (
-          <div className="mt-8 p-6 bg-blue-50/60 border border-blue-100 rounded-2xl flex items-start gap-4">
-            <CheckCircle2 className="w-6 h-6 text-blue-600 shrink-0 mt-0.5" />
-            <div className="space-y-1 text-sm">
-              <h4 className="font-semibold text-neutral-900">메일 클라이언트가 실행되었습니다.</h4>
-              <p className="text-neutral-600 leading-relaxed text-xs">
-                만약 메일 프로그램이 자동으로 열리지 않았다면, 위의 <strong>[작성한 내용 텍스트 복사]</strong> 버튼을 눌러 <strong>contact@oppositeblue.co.kr</strong> 으로 직접 전송해주시면 신속히 답변해 드리겠습니다.
+          <div className="mt-8 p-8 md:p-10 bg-neutral-900 text-white rounded-3xl space-y-6">
+            <div className="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center">
+              <CheckCircle2 className="w-7 h-7" />
+            </div>
+            <div className="space-y-2">
+              <span className="text-xs uppercase tracking-widest font-mono text-blue-400">Inquiry Received</span>
+              <h3 className="text-2xl font-bold text-white">견적 문의가 성공적으로 접수되었습니다.</h3>
+              <p className="text-neutral-400 text-sm leading-relaxed max-w-2xl">
+                작성해주신 프로젝트 견적 내용이 <strong>contact@oppositeblue.co.kr</strong>로 즉시 전달되었습니다.<br className="hidden sm:inline" />
+                담당자가 내용을 꼼꼼히 확인한 후, 영업일 기준 24시간 이내에 입력해주신 연락처나 이메일로 상세히 회신드리겠습니다.
               </p>
+            </div>
+            <div className="pt-6 border-t border-neutral-800 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between text-xs">
+              <div className="text-neutral-400">
+                신청 담당자: <strong className="text-white font-medium">{formData.name}</strong> ({formData.email})
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setSubmitted(false);
+                  setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    company: '',
+                    services: [],
+                    budget: '협의 필요',
+                    timeline: '2~3개월 이내',
+                    message: '',
+                  });
+                }}
+                className="px-5 py-2.5 rounded-full bg-white hover:bg-neutral-100 text-neutral-950 font-semibold transition-colors cursor-pointer"
+              >
+                새 문의 작성하기
+              </button>
             </div>
           </div>
         )}
