@@ -1,5 +1,6 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, CheckCircle, Code2, Cpu, Globe, Layers, Sparkles } from 'lucide-react';
+import { ArrowUpRight, CheckCircle, Cpu, Globe, Layers } from 'lucide-react';
 import portfolioRaw from '@/data/portfolio_data.json';
 import { PortfolioItem } from '@/types/portfolio';
 import { getAssetPath } from '@/lib/utils';
@@ -57,10 +58,13 @@ export default function HomePage() {
           <div className="lg:col-span-5">
             <div className="relative rounded-[5px] overflow-hidden border border-gray-200 bg-neutral-50 shadow-xl shadow-neutral-100 group">
               <div className="aspect-[4/3] relative overflow-hidden bg-neutral-900">
-                <img
+                <Image
                   src={getAssetPath('/portfolio/images/websites/31_tv-bracket-shop/01_tv-bracket-shop.png')}
                   alt="TV브라켓 쇼핑몰 (수퍼브샵)"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 text-white space-y-1.5">
@@ -243,10 +247,12 @@ export default function HomePage() {
                   className="group block rounded-[5px] overflow-hidden border border-gray-200 hover:border-gray-400 bg-white hover:shadow-xl transition-all duration-300"
                 >
                   <div className="aspect-[16/10] bg-neutral-100 overflow-hidden relative">
-                    <img
+                    <Image
                       src={encodeURI(imgSrc)}
                       alt={p.title}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
                     <div className="absolute top-4 right-4 flex gap-2 justify-end">

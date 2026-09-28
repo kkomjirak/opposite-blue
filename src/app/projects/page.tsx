@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useMemo, useEffect, Suspense } from 'react';
+import Image from 'next/image';
+import { useState, useMemo, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Eye, X, ChevronLeft, ChevronRight, Layers, ArrowLeft, ArrowRight, Globe, Palette } from 'lucide-react';
@@ -12,6 +13,28 @@ const portfolioData = portfolioRaw as PortfolioItem[];
 
 type MainCategory = 'all' | 'websites' | 'design';
 type DesignSubCategory = '전체' | '배너 디자인' | '컨텐츠 디자인' | '인쇄물 디자인';
+
+const MAIN_CATEGORIES: MainCategory[] = ['all', 'websites', 'design'];
+
+const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }> = {
+  32: { text: '2025년 6월', sortKey: 202506 },
+  30: { text: '2023년 8월', sortKey: 202308 },
+  31: { text: '2020년 5월', sortKey: 202005 },
+  29: { text: '2020년 2월', sortKey: 202002 },
+  28: { text: '2019년 12월', sortKey: 201912 },
+  3: { text: '2017년 6월', sortKey: 201706 },
+  5: { text: '2016년 11월', sortKey: 201611 },
+  4: { text: '2016년 8월', sortKey: 201608 },
+  2: { text: '2016년 01월', sortKey: 201601 },
+};
+
+function parseMainCategory(value: string | null): MainCategory {
+  if (value && MAIN_CATEGORIES.includes(value as MainCategory)) {
+    return value as MainCategory;
+  }
+
+  return 'all';
+}
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -41,21 +64,13 @@ function ProjectsContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const initialCat = (searchParams.get('cat') as MainCategory) || 'all';
-  const [mainCategory, setMainCategory] = useState<MainCategory>(initialCat);
+  const mainCategory = parseMainCategory(searchParams.get('cat'));
   const [designFilter, setDesignFilter] = useState<DesignSubCategory>('전체');
 
   const [activeModalProject, setActiveModalProject] = useState<PortfolioItem | null>(null);
   const [modalImageIndex, setModalImageIndex] = useState<number>(0);
 
-  // Sync state with URL parameter if it changes
-  useEffect(() => {
-    const catParam = (searchParams.get('cat') as MainCategory) || 'all';
-    setMainCategory(catParam);
-  }, [searchParams]);
-
   const changeMainCategory = (cat: MainCategory) => {
-    setMainCategory(cat);
     setDesignFilter('전체');
     if (cat === 'all') {
       router.push('/projects', { scroll: false });
@@ -63,18 +78,6 @@ function ProjectsContent() {
       router.push(`/projects?cat=${cat}`, { scroll: false });
     }
   };
-
-const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }> = {
-  32: { text: '2025년 6월', sortKey: 202506 },
-  30: { text: '2023년 8월', sortKey: 202308 },
-  31: { text: '2020년 5월', sortKey: 202005 },
-  29: { text: '2020년 2월', sortKey: 202002 },
-  28: { text: '2019년 12월', sortKey: 201912 },
-  3: { text: '2017년 6월', sortKey: 201706 },
-  5: { text: '2016년 11월', sortKey: 201611 },
-  4: { text: '2016년 8월', sortKey: 201608 },
-  2: { text: '2016년 01월', sortKey: 201601 },
-};
 
   // Split projects into Websites and Design (Websites sorted by production date: newest first)
   const websiteProjects = useMemo(() => {
@@ -169,10 +172,12 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
                 className="group cursor-pointer rounded-[5px] border border-gray-200 bg-white overflow-hidden hover:border-gray-400 hover:shadow-2xl hover:shadow-neutral-200/50 transition-all duration-500 flex flex-col justify-between"
               >
                 <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
-                  <img
+                  <Image
                     src={getAssetPath('/portfolio/images/websites/31_tv-bracket-shop/01_tv-bracket-shop.png')}
                     alt="Websites Preview (TV브라켓 쇼핑몰)"
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/20 to-transparent" />
                   <div className="absolute top-5 left-5">
@@ -214,10 +219,12 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
                 className="group cursor-pointer rounded-[5px] border border-gray-200 bg-white overflow-hidden hover:border-gray-400 hover:shadow-2xl hover:shadow-neutral-200/50 transition-all duration-500 flex flex-col justify-between"
               >
                 <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
-                  <img
+                  <Image
                     src={getAssetPath('/portfolio/images/print-design/27_lg-purifier-brochure/01_lg-purifier-brochure.jpg')}
                     alt="Design Works Preview"
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/20 to-transparent" />
                   <div className="absolute top-5 left-5">
@@ -312,10 +319,12 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
                   >
                     <div className="relative aspect-[16/10] bg-neutral-100 overflow-hidden">
                       {imageSrc ? (
-                        <img
+                        <Image
                           src={encodeURI(imageSrc)}
                           alt={project.title}
-                          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
                         />
                       ) : (
@@ -471,10 +480,12 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
                   >
                     <div className="relative aspect-[16/10] bg-neutral-100 overflow-hidden">
                       {imageSrc ? (
-                        <img
+                        <Image
                           src={encodeURI(imageSrc)}
                           alt={project.title}
-                          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
                         />
                       ) : (
@@ -559,9 +570,11 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
               {activeModalProject.images.length > 0 && (
                 <div className="space-y-4">
                   <div className="relative bg-neutral-50 rounded-[5px] border border-gray-200 overflow-hidden flex items-center justify-center min-h-[300px] max-h-[560px]">
-                    <img
+                    <Image
                       src={encodeURI(getAssetPath(`/portfolio/${activeModalProject.images[modalImageIndex]?.relative_path}`))}
                       alt={`${activeModalProject.title} ${modalImageIndex + 1}`}
+                      width={activeModalProject.images[modalImageIndex]?.width ?? 1200}
+                      height={activeModalProject.images[modalImageIndex]?.height ?? 800}
                       className="max-w-full max-h-[560px] object-contain rounded-[5px]"
                     />
 
@@ -608,10 +621,12 @@ const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }
                               : 'border-gray-200 opacity-70 hover:opacity-100 hover:border-gray-400'
                           }`}
                         >
-                          <img
+                          <Image
                             src={encodeURI(getAssetPath(`/portfolio/${img.relative_path}`))}
                             alt=""
-                            className="w-full h-full object-cover"
+                            fill
+                            sizes="80px"
+                            className="object-cover"
                           />
                         </button>
                       ))}

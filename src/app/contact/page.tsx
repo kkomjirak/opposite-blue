@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Phone, Send, CheckCircle2, Copy, Sparkles, Loader2, AlertCircle } from 'lucide-react';
+import { Mail, Send, CheckCircle2, Copy, Loader2, AlertCircle } from 'lucide-react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -65,29 +65,32 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setSubmitError(null);
 
-    const submitData = new FormData();
-    submitData.append('access_key', 'b1fe9441-5663-427f-bba3-ce2ba6493c13');
-    submitData.append('subject', `[Opposite Blue 견적 문의] ${formData.company ? `${formData.company} (${formData.name}님)` : `${formData.name}님`}`);
-    submitData.append('from_name', 'Opposite Blue 견적 시스템');
-    submitData.append('name', formData.name);
-    submitData.append('email', formData.email);
-    submitData.append('replyto', formData.email);
-    submitData.append('연락처', formData.phone || '미기재');
-    submitData.append('회사 / 브랜드명', formData.company || '미기재');
-    submitData.append('요청 서비스', formData.services.length > 0 ? formData.services.join(', ') : '선택 없음');
-    submitData.append('예상 예산', formData.budget);
-    submitData.append('희망 일정', formData.timeline);
-    submitData.append('message', formData.message);
-
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('https://formsubmit.co/ajax/contact@oppositeblue.co.kr', {
         method: 'POST',
-        body: submitData,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: `[Opposite Blue 견적 문의] ${formData.company ? `${formData.company} (${formData.name}님)` : `${formData.name}님`}`,
+          _template: 'table',
+          _captcha: 'false',
+          _replyto: formData.email,
+          담당자명: formData.name,
+          이메일: formData.email,
+          연락처: formData.phone || '미기재',
+          '회사 / 브랜드명': formData.company || '미기재',
+          '요청 서비스': formData.services.length > 0 ? formData.services.join(', ') : '선택 없음',
+          '예상 예산': formData.budget,
+          '희망 일정': formData.timeline,
+          '프로젝트 상세 내용': formData.message,
+        }),
       });
 
       const result = await response.json();
 
-      if (result.success) {
+      if (response.ok && (result.success === true || result.success === 'true')) {
         setSubmitted(true);
       } else {
         setSubmitError(result.message || '전송 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.');
