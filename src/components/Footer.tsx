@@ -8,8 +8,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           {/* Big Editorial Callout */}
           <div className="md:col-span-8 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">
-              <Sparkles className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200/60">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
               <span>Websites & AI Infrastructure</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-normal tracking-tight text-neutral-900 leading-tight">

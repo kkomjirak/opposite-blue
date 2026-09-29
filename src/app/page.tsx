@@ -22,14 +22,12 @@ export default function HomePage() {
           {/* Left Hero Typography */}
           <div className="lg:col-span-7 space-y-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-neutral-100 text-neutral-800 border border-neutral-200">
-              <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-amber-400 ring-2 ring-amber-400/40 animate-pulse" />
               <span>Web Agency & AI Service Solutions</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-neutral-900 leading-[1.12]">
-              Crafting <span className="font-semibold text-neutral-950">high-performance websites</span> and building{' '}
-              <span className="text-neutral-400">autonomous</span>{' '}
-              <span className="font-semibold text-neutral-950">AI service environments.</span>
+              Crafting <span className="font-semibold text-neutral-950">high-performance websites</span>
             </h1>
 
             <p className="text-base sm:text-lg text-neutral-500 max-w-xl leading-relaxed font-normal">
@@ -142,7 +140,7 @@ export default function HomePage() {
             <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
                 <span className="text-xs font-mono text-neutral-400">001</span>
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center">
                   <Globe className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-neutral-900">Web & Commerce Development</h3>
@@ -152,13 +150,13 @@ export default function HomePage() {
               </div>
               <ul className="space-y-2 text-xs text-neutral-600 pt-4 border-t border-gray-100">
                 <li className="flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-blue-600" /> B2B 기업/브랜드 웹사이트
+                  <CheckCircle className="w-3.5 h-3.5 text-amber-500" /> B2B 기업/브랜드 웹사이트
                 </li>
                 <li className="flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-blue-600" /> 카페24, 고도몰, 그누보드 커스텀
+                  <CheckCircle className="w-3.5 h-3.5 text-amber-500" /> 카페24, 고도몰, 그누보드 커스텀
                 </li>
                 <li className="flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-blue-600" /> 모바일 반응형 & 웹 표준 최적화
+                  <CheckCircle className="w-3.5 h-3.5 text-amber-500" /> 모바일 반응형 & 웹 표준 최적화
                 </li>
               </ul>
             </div>
@@ -230,7 +228,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/projects"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-neutral-900 hover:text-blue-600 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-neutral-900 hover:text-amber-600 transition-colors"
             >
               전체 {portfolioData.length}개 프로젝트 보기 <ArrowUpRight className="w-4 h-4" />
             </Link>
@@ -267,7 +265,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <div className="p-6 space-y-2">
-                    <h3 className="text-xl font-bold text-neutral-900 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-xl font-bold text-neutral-900 group-hover:text-amber-600 transition-colors">
                       {p.title}
                     </h3>
                     <div className="flex items-center justify-between gap-2 text-xs">

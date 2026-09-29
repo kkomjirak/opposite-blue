@@ -132,7 +132,7 @@ export default function ContactPage() {
         <div className="md:col-span-4 flex flex-col justify-end space-y-4">
           <div className="p-6 rounded-2xl bg-neutral-50 border border-gray-100 space-y-3">
             <div className="flex items-center gap-2 text-xs font-semibold text-neutral-900">
-              <Mail className="w-4 h-4 text-blue-600" />
+              <Mail className="w-4 h-4 text-amber-600" />
               <span>직접 이메일 문의</span>
             </div>
             <a
@@ -365,11 +365,11 @@ export default function ContactPage() {
 
         {submitted && (
           <div className="mt-8 p-8 md:p-10 bg-neutral-900 text-white rounded-3xl space-y-6">
-            <div className="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-2xl bg-amber-400/20 text-amber-400 flex items-center justify-center">
               <CheckCircle2 className="w-7 h-7" />
             </div>
             <div className="space-y-2">
-              <span className="text-xs uppercase tracking-widest font-mono text-blue-400">Inquiry Received</span>
+              <span className="text-xs uppercase tracking-widest font-mono text-amber-400">Inquiry Received</span>
               <h3 className="text-2xl font-bold text-white">견적 문의가 성공적으로 접수되었습니다.</h3>
               <p className="text-neutral-400 text-sm leading-relaxed max-w-2xl">
                 작성해주신 프로젝트 견적 내용이 <strong>contact@oppositeblue.co.kr</strong>로 즉시 전달되었습니다.<br className="hidden sm:inline" />
