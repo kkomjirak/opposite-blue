@@ -228,13 +228,13 @@ function ProjectsContent() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/20 to-transparent" />
                   <div className="absolute top-5 left-5">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-md text-neutral-900 shadow-sm">
-                      <Palette className="w-3.5 h-3.5 text-purple-600" />
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#68a5d4] text-neutral-950 shadow-sm">
+                      <Palette className="w-3.5 h-3.5 stroke-[2.2]" />
                       <span>22 Projects</span>
                     </span>
                   </div>
                   <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
-                    <span className="text-xs font-mono uppercase tracking-wider text-purple-400">
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#68a5d4] font-semibold">
                       Category 02
                     </span>
                     <h2 className="text-3xl font-bold tracking-tight">Design</h2>
@@ -251,7 +251,7 @@ function ProjectsContent() {
                       <span className="px-2.5 py-1 rounded-md text-xs bg-neutral-100 text-neutral-600">컨텐츠 상세페이지 (8)</span>
                       <span className="px-2.5 py-1 rounded-md text-xs bg-neutral-100 text-neutral-600">인쇄물 브로셔 (4)</span>
                     </div>
-                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-neutral-950 group-hover:text-purple-600 group-hover:translate-x-1 transition-all">
+                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-neutral-950 group-hover:text-[#235888] group-hover:translate-x-1 transition-all">
                       <span>프로젝트 보기</span>
                       <ArrowRight className="w-4 h-4" />
                     </span>
