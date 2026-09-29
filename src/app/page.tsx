@@ -165,7 +165,7 @@ export default function HomePage() {
             <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
                 <span className="text-xs font-mono text-neutral-400">002</span>
-                <div className="w-12 h-12 rounded-2xl bg-[#68a5d4] text-neutral-950 flex items-center justify-center shadow-sm">
+                <div className="w-12 h-12 rounded-2xl bg-[#235888] text-white flex items-center justify-center shadow-sm">
                   <Cpu className="w-6 h-6 stroke-[2.2]" />
                 </div>
                 <h3 className="text-xl font-bold text-neutral-900">AI Service Environment</h3>
@@ -175,13 +175,13 @@ export default function HomePage() {
               </div>
               <ul className="space-y-2 text-xs text-neutral-600 pt-4 border-t border-gray-100">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#68a5d4] shrink-0" /> LLM / RAG 검색 파이프라인
+                  <CheckCircle className="w-4 h-4 text-white fill-[#235888] shrink-0" /> LLM / RAG 검색 파이프라인
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#68a5d4] shrink-0" /> 사내 업무 보조 자율 에이전트
+                  <CheckCircle className="w-4 h-4 text-white fill-[#235888] shrink-0" /> 사내 업무 보조 자율 에이전트
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#68a5d4] shrink-0" /> MCP 및 외부 API 연동 인프라
+                  <CheckCircle className="w-4 h-4 text-white fill-[#235888] shrink-0" /> MCP 및 외부 API 연동 인프라
                 </li>
               </ul>
             </div>
@@ -190,7 +190,7 @@ export default function HomePage() {
             <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
                 <span className="text-xs font-mono text-neutral-400">003</span>
-                <div className="w-12 h-12 rounded-2xl bg-[#235888] text-white flex items-center justify-center shadow-sm">
+                <div className="w-12 h-12 rounded-2xl bg-[#68a5d4] text-neutral-950 flex items-center justify-center shadow-sm">
                   <Layers className="w-6 h-6 stroke-[2.2]" />
                 </div>
                 <h3 className="text-xl font-bold text-neutral-900">Creative & Content Design</h3>
@@ -200,13 +200,13 @@ export default function HomePage() {
               </div>
               <ul className="space-y-2 text-xs text-neutral-600 pt-4 border-t border-gray-100">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-white fill-[#235888] shrink-0" /> 초고해상도 커머스 상세페이지
+                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#68a5d4] shrink-0" /> 초고해상도 커머스 상세페이지
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-white fill-[#235888] shrink-0" /> 시즌/이벤트 모션 배너 (GIF)
+                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#68a5d4] shrink-0" /> 시즌/이벤트 모션 배너 (GIF)
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-white fill-[#235888] shrink-0" /> LG전자 정수기 등 브로셔 인쇄물
+                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#68a5d4] shrink-0" /> LG전자 정수기 등 브로셔 인쇄물
                 </li>
               </ul>
             </div>
