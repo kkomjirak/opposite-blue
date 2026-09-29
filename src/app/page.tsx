@@ -195,7 +195,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-xl font-bold text-neutral-900">Creative & Content Design</h3>
                 <p className="text-sm text-neutral-500 leading-relaxed">
-                  오픈마켓 롱스크롤 상세페이지(최대 6,600px+), 모션 프로모션 배너, 오프라인 브로셔 및 인쇄물까지 토탈 디자인을 책임집니다.
+                  오픈마켓 롱스크롤 상세페이지(최대 6,600px+), 모션 프로모션 배너, 오픈라인 브로셔 및 인쇄물까지 토탈 디자인을 책임집니다.
                 </p>
               </div>
               <ul className="space-y-2 text-xs text-neutral-600 pt-4 border-t border-gray-100">
