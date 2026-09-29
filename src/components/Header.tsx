@@ -42,7 +42,7 @@ export default function Header() {
             href="/"
             className="text-lg font-semibold tracking-tight text-neutral-900 hover:opacity-75 transition-opacity flex items-center gap-1"
           >
-            Opposite Blue<span className="text-amber-500 font-bold">.</span>
+            Opposite Blue<span className="text-[#f2c949] font-bold">.</span>
           </Link>
           <span className="text-xs font-mono text-neutral-400 tracking-tight">
             {timeString || 'Seoul, KR'}

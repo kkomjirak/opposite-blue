@@ -1,8 +1,19 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-blue: #235888;
+  --color-brand-iceberg: #68a5d4;
+  --color-brand-yellow: #f2c949;
+  --color-brand-bg: #faf8f4;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #111111;
+  --brand-blue: #235888;
+  --brand-iceberg: #68a5d4;
+  --brand-yellow: #f2c949;
+  --brand-bg: #faf8f4;
 }
 
 body {

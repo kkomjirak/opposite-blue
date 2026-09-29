@@ -181,13 +181,13 @@ function ProjectsContent() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/20 to-transparent" />
                   <div className="absolute top-5 left-5">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-md text-neutral-900 shadow-sm">
-                      <Globe className="w-3.5 h-3.5 text-amber-500" />
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#f2c949] text-neutral-950 shadow-sm">
+                      <Globe className="w-3.5 h-3.5 stroke-[2.2]" />
                       <span>{websiteProjects.length} Projects</span>
                     </span>
                   </div>
                   <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
-                    <span className="text-xs font-mono uppercase tracking-wider text-amber-400">
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#f2c949] font-semibold">
                       Category 01
                     </span>
                     <h2 className="text-3xl font-bold tracking-tight">Websites</h2>
@@ -204,7 +204,7 @@ function ProjectsContent() {
                       <span className="px-2.5 py-1 rounded-md text-xs bg-neutral-100 text-neutral-600">LG전자 B2B</span>
                       <span className="px-2.5 py-1 rounded-md text-xs bg-neutral-100 text-neutral-600">쇼핑몰 (고도몰/카페24)</span>
                     </div>
-                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-neutral-950 group-hover:text-amber-600 group-hover:translate-x-1 transition-all">
+                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-neutral-950 group-hover:text-[#235888] group-hover:translate-x-1 transition-all">
                       <span>프로젝트 보기</span>
                       <ArrowRight className="w-4 h-4" />
                     </span>
@@ -347,7 +347,7 @@ function ProjectsContent() {
 
                     <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                       <div>
-                        <h3 className="text-base md:text-lg font-semibold text-neutral-900 group-hover:text-amber-600 transition-colors line-clamp-1">
+                        <h3 className="text-base md:text-lg font-semibold text-neutral-900 group-hover:text-[#235888] transition-colors line-clamp-1">
                           {project.title}
                         </h3>
                         <div className="mt-1.5 flex items-center justify-between gap-2 text-xs">
@@ -377,7 +377,7 @@ function ProjectsContent() {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center gap-1 text-xs text-amber-600 hover:text-amber-700 font-medium py-1 px-2 rounded-md hover:bg-amber-50 transition-colors"
+                              className="inline-flex items-center gap-1 text-xs text-neutral-900 font-semibold py-1 px-2.5 rounded-md bg-[#f2c949]/20 hover:bg-[#f2c949] hover:text-neutral-950 border border-[#f2c949]/40 transition-colors"
                             >
                               <span>사이트 방문</span>
                               <ExternalLink className="w-3 h-3" />
@@ -510,7 +510,7 @@ function ProjectsContent() {
 
                     <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                       <div>
-                        <h3 className="text-base md:text-lg font-semibold text-neutral-900 group-hover:text-amber-600 transition-colors line-clamp-1">
+                        <h3 className="text-base md:text-lg font-semibold text-neutral-900 group-hover:text-[#235888] transition-colors line-clamp-1">
                           {project.title}
                         </h3>
                         {project.text_lines.length > 0 && (
@@ -667,7 +667,7 @@ function ProjectsContent() {
                 {activeModalProject.cms && (
                   <div>
                     <span className="block text-neutral-400 mb-1">사용 솔루션 (CMS)</span>
-                    <span className="font-semibold text-amber-600">{activeModalProject.cms}</span>
+                    <span className="font-semibold text-neutral-900 bg-[#f2c949]/20 px-2 py-0.5 rounded border border-[#f2c949]/40">{activeModalProject.cms}</span>
                   </div>
                 )}
                 {activeModalProject.live_link && (
@@ -680,7 +680,7 @@ function ProjectsContent() {
                         href={activeModalProject.live_link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 font-semibold text-amber-600 hover:underline"
+                        className="inline-flex items-center gap-1 font-semibold text-[#235888] hover:text-[#194064] underline underline-offset-4 decoration-[#f2c949] decoration-2"
                       >
                         방문하기 <ExternalLink className="w-3 h-3" />
                       </a>

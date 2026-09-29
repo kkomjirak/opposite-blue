@@ -22,7 +22,7 @@ export default function HomePage() {
           {/* Left Hero Typography */}
           <div className="lg:col-span-7 space-y-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-neutral-100 text-neutral-800 border border-neutral-200">
-              <span className="w-2 h-2 rounded-full bg-amber-400 ring-2 ring-amber-400/40 animate-pulse" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#f2c949] ring-2 ring-[#f2c949]/50 animate-pulse" />
               <span>Web Agency & AI Service Solutions</span>
             </div>
 
@@ -140,8 +140,8 @@ export default function HomePage() {
             <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
                 <span className="text-xs font-mono text-neutral-400">001</span>
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center">
-                  <Globe className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-2xl bg-[#f2c949] text-neutral-950 flex items-center justify-center shadow-sm">
+                  <Globe className="w-6 h-6 stroke-[2.2]" />
                 </div>
                 <h3 className="text-xl font-bold text-neutral-900">Web & Commerce Development</h3>
                 <p className="text-sm text-neutral-500 leading-relaxed">
@@ -149,14 +149,14 @@ export default function HomePage() {
                 </p>
               </div>
               <ul className="space-y-2 text-xs text-neutral-600 pt-4 border-t border-gray-100">
-                <li className="flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-amber-500" /> B2B 기업/브랜드 웹사이트
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#f2c949] shrink-0" /> 삼성·LG B2B 기업/브랜드 웹사이트
                 </li>
-                <li className="flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-amber-500" /> 카페24, 고도몰, 그누보드 커스텀
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#f2c949] shrink-0" /> 카페24, 고도몰, 그누보드 커스텀
                 </li>
-                <li className="flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-amber-500" /> 모바일 반응형 & 웹 표준 최적화
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#f2c949] shrink-0" /> 모바일 반응형 & 웹 표준 최적화
                 </li>
               </ul>
             </div>
@@ -228,7 +228,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/projects"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-neutral-900 hover:text-amber-600 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-neutral-900 hover:text-[#235888] transition-colors"
             >
               전체 {portfolioData.length}개 프로젝트 보기 <ArrowUpRight className="w-4 h-4" />
             </Link>
@@ -265,7 +265,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <div className="p-6 space-y-2">
-                    <h3 className="text-xl font-bold text-neutral-900 group-hover:text-amber-600 transition-colors">
+                    <h3 className="text-xl font-bold text-neutral-900 group-hover:text-[#235888] transition-colors">
                       {p.title}
                     </h3>
                     <div className="flex items-center justify-between gap-2 text-xs">
