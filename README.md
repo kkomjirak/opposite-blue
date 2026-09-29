@@ -7,7 +7,7 @@
 - **Framework**: Next.js 16 (App Router, Turbopack)
 - **Library**: React 19, TypeScript, Lucide React
 - **Styling**: Tailwind CSS v4
-- **Typography**: Inter & System Sans
-- **Animation**: Framer Motion 12
+- **Typography**: Geist & Geist Mono
+- **Animation**: Framer Motion 13
 - **Server / Hosting**: GitHub Pages (GitHub Actions)
 - **Form Service**: FormSubmit
