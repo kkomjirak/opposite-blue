@@ -4,37 +4,55 @@
   --color-brand-blue: #235888;
   --color-brand-iceberg: #68a5d4;
   --color-brand-yellow: #f2c949;
-  --color-brand-bg: #faf8f4;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 :root {
   --background: #ffffff;
-  --foreground: #111111;
-  --brand-blue: #235888;
-  --brand-iceberg: #68a5d4;
-  --brand-yellow: #f2c949;
-  --brand-bg: #faf8f4;
+  --foreground: #171717;
 }
 
+html { scroll-padding-top: 7rem; }
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+h1, h2, h3 { text-wrap: balance; }
+button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
+button:not(:disabled), a { touch-action: manipulation; }
+input, textarea { caret-color: var(--color-brand-blue); }
+input::placeholder, textarea::placeholder { color: var(--color-neutral-600); opacity: 1; }
+
+:focus-visible {
+  outline: 3px solid var(--color-brand-blue);
+  outline-offset: 4px;
 }
-::-webkit-scrollbar-track {
-  background: transparent;
+::selection { color: var(--color-neutral-950); background: var(--color-brand-yellow); }
+
+.skip-link {
+  position: fixed; top: 0.75rem; left: 1rem; z-index: 100;
+  transform: translateY(-200%); padding: 0.75rem 1rem;
+  color: white; background: var(--color-brand-blue); border-radius: 0.5rem;
 }
-::-webkit-scrollbar-thumb {
-  background: #e5e7eb;
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+.skip-link:focus { transform: translateY(0); }
+
+/* Scrollbars remain visible and share the site palette. */
+html { scrollbar-color: var(--color-neutral-500) var(--color-neutral-100); scrollbar-width: thin; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--color-neutral-100); }
+::-webkit-scrollbar-thumb { background: var(--color-neutral-500); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-brand-blue); }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse { animation: none; }
+  .group:hover .group-hover\:scale-105 { transform: none; }
+  .motion-safe-transition { transition: none; }
 }

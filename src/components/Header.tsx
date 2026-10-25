@@ -1,112 +1,84 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
+const navLinks = [
+  { name: 'About us', href: '/about' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Contact', href: '/contact' },
+];
+
 export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [timeString, setTimeString] = useState<string>('');
+  const [timeString, setTimeString] = useState('');
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      // Format: "15 Sep — 20:25 Seoul, KR"
-      const day = now.getDate();
-      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-      const month = monthNames[now.getMonth()];
-      const hours = String(now.getHours()).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
-      setTimeString(`${day} ${month} — ${hours}:${minutes} Seoul, KR`);
-    };
-
+    const formatter = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Asia/Seoul', day: 'numeric', month: 'short',
+      hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+    });
+    const updateTime = () => setTimeString(`${formatter.format(new Date())} Seoul, KR`);
     updateTime();
-    const interval = setInterval(updateTime, 10000);
+    const interval = setInterval(updateTime, 60_000);
     return () => clearInterval(interval);
   }, []);
 
-  const navLinks = [
-    { name: 'About us', href: '/about' },
-    { name: 'Projects', href: '/projects' },
-    { name: 'Contact', href: '/contact' },
-  ];
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    const media = window.matchMedia('(min-width: 768px)');
+    const closeOnWideScreen = () => { if (media.matches) setMobileMenuOpen(false); };
+    document.addEventListener('keydown', onKeyDown);
+    media.addEventListener('change', closeOnWideScreen);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      media.removeEventListener('change', closeOnWideScreen);
+    };
+  }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
-        {/* Brand / Logo + Time */}
-        <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
-          <Link
-            href="/"
-            className="text-lg font-semibold tracking-tight text-neutral-900 hover:opacity-75 transition-opacity flex items-center gap-1"
-          >
-            Opposite Blue<span className="text-[#f2c949] font-bold">.</span>
+    <header className="sticky top-0 z-40 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-3 flex items-center justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-5">
+          <Link href="/" onClick={() => setMobileMenuOpen(false)} className="min-h-11 inline-flex items-center gap-1 text-lg font-semibold tracking-tight text-neutral-900 hover:text-brand-blue transition-colors">
+            Opposite Blue<span className="text-brand-yellow font-bold" aria-hidden="true">.</span>
           </Link>
-          <span className="text-xs font-mono text-neutral-400 tracking-tight">
-            {timeString || 'Seoul, KR'}
-          </span>
+          <span className="text-xs font-mono text-neutral-600 tracking-tight">{timeString || 'Seoul, KR'}</span>
         </div>
-
-        {/* Desktop Navigation (About us / Projects / Contact) */}
-        <nav className="hidden md:flex items-center gap-8 text-sm">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`transition-colors py-1 relative ${
-                  isActive
-                    ? 'text-neutral-950 font-medium'
-                    : 'text-neutral-500 hover:text-neutral-900'
-                }`}
-              >
-                {link.name}
-                {isActive && (
-                  <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-neutral-950 rounded-full" />
-                )}
-              </Link>
-            );
-          })}
+        <nav aria-label="주 메뉴" className="hidden md:flex items-center gap-8 text-sm">
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} aria-current={pathname === link.href ? 'page' : undefined}
+              className={`min-h-11 inline-flex items-center relative transition-colors ${pathname === link.href ? 'text-neutral-950 font-semibold underline decoration-brand-yellow decoration-2 underline-offset-8' : 'text-neutral-600 hover:text-brand-blue'}`}>
+              {link.name}
+            </Link>
+          ))}
         </nav>
-
-        {/* Mobile Menu Button */}
-        <button
-          type="button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-neutral-700 hover:text-neutral-950 focus:outline-none"
-          aria-label="Toggle navigation menu"
-        >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        <button ref={menuButton} type="button" onClick={() => setMobileMenuOpen((open) => !open)}
+          className="md:hidden inline-flex min-w-11 min-h-11 items-center justify-center rounded-lg text-neutral-800 hover:bg-neutral-100"
+          aria-label={mobileMenuOpen ? '메뉴 닫기' : '메뉴 열기'} aria-expanded={mobileMenuOpen} aria-controls="mobile-navigation">
+          {mobileMenuOpen ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
         </button>
       </div>
-
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-b border-gray-100 bg-white px-6 py-6 space-y-4">
-          <nav className="flex flex-col space-y-4">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`text-base ${pathname === '/' ? 'text-neutral-950 font-semibold' : 'text-neutral-600'}`}
-            >
-              Home
-            </Link>
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`text-base ${pathname === link.href ? 'text-neutral-950 font-semibold' : 'text-neutral-600'}`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
+      <nav id="mobile-navigation" aria-label="모바일 메뉴" hidden={!mobileMenuOpen}
+        className="md:hidden border-t border-gray-200 bg-white px-6 py-3">
+        {[{ name: 'Home', href: '/' }, ...navLinks].map((link) => (
+          <Link key={link.href} href={link.href} onClick={() => setMobileMenuOpen(false)}
+            aria-current={pathname === link.href ? 'page' : undefined}
+            className={`flex min-h-11 items-center rounded-md px-2 text-base hover:bg-neutral-50 ${pathname === link.href ? 'text-brand-blue font-semibold' : 'text-neutral-700'}`}>
+            {link.name}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 }

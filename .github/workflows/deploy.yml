@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,16 +27,27 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Lint
+        run: npm run lint
+
       - name: Build Next.js static export
         run: npm run build
         env:
           GITHUB_ACTIONS: "true"
+
+      - name: Install test browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Verify exported site
+        run: npm run test:unit && npm run test:e2e
+        env:
+          CI: "true"
 
       - name: Add .nojekyll
         run: touch ./out/.nojekyll
@@ -50,7 +61,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
     steps:
       - name: Deploy to GitHub Pages

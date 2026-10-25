@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from '@/components/PortfolioImage';
 import Link from 'next/link';
 import { ArrowUpRight, CheckCircle, Cpu, Globe, Layers } from 'lucide-react';
 import portfolioRaw from '@/data/portfolio_data.json';
@@ -22,7 +22,7 @@ export default function HomePage() {
           {/* Left Hero Typography */}
           <div className="lg:col-span-7 space-y-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-neutral-100 text-neutral-800 border border-neutral-200">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#f2c949] ring-2 ring-[#f2c949]/50 animate-pulse" />
+              <span className="w-2.5 h-2.5 rounded-full bg-brand-yellow ring-2 ring-brand-yellow/50 animate-pulse" />
               <span>Web Agency & AI Service Solutions</span>
             </div>
 
@@ -37,14 +37,14 @@ export default function HomePage() {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 href="/projects"
-                className="px-6 py-3.5 text-sm font-medium text-white bg-neutral-900 hover:bg-neutral-800 rounded-full transition-all flex items-center gap-2 shadow-sm hover:shadow"
+                className="min-h-12 px-6 py-3.5 text-sm font-medium text-white bg-neutral-900 hover:bg-neutral-800 rounded-full transition-all flex items-center gap-2 shadow-sm hover:shadow"
               >
                 <span>프로젝트 살펴보기</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/contact"
-                className="px-6 py-3.5 text-sm font-medium text-neutral-800 bg-neutral-100 hover:bg-neutral-200 rounded-full transition-colors flex items-center gap-2"
+                className="min-h-12 px-6 py-3.5 text-sm font-medium text-neutral-800 bg-neutral-100 hover:bg-neutral-200 rounded-full transition-colors flex items-center gap-2"
               >
                 <span>견적 문의하기</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -69,7 +69,7 @@ export default function HomePage() {
                   <div className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-white/20 backdrop-blur-md">
                     Featured Commerce
                   </div>
-                  <h3 className="text-xl font-bold tracking-tight">TV브라켓 쇼핑몰</h3>
+                  <h2 className="text-xl font-bold tracking-tight">TV브라켓 쇼핑몰</h2>
                   <p className="text-xs text-neutral-300">CMS: 고도몰 • TV 거치대/브라켓 전문 쇼핑몰</p>
                 </div>
               </div>
@@ -78,15 +78,15 @@ export default function HomePage() {
               <div className="p-6 bg-white grid grid-cols-3 gap-4 text-center divide-x divide-gray-100">
                 <div>
                   <span className="block text-2xl font-bold text-neutral-950">30+</span>
-                  <span className="text-[11px] text-neutral-400">완료 프로젝트</span>
+                  <span className="text-[11px] text-neutral-600">완료 프로젝트</span>
                 </div>
                 <div>
                   <span className="block text-2xl font-bold text-neutral-950">WEB</span>
-                  <span className="text-[11px] text-neutral-400">웹사이트/쇼핑몰</span>
+                  <span className="text-[11px] text-neutral-600">웹사이트/쇼핑몰</span>
                 </div>
                 <div>
                   <span className="block text-2xl font-bold text-neutral-950">AI</span>
-                  <span className="text-[11px] text-neutral-400">서비스 환경 구축</span>
+                  <span className="text-[11px] text-neutral-600">서비스 환경 구축</span>
                 </div>
               </div>
             </div>
@@ -99,7 +99,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
             <div className="md:col-span-4">
-              <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+              <span className="text-xs uppercase tracking-widest font-mono text-neutral-600">
                 01 / Info
               </span>
               <h2 className="text-2xl font-semibold text-neutral-900 mt-2">Opposite Blue</h2>
@@ -123,7 +123,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-12">
             <div className="md:col-span-4">
-              <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+              <span className="text-xs uppercase tracking-widest font-mono text-neutral-600">
                 02 / Services
               </span>
               <h2 className="text-2xl font-semibold text-neutral-900 mt-2">주요 핵심 역량</h2>
@@ -139,8 +139,8 @@ export default function HomePage() {
             {/* Service 1 */}
             <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
-                <span className="text-xs font-mono text-neutral-400">001</span>
-                <div className="w-12 h-12 rounded-2xl bg-[#f2c949] text-neutral-950 flex items-center justify-center shadow-sm">
+                <span className="text-xs font-mono text-neutral-600">001</span>
+                <div className="w-12 h-12 rounded-2xl bg-brand-yellow text-neutral-950 flex items-center justify-center shadow-sm">
                   <Globe className="w-6 h-6 stroke-[2.2]" />
                 </div>
                 <h3 className="text-xl font-bold text-neutral-900">Web & Commerce Development</h3>
@@ -150,13 +150,13 @@ export default function HomePage() {
               </div>
               <ul className="space-y-2 text-xs text-neutral-600 pt-4 border-t border-gray-100">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#f2c949] shrink-0" /> 삼성·LG B2B 기업/브랜드 웹사이트
+                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-brand-yellow shrink-0" /> 삼성·LG B2B 기업/브랜드 웹사이트
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#f2c949] shrink-0" /> 카페24, 고도몰, 그누보드 커스텀
+                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-brand-yellow shrink-0" /> 카페24, 고도몰, 그누보드 커스텀
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#f2c949] shrink-0" /> 모바일 반응형 & 웹 표준 최적화
+                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-brand-yellow shrink-0" /> 모바일 반응형 & 웹 표준 최적화
                 </li>
               </ul>
             </div>
@@ -164,8 +164,8 @@ export default function HomePage() {
             {/* Service 2 */}
             <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
-                <span className="text-xs font-mono text-neutral-400">002</span>
-                <div className="w-12 h-12 rounded-2xl bg-[#235888] text-white flex items-center justify-center shadow-sm">
+                <span className="text-xs font-mono text-neutral-600">002</span>
+                <div className="w-12 h-12 rounded-2xl bg-brand-blue text-white flex items-center justify-center shadow-sm">
                   <Cpu className="w-6 h-6 stroke-[2.2]" />
                 </div>
                 <h3 className="text-xl font-bold text-neutral-900">AI Service Environment</h3>
@@ -175,13 +175,13 @@ export default function HomePage() {
               </div>
               <ul className="space-y-2 text-xs text-neutral-600 pt-4 border-t border-gray-100">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-white fill-[#235888] shrink-0" /> LLM / RAG 검색 파이프라인
+                  <CheckCircle className="w-4 h-4 text-white fill-brand-blue shrink-0" /> LLM / RAG 검색 파이프라인
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-white fill-[#235888] shrink-0" /> 사내 업무 보조 자율 에이전트
+                  <CheckCircle className="w-4 h-4 text-white fill-brand-blue shrink-0" /> 사내 업무 보조 자율 에이전트
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-white fill-[#235888] shrink-0" /> MCP 및 외부 API 연동 인프라
+                  <CheckCircle className="w-4 h-4 text-white fill-brand-blue shrink-0" /> MCP 및 외부 API 연동 인프라
                 </li>
               </ul>
             </div>
@@ -189,8 +189,8 @@ export default function HomePage() {
             {/* Service 3 */}
             <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
-                <span className="text-xs font-mono text-neutral-400">003</span>
-                <div className="w-12 h-12 rounded-2xl bg-[#68a5d4] text-neutral-950 flex items-center justify-center shadow-sm">
+                <span className="text-xs font-mono text-neutral-600">003</span>
+                <div className="w-12 h-12 rounded-2xl bg-brand-iceberg text-neutral-950 flex items-center justify-center shadow-sm">
                   <Layers className="w-6 h-6 stroke-[2.2]" />
                 </div>
                 <h3 className="text-xl font-bold text-neutral-900">Creative & Content Design</h3>
@@ -200,13 +200,13 @@ export default function HomePage() {
               </div>
               <ul className="space-y-2 text-xs text-neutral-600 pt-4 border-t border-gray-100">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#68a5d4] shrink-0" /> 초고해상도 커머스 상세페이지
+                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-brand-iceberg shrink-0" /> 초고해상도 커머스 상세페이지
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#68a5d4] shrink-0" /> 시즌/이벤트 모션 배너 (GIF)
+                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-brand-iceberg shrink-0" /> 시즌/이벤트 모션 배너 (GIF)
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-[#68a5d4] shrink-0" /> LG전자 정수기 등 브로셔 인쇄물
+                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-brand-iceberg shrink-0" /> LG전자 정수기 등 브로셔 인쇄물
                 </li>
               </ul>
             </div>
@@ -219,7 +219,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-              <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+              <span className="text-xs uppercase tracking-widest font-mono text-neutral-600">
                 03 / Selected Work
               </span>
               <h2 className="text-3xl md:text-4xl font-normal tracking-tight text-neutral-900 mt-2">
@@ -228,7 +228,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/projects"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-neutral-900 hover:text-[#235888] transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-neutral-900 hover:text-brand-blue transition-colors"
             >
               전체 {portfolioData.length}개 프로젝트 보기 <ArrowUpRight className="w-4 h-4" />
             </Link>
@@ -241,7 +241,7 @@ export default function HomePage() {
               return (
                 <Link
                   key={p.id}
-                  href="/projects"
+                  href={`/projects?cat=${p.category === '웹사이트' ? 'websites' : 'design'}&project=${p.id}`}
                   className="group block rounded-[5px] overflow-hidden border border-gray-200 hover:border-gray-400 bg-white hover:shadow-xl transition-all duration-300"
                 >
                   <div className="aspect-[16/10] bg-neutral-100 overflow-hidden relative">
@@ -265,7 +265,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <div className="p-6 space-y-2">
-                    <h3 className="text-xl font-bold text-neutral-900 group-hover:text-[#235888] transition-colors">
+                    <h3 className="text-xl font-bold text-neutral-900 group-hover:text-brand-blue transition-colors">
                       {p.title}
                     </h3>
                     <div className="flex items-center justify-between gap-2 text-xs">
@@ -273,7 +273,7 @@ export default function HomePage() {
                         {p.text_lines[0] || 'Opposite Blue 프로젝트'}
                       </span>
                       {p.production_date && (
-                        <span className="text-neutral-400 shrink-0 font-normal">
+                        <span className="text-neutral-600 shrink-0 font-normal">
                           {p.production_date}
                         </span>
                       )}

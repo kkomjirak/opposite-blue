@@ -8,6 +8,6 @@
 - **Library**: React 19, TypeScript, Lucide React
 - **Styling**: Tailwind CSS v4
 - **Typography**: Geist & Geist Mono
-- **Animation**: Framer Motion 13
+- **Animation**: CSS Transitions & Animations (`prefers-reduced-motion` 지원)
 - **Server / Hosting**: GitHub Pages (GitHub Actions)
 - **Form Service**: FormSubmit

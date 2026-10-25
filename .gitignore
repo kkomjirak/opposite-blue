@@ -41,3 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 .playwright-mcp/
+
+# Local design reviews and browser-test artifacts
+/.impeccable/
+/test-results/
+/playwright-report/
