@@ -209,7 +209,7 @@ test('new design-company portfolio item is listed with its stack and live link',
   await expect(dialog.getByText('제작 연월', { exact: true })).toBeVisible();
   await expect(dialog.getByText('2026년 10월', { exact: true })).toBeVisible();
   await expect(dialog.getByText('기술 스택', { exact: true })).toBeVisible();
-  await expect(dialog.getByText('Next.js', { exact: true })).toBeVisible();
+  await expect(dialog.getByText('Next.js 기반 3D 인터랙티브 웹', { exact: true })).toBeVisible();
   await expect(dialog.locator('img[alt="디자인회사 1"]').first()).toBeVisible();
   await expect(dialog.getByRole('link', { name: '방문하기' })).toHaveAttribute('href', 'https://jid.kr/');
 });
