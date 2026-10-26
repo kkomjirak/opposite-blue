@@ -170,14 +170,31 @@ test('dialog traps keyboard focus and fits a small mobile viewport', async ({ pa
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(360);
 });
 
+test('closed clothing-store project is marked without an active external link', async ({ page }) => {
+  await page.goto('/projects?cat=websites');
+  const link = page.getByRole('link', { name: '브랜드 의류 쇼핑몰', exact: true });
+  const card = page.locator('div.group').filter({ has: link });
+  await expect(card.getByText('운영 중단', { exact: true })).toBeVisible();
+  await expect(page.locator('a[href="https://cheiser.kr/"]')).toHaveCount(0);
+  await link.click();
+  const dialog = page.getByRole('dialog', { name: '브랜드 의류 쇼핑몰' });
+  await expect(dialog.getByText('운영 중단', { exact: true })).toBeVisible();
+  await expect(dialog.locator('a[href="https://cheiser.kr/"]')).toHaveCount(0);
+  await expect(dialog.locator('img')).toBeVisible();
+  await expect(dialog.getByText('CMS : 카페24', { exact: true })).toBeVisible();
+  await page.goto('/');
+  const featured = page.getByRole('link').filter({ has: page.getByRole('heading', { name: '브랜드 의류 쇼핑몰', exact: true }) });
+  await expect(featured.getByText('운영 중단', { exact: true })).toBeVisible();
+});
+
 test('live site links stay separate from detail links and have 44px targets', async ({ page }) => {
   await page.goto('/projects?cat=websites');
-  const site = page.getByRole('main').locator('a[href="https://cheiser.kr/"]');
+  const site = page.getByRole('main').locator('a[href="http://superbshop.co.kr/"]');
   await expect(site).toHaveAttribute('target', '_blank');
   await expect(site.locator('a, button')).toHaveCount(0);
   expect((await site.boundingBox())?.height).toBeGreaterThanOrEqual(44);
-  await page.locator('a[href="/projects?cat=websites&project=32"]').click();
-  const dialogSite = page.getByRole('dialog').locator('a[href="https://cheiser.kr/"]');
+  await page.locator('a[href="/projects?cat=websites&project=31"]').click();
+  const dialogSite = page.getByRole('dialog').locator('a[href="http://superbshop.co.kr/"]');
   await expect(dialogSite).toBeVisible();
   expect((await dialogSite.boundingBox())?.height).toBeGreaterThanOrEqual(44);
 });

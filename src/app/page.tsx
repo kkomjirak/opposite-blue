@@ -253,7 +253,10 @@ export default function HomePage() {
                       className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
-                    <div className="absolute top-4 right-4 flex gap-2 justify-end">
+                    <div className="absolute top-4 left-4 right-4 flex flex-wrap gap-2 justify-end">
+                      {p.status === '운영 중단' && (
+                        <span className="px-3 py-1 rounded-full text-xs font-medium bg-white text-neutral-800 shadow-2xs">운영 중단</span>
+                      )}
                       <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-md text-neutral-800 shadow-2xs">
                         {p.category}
                       </span>

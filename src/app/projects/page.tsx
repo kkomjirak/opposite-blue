@@ -363,7 +363,7 @@ function ProjectsContent() {
                           <Eye className="w-3.5 h-3.5" /> 상세 보기
                         </span>
                         {project.live_link && (
-                          project.live_link.includes('dothome.co.kr') ? (
+                          (project.status === '운영 중단' || project.live_link.includes('dothome.co.kr')) ? (
                             <span className="inline-flex items-center text-xs text-neutral-600 font-medium px-2 py-0.5 rounded-md bg-neutral-100">
                               운영 중단
                             </span>
@@ -673,7 +673,7 @@ function ProjectsContent() {
                 {activeModalProject.live_link && (
                   <div>
                     <span className="block text-neutral-600 mb-1">라이브 사이트</span>
-                    {activeModalProject.live_link.includes('dothome.co.kr') ? (
+                    {(activeModalProject.status === '운영 중단' || activeModalProject.live_link.includes('dothome.co.kr')) ? (
                       <span className="font-semibold text-neutral-600">운영 중단</span>
                     ) : (
                       <a
