@@ -70,7 +70,7 @@ export default function HomePage() {
                     Featured Commerce
                   </div>
                   <h2 className="text-xl font-bold tracking-tight">TV브라켓 쇼핑몰</h2>
-                  <p className="text-xs text-neutral-300">CMS: 고도몰 • TV 거치대/브라켓 전문 쇼핑몰</p>
+                  <p className="text-xs text-neutral-300">SaaS 기반 이커머스 솔루션(고도몰) • TV 거치대/브라켓 전문 쇼핑몰</p>
                 </div>
               </div>
 
@@ -255,13 +255,13 @@ export default function HomePage() {
                     />
                     <div className="absolute top-4 left-4 right-4 flex flex-wrap gap-2 justify-end">
                       {p.status === '운영 중단' && (
-                        <span className="px-3 py-1 rounded-full text-xs font-medium bg-white text-neutral-800 shadow-2xs">운영 중단</span>
+                        <span className="inline-flex items-center leading-none px-3 py-1 rounded-full text-xs font-medium bg-white text-neutral-800 shadow-2xs">운영 중단</span>
                       )}
-                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-md text-neutral-800 shadow-2xs">
+                      <span className="inline-flex items-center leading-none px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-md text-neutral-800 shadow-2xs">
                         {p.category}
                       </span>
                       {p.cms && (
-                        <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-neutral-900 text-white shadow-2xs">
+                        <span className="inline-flex items-center leading-none px-2.5 py-1 rounded-full text-xs font-medium bg-neutral-900 text-white shadow-2xs">
                           {p.cms}
                         </span>
                       )}

@@ -25,6 +25,8 @@ test('projects use brand tokens, readable metadata and the optimized portfolio i
   expect(source).not.toMatch(/#[a-f\d]{3,8}\b/i);
   expect(source).not.toContain('text-neutral-400');
   expect(source).toContain("from '@/components/PortfolioImage'");
+  expect(source).toContain('inline-flex items-center leading-none');
+  expect(source).toContain('기술 스택');
 });
 
 test('category cards are native keyboard-operable links', async ({ page }) => {
@@ -181,10 +183,18 @@ test('closed clothing-store project is marked without an active external link', 
   await expect(dialog.getByText('운영 중단', { exact: true })).toBeVisible();
   await expect(dialog.locator('a[href="https://cheiser.kr/"]')).toHaveCount(0);
   await expect(dialog.locator('img')).toBeVisible();
-  await expect(dialog.getByText('CMS : 카페24', { exact: true })).toBeVisible();
+  await expect(dialog.getByText('SaaS 기반 이커머스 솔루션(카페24)', { exact: true })).toBeVisible();
+  await expect(dialog.getByText('기술 스택', { exact: true })).toBeVisible();
   await page.goto('/');
   const featured = page.getByRole('link').filter({ has: page.getByRole('heading', { name: '브랜드 의류 쇼핑몰', exact: true }) });
   await expect(featured.getByText('운영 중단', { exact: true })).toBeVisible();
+});
+
+test('newly registered website projects appear first', async ({ page }) => {
+  await page.goto('/projects?cat=websites');
+  const firstProject = page.getByRole('main').locator('a[href^="/projects?cat=websites&project="]').first();
+  await expect(firstProject).toHaveAttribute('href', '/projects?cat=websites&project=33');
+  await expect(firstProject).toHaveText('디자인회사');
 });
 
 test('new design-company portfolio item is listed with its stack and live link', async ({ page }) => {
@@ -198,7 +208,7 @@ test('new design-company portfolio item is listed with its stack and live link',
   await expect(dialog.getByText('Form Service: FormSubmit', { exact: true })).toBeVisible();
   await expect(dialog.getByText('제작 연월', { exact: true })).toBeVisible();
   await expect(dialog.getByText('2026년 10월', { exact: true })).toBeVisible();
-  await expect(dialog.getByText('사용 솔루션 (CMS)', { exact: true })).toBeVisible();
+  await expect(dialog.getByText('기술 스택', { exact: true })).toBeVisible();
   await expect(dialog.getByText('Next.js', { exact: true })).toBeVisible();
   await expect(dialog.locator('img[alt="디자인회사 1"]').first()).toBeVisible();
   await expect(dialog.getByRole('link', { name: '방문하기' })).toHaveAttribute('href', 'https://jid.kr/');

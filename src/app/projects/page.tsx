@@ -16,17 +16,22 @@ type DesignSubCategory = '전체' | '배너 디자인' | '컨텐츠 디자인' |
 
 const MAIN_CATEGORIES: MainCategory[] = ['all', 'websites', 'design'];
 
-const WEBSITE_PRODUCTION_DATES: Record<number, { text: string; sortKey: number }> = {
-  32: { text: '2025년 6월', sortKey: 202506 },
-  30: { text: '2023년 8월', sortKey: 202308 },
-  31: { text: '2020년 5월', sortKey: 202005 },
-  29: { text: '2020년 2월', sortKey: 202002 },
-  28: { text: '2019년 12월', sortKey: 201912 },
-  3: { text: '2017년 6월', sortKey: 201706 },
-  5: { text: '2016년 11월', sortKey: 201611 },
-  4: { text: '2016년 8월', sortKey: 201608 },
-  2: { text: '2016년 01월', sortKey: 201601 },
+const WEBSITE_PRODUCTION_DATES: Record<number, { text: string }> = {
+  32: { text: '2025년 6월' },
+  30: { text: '2023년 8월' },
+  31: { text: '2020년 5월' },
+  29: { text: '2020년 2월' },
+  28: { text: '2019년 12월' },
+  3: { text: '2017년 6월' },
+  5: { text: '2016년 11월' },
+  4: { text: '2016년 8월' },
+  2: { text: '2016년 01월' },
 };
+
+function parseProductionMonth(value: string | null | undefined) {
+  const match = value?.match(/(\d{4})년\s*(\d{1,2})월/);
+  return match ? Number(match[1]) * 100 + Number(match[2]) : 0;
+}
 
 function parseMainCategory(value: string | null): MainCategory {
   if (value && MAIN_CATEGORIES.includes(value as MainCategory)) {
@@ -82,14 +87,14 @@ function ProjectsContent() {
     }
   };
 
-  // Split projects into Websites and Design (Websites sorted by production date: newest first)
+  // Sort website projects by production month: the newest production is always first.
   const websiteProjects = useMemo(() => {
     return portfolioData
       .filter((p) => p.category === '웹사이트')
       .sort((a, b) => {
-        const keyA = WEBSITE_PRODUCTION_DATES[a.id]?.sortKey ?? a.id;
-        const keyB = WEBSITE_PRODUCTION_DATES[b.id]?.sortKey ?? b.id;
-        return keyB - keyA;
+        const keyA = parseProductionMonth(a.production_date);
+        const keyB = parseProductionMonth(b.production_date);
+        return keyB - keyA || b.id - a.id;
       });
   }, []);
 
@@ -328,11 +333,11 @@ function ProjectsContent() {
                       )}
 
                       <div className="absolute top-3 right-3 flex flex-wrap gap-1.5 justify-end">
-                        <span className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/90 backdrop-blur-md text-neutral-800 shadow-2xs">
+                        <span className="inline-flex items-center leading-none px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/90 backdrop-blur-md text-neutral-800 shadow-2xs">
                           {project.category}
                         </span>
                         {project.cms && (
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900 text-white shadow-2xs">
+                          <span className="inline-flex items-center leading-none px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900 text-white shadow-2xs">
                             {project.cms}
                           </span>
                         )}
@@ -485,7 +490,7 @@ function ProjectsContent() {
                       )}
 
                       <div className="absolute top-3 right-3 flex flex-wrap gap-1.5 justify-end">
-                        <span className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/90 backdrop-blur-md text-neutral-800 shadow-2xs">
+                        <span className="inline-flex items-center leading-none px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/90 backdrop-blur-md text-neutral-800 shadow-2xs">
                           {project.category}
                         </span>
                       </div>
@@ -666,7 +671,7 @@ function ProjectsContent() {
                 )}
                 {activeModalProject.cms && (
                   <div>
-                    <span className="block text-neutral-600 mb-1">사용 솔루션 (CMS)</span>
+                    <span className="block text-neutral-600 mb-1">기술 스택</span>
                     <span className="font-semibold text-neutral-900 bg-brand-yellow/20 px-2 py-0.5 rounded border border-brand-yellow/40">{activeModalProject.cms}</span>
                   </div>
                 )}
