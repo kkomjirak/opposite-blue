@@ -971,6 +971,19 @@
       "Server / Hosting: Github",
       "Form Service: FormSubmit"
     ],
-    "images": []
+    "images": [
+      {
+        "index": 1,
+        "filename": "01_design-company.jpeg",
+        "relative_path": "images/websites/33_design-company/01_design-company.jpeg",
+        "absolute_path": "/portfolio/images/websites/33_design-company/01_design-company.jpeg",
+        "original_filename": "img_2a2c79c5492a.jpeg",
+        "url": "https://jid.kr/",
+        "width": 1849,
+        "height": 949,
+        "format": "JPEG",
+        "size_kb": 334.6
+      }
+    ]
   }
 ]

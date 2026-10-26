@@ -195,7 +195,8 @@ test('new design-company portfolio item is listed with its stack and live link',
   const dialog = page.getByRole('dialog', { name: '디자인회사' });
   await expect(dialog).toBeVisible();
   await expect(dialog).toContainText('Framework: Next.js 16 (App Router, Turbopack)');
-  await expect(dialog).toContainText('Form Service: FormSubmit');
+  await expect(dialog.getByText('Form Service: FormSubmit', { exact: true })).toBeVisible();
+  await expect(dialog.locator('img[alt="디자인회사 1"]').first()).toBeVisible();
   await expect(dialog.getByRole('link', { name: '방문하기' })).toHaveAttribute('href', 'https://jid.kr/');
 });
 
