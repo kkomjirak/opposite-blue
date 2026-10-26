@@ -201,6 +201,8 @@ test('new design-company portfolio item is listed with its stack and live link',
   await page.goto('/projects?cat=websites');
   const project = page.getByRole('link', { name: '디자인회사', exact: true });
   await expect(project).toBeVisible();
+  const card = page.locator('div.group').filter({ has: project });
+  await expect(card.locator('span.text-neutral-500')).toHaveText('Next.js 기반 3D 인터랙티브 웹');
   await project.click();
   const dialog = page.getByRole('dialog', { name: '디자인회사' });
   await expect(dialog).toBeVisible();

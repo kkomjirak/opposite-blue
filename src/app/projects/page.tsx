@@ -353,7 +353,7 @@ function ProjectsContent() {
                         </h3>
                         <div className="mt-1.5 flex items-center justify-between gap-2 text-xs">
                           <span className="text-neutral-500 line-clamp-1">
-                            {project.text_lines[0] || (project.cms ? `CMS : ${project.cms}` : '')}
+                            {project.cms || project.text_lines[0] || ''}
                           </span>
                           {(project.production_date || WEBSITE_PRODUCTION_DATES[project.id]?.text) && (
                             <span className="text-neutral-600 font-normal shrink-0">
