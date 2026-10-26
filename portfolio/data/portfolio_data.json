@@ -957,10 +957,10 @@
     "date": "미정",
     "author": "Opposite Blue",
     "url": "https://jid.kr/",
-    "cms": null,
+    "cms": "Next.js",
     "status": null,
     "live_link": "https://jid.kr/",
-    "production_date": null,
+    "production_date": "2026년 10월",
     "text_lines": [
       "Framework: Next.js 16 (App Router, Turbopack)",
       "Library: React 19, TypeScript",
