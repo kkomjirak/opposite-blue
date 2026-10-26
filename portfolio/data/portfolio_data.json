@@ -949,5 +949,28 @@
         "size_kb": 2210.14
       }
     ]
+  },
+  {
+    "id": 33,
+    "title": "디자인회사",
+    "category": "웹사이트",
+    "date": "미정",
+    "author": "Opposite Blue",
+    "url": "https://jid.kr/",
+    "cms": null,
+    "status": null,
+    "live_link": "https://jid.kr/",
+    "production_date": null,
+    "text_lines": [
+      "Framework: Next.js 16 (App Router, Turbopack)",
+      "Library: React 19, TypeScript",
+      "Styling: Tailwind CSS v4",
+      "Typography: Pretendard Light (300) & SF Pro",
+      "Animation: GSAP 3, @gsap/react, ScrollTrigger",
+      "3D Graphics: Three.js",
+      "Server / Hosting: Github",
+      "Form Service: FormSubmit"
+    ],
+    "images": []
   }
 ]

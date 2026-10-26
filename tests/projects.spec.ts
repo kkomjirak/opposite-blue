@@ -187,6 +187,18 @@ test('closed clothing-store project is marked without an active external link', 
   await expect(featured.getByText('운영 중단', { exact: true })).toBeVisible();
 });
 
+test('new design-company portfolio item is listed with its stack and live link', async ({ page }) => {
+  await page.goto('/projects?cat=websites');
+  const project = page.getByRole('link', { name: '디자인회사', exact: true });
+  await expect(project).toBeVisible();
+  await project.click();
+  const dialog = page.getByRole('dialog', { name: '디자인회사' });
+  await expect(dialog).toBeVisible();
+  await expect(dialog).toContainText('Framework: Next.js 16 (App Router, Turbopack)');
+  await expect(dialog).toContainText('Form Service: FormSubmit');
+  await expect(dialog.getByRole('link', { name: '방문하기' })).toHaveAttribute('href', 'https://jid.kr/');
+});
+
 test('live site links stay separate from detail links and have 44px targets', async ({ page }) => {
   await page.goto('/projects?cat=websites');
   const site = page.getByRole('main').locator('a[href="http://superbshop.co.kr/"]');
