@@ -72,3 +72,32 @@ test('mobile navigation exposes state, a 44px target and keyboard dismissal', as
   await expect(menu).toBeFocused();
   await expect(menu).toHaveAttribute('aria-expanded', 'false');
 });
+
+test('brand assets, favicon, and manifest are published from the static export', async ({ page }) => {
+  await page.goto('/');
+
+  await expect(page.locator('link[rel="manifest"]')).toHaveAttribute('href', '/site.webmanifest');
+  await expect(page.locator('link[rel="icon"][href="/favicon/favicon-16x16.png"]')).toHaveAttribute('sizes', '16x16');
+  await expect(page.locator('link[rel="icon"][href="/favicon/favicon-32x32.png"]')).toHaveAttribute('sizes', '32x32');
+  await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute('href', /\/apple-icon/);
+
+  for (const asset of [
+    '/favicon.ico',
+    '/apple-icon.png',
+    '/favicon/favicon-16x16.png',
+    '/favicon/favicon-32x32.png',
+    '/favicon/android-chrome-192x192.png',
+    '/favicon/android-chrome-512x512.png',
+    '/site.webmanifest',
+  ]) {
+    expect((await page.request.get(asset)).status(), asset).toBe(200);
+  }
+
+  const manifest = await (await page.request.get('/site.webmanifest')).json();
+  expect(manifest.name).toBe('Opposite Blue');
+  expect(manifest.short_name).toBe('Opposite Blue');
+  expect(manifest.icons).toEqual(expect.arrayContaining([
+    expect.objectContaining({ src: '/favicon/android-chrome-192x192.png', sizes: '192x192' }),
+    expect.objectContaining({ src: '/favicon/android-chrome-512x512.png', sizes: '512x512' }),
+  ]));
+});
