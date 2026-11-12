@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
@@ -50,7 +51,8 @@ export default function Header() {
     <header className="sticky top-0 z-40 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-3 flex items-center justify-between gap-4">
         <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-5">
-          <Link href="/" onClick={() => setMobileMenuOpen(false)} className="min-h-11 inline-flex items-center gap-1 text-lg font-semibold tracking-tight text-neutral-900 hover:text-brand-blue transition-colors">
+          <Link href="/" onClick={() => setMobileMenuOpen(false)} aria-label="Opposite Blue" className="min-h-11 inline-flex items-center gap-2 text-lg font-semibold tracking-tight text-neutral-900 transition-colors hover:text-brand-blue">
+            <Image src="/brand/oppositeblue-logo.png" alt="" width={28} height={28} className="h-7 w-7 shrink-0" />
             Opposite Blue<span className="text-brand-yellow font-bold" aria-hidden="true">.</span>
           </Link>
           <span className="text-xs font-mono text-neutral-600 tracking-tight">{timeString || 'Seoul, KR'}</span>

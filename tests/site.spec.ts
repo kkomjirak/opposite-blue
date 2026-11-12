@@ -40,6 +40,56 @@ test('privacy and website guidance links have real destinations', async ({ page 
   await expect(page.getByRole('heading', { level: 1, name: '사이트 이용 안내' })).toBeVisible();
 });
 
+test('brand assets, favicon, and manifest are published from the static export', async ({ page }) => {
+  await page.goto('/');
+
+  await expect(page.locator('link[rel="manifest"]')).toHaveAttribute('href', '/site.webmanifest');
+  await expect(page.locator('link[rel="icon"][href="/favicon/favicon-16x16.png"]')).toHaveAttribute('sizes', '16x16');
+  await expect(page.locator('link[rel="icon"][href="/favicon/favicon-32x32.png"]')).toHaveAttribute('sizes', '32x32');
+  await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute('href', /\/apple-icon/);
+
+  for (const asset of [
+    '/favicon.ico',
+    '/apple-icon.png',
+    '/favicon/favicon-16x16.png',
+    '/favicon/favicon-32x32.png',
+    '/favicon/android-chrome-192x192.png',
+    '/favicon/android-chrome-512x512.png',
+    '/site.webmanifest',
+  ]) {
+    expect((await page.request.get(asset)).status(), asset).toBe(200);
+  }
+
+  const manifest = await (await page.request.get('/site.webmanifest')).json();
+  expect(manifest.name).toBe('Opposite Blue');
+  expect(manifest.short_name).toBe('Opposite Blue');
+  expect(manifest.icons).toEqual(expect.arrayContaining([
+    expect.objectContaining({ src: '/favicon/android-chrome-192x192.png', sizes: '192x192' }),
+    expect.objectContaining({ src: '/favicon/android-chrome-512x512.png', sizes: '512x512' }),
+  ]));
+});
+
+test('brand symbols preserve the accessible home link and explicit layout dimensions', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+
+  const homeLink = page.getByRole('banner').getByRole('link', { name: 'Opposite Blue' });
+  await expect(homeLink).toBeVisible();
+  const homeBox = await homeLink.boundingBox();
+  expect(homeBox!.width).toBeGreaterThanOrEqual(44);
+  expect(homeBox!.height).toBeGreaterThanOrEqual(44);
+
+  const colorMark = homeLink.locator('img[src="/brand/oppositeblue-logo.png"]');
+  await expect(colorMark).toBeVisible();
+  await expect(colorMark).toHaveAttribute('width', '28');
+  await expect(colorMark).toHaveAttribute('height', '28');
+
+  const grayscaleMark = page.getByRole('contentinfo').locator('img[src="/brand/oppositeblue-logo-grayscale.png"]');
+  await expect(grayscaleMark).toBeVisible();
+  await expect(grayscaleMark).toHaveAttribute('width', '24');
+  await expect(grayscaleMark).toHaveAttribute('height', '24');
+});
+
 for (const width of [320, 390, 768, 1440]) {
   for (const path of ['/', '/about', '/projects', '/contact', '/privacy', '/terms']) {
     test(`${path} reflows without horizontal overflow at ${width}px`, async ({ page }) => {
@@ -71,33 +121,4 @@ test('mobile navigation exposes state, a 44px target and keyboard dismissal', as
   await page.keyboard.press('Escape');
   await expect(menu).toBeFocused();
   await expect(menu).toHaveAttribute('aria-expanded', 'false');
-});
-
-test('brand assets, favicon, and manifest are published from the static export', async ({ page }) => {
-  await page.goto('/');
-
-  await expect(page.locator('link[rel="manifest"]')).toHaveAttribute('href', '/site.webmanifest');
-  await expect(page.locator('link[rel="icon"][href="/favicon/favicon-16x16.png"]')).toHaveAttribute('sizes', '16x16');
-  await expect(page.locator('link[rel="icon"][href="/favicon/favicon-32x32.png"]')).toHaveAttribute('sizes', '32x32');
-  await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute('href', /\/apple-icon/);
-
-  for (const asset of [
-    '/favicon.ico',
-    '/apple-icon.png',
-    '/favicon/favicon-16x16.png',
-    '/favicon/favicon-32x32.png',
-    '/favicon/android-chrome-192x192.png',
-    '/favicon/android-chrome-512x512.png',
-    '/site.webmanifest',
-  ]) {
-    expect((await page.request.get(asset)).status(), asset).toBe(200);
-  }
-
-  const manifest = await (await page.request.get('/site.webmanifest')).json();
-  expect(manifest.name).toBe('Opposite Blue');
-  expect(manifest.short_name).toBe('Opposite Blue');
-  expect(manifest.icons).toEqual(expect.arrayContaining([
-    expect.objectContaining({ src: '/favicon/android-chrome-192x192.png', sizes: '192x192' }),
-    expect.objectContaining({ src: '/favicon/android-chrome-512x512.png', sizes: '512x512' }),
-  ]));
 });

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight, Mail } from 'lucide-react';
 
 export default function Footer() {
@@ -32,7 +33,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="pt-5 border-t border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-neutral-600">
-          <p>© {new Date().getFullYear()} Opposite Blue. All rights reserved.</p>
+          <div className="flex items-center gap-2">
+            <Image src="/brand/oppositeblue-logo-grayscale.png" alt="" width={24} height={24} className="h-6 w-6 shrink-0" />
+            <p>© {new Date().getFullYear()} Opposite Blue. All rights reserved.</p>
+          </div>
           <div className="flex flex-wrap gap-x-6">
             <Link href="/privacy" className="inline-flex min-h-11 items-center underline underline-offset-4 hover:text-brand-blue">개인정보 처리 안내</Link>
             <Link href="/terms" className="inline-flex min-h-11 items-center underline underline-offset-4 hover:text-brand-blue">사이트 이용 안내</Link>
