@@ -4,7 +4,7 @@ import Image from '@/components/PortfolioImage';
 import Link from 'next/link';
 import { useState, useMemo, useEffect, useRef, Suspense, type MouseEvent } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { ExternalLink, Eye, X, ChevronLeft, ChevronRight, Layers, ArrowLeft, ArrowRight, Globe, Palette } from 'lucide-react';
+import { ExternalLink, Eye, X, ChevronLeft, ChevronRight, Layers, ArrowLeft, ArrowRight } from 'lucide-react';
 import portfolioRaw from '@/data/portfolio_data.json';
 import { PortfolioItem } from '@/types/portfolio';
 import { getAssetPath } from '@/lib/utils';
@@ -39,6 +39,60 @@ function parseMainCategory(value: string | null): MainCategory {
   }
 
   return 'all';
+}
+
+function ProjectsIntroduction() {
+  return (
+    <div className="border-t-[3px] border-neutral-950 pt-5 pb-12 md:grid md:grid-cols-12">
+      <div className="md:col-span-8">
+        <h1 className="text-5xl font-normal leading-[0.96] tracking-[-0.04em] text-neutral-950 md:text-7xl">
+          A curated collection of <span className="font-semibold text-neutral-950">Websites</span> & <span className="font-semibold text-neutral-950">Design</span> works.
+        </h1>
+        <p className="ledger-prose mt-6 text-lg text-neutral-700">
+          B2B 플랫폼부터 이커머스 솔루션, 브랜드 프로모션, 초고해상도 상세페이지 및 인쇄물까지 어퍼짓 블루(Opposite Blue)의 실제 프로젝트 결과물입니다.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function ProjectCategoryOverview() {
+  const websiteCount = portfolioData.filter((project) => project.category === '웹사이트').length;
+  const designCount = portfolioData.length - websiteCount;
+
+  return (
+    <div className="py-12 space-y-12">
+      <div className="grid grid-cols-1 border-t border-neutral-950">
+        <Link href="/projects?cat=websites" scroll={false} data-project-category className="group cursor-pointer overflow-hidden transition-colors duration-200">
+          <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
+            <Image src={getAssetPath('/portfolio/images/websites/31_tv-bracket-shop/01_tv-bracket-shop.png')} alt="Websites Preview (TV브라켓 쇼핑몰)" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-top opacity-95 transition-opacity duration-200 group-hover:opacity-100" />
+          </div>
+          <div className="border-t border-neutral-950 p-6 md:p-8">
+            <div className="flex flex-wrap items-baseline justify-between gap-3">
+              <h2 className="text-3xl font-semibold tracking-tight text-neutral-950">Websites</h2>
+              <span className="text-sm text-neutral-700">{websiteCount} projects</span>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-neutral-700 md:text-base">삼성전자·LG전자 B2B 웹사이트 및 카페24, 고도몰, 그누보드 기반 커머스 쇼핑몰 구축 프로젝트입니다.</p>
+            <span className="mt-5 inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-neutral-950">프로젝트 보기 <ArrowRight className="h-4 w-4" aria-hidden="true" /></span>
+          </div>
+        </Link>
+
+        <Link href="/projects?cat=design" scroll={false} data-project-category className="group cursor-pointer overflow-hidden transition-colors duration-200">
+          <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
+            <Image src={getAssetPath('/portfolio/images/print-design/27_lg-purifier-brochure/01_lg-purifier-brochure.jpg')} alt="Design Works Preview" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-top opacity-95 transition-opacity duration-200 group-hover:opacity-100" />
+          </div>
+          <div className="border-t border-neutral-950 p-6 md:p-8">
+            <div className="flex flex-wrap items-baseline justify-between gap-3">
+              <h2 className="text-3xl font-semibold tracking-tight text-neutral-950">Design</h2>
+              <span className="text-sm text-neutral-700">{designCount} projects</span>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-neutral-700 md:text-base">프로모션 이벤트 배너(10건), 오픈마켓 초장문 상세페이지(8건), LG전자 정수기 브로셔 등 고해상도 인쇄물(4건) 디자인 작업물입니다.</p>
+            <span className="mt-5 inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-neutral-950">프로젝트 보기 <ArrowRight className="h-4 w-4" aria-hidden="true" /></span>
+          </div>
+        </Link>
+      </div>
+    </div>
+  );
 }
 
 function ProjectsContent() {
@@ -138,133 +192,11 @@ function ProjectsContent() {
 
   return (
     <div className="ledger-shell projects-ledger transform-none opacity-100 py-12 md:py-20">
-      {/* Category / Sub-heading */}
-      <div
-        className="mb-6"
-      >
-        <span className="ledger-label">Portfolio index</span>
-      </div>
-
-      {/* Main Editorial Headline */}
-      <div
-        className="grid grid-cols-1 gap-8 border-t-[3px] border-neutral-950 pt-5 pb-12 md:grid-cols-12"
-      >
-        <div className="md:col-span-8">
-          <h1 className="text-5xl font-normal leading-[0.96] tracking-[-0.04em] text-neutral-950 md:text-7xl">
-            A curated collection of{' '}
-            <span className="font-semibold text-neutral-950">Websites</span> &{' '}
-            <span className="font-semibold text-neutral-950">Design</span> works.
-          </h1>
-          <p className="ledger-prose mt-6 text-lg text-neutral-700">
-            B2B 플랫폼부터 이커머스 솔루션, 브랜드 프로모션, 초고해상도 상세페이지 및 인쇄물까지 어퍼짓 블루(Opposite Blue)의 실제 프로젝트 결과물입니다.
-          </p>
-        </div>
-      </div>
+      <ProjectsIntroduction />
 
         {/* VIEW 1: ROOT TWO LARGE THUMBNAIL CARDS (Websites / Design) */}
         {mainCategory === 'all' && (
-          <div
-            key="root-category-view"
-            className="py-12 space-y-12"
-          >
-            <div className="grid grid-cols-1 border-t border-neutral-950">
-              {/* 1. Websites Big Card */}
-              <Link
-                href="/projects?cat=websites"
-                scroll={false}
-                data-project-category
-                className="group cursor-pointer rounded-[5px] border border-gray-200 bg-white overflow-hidden hover:border-gray-400 hover:shadow-2xl hover:shadow-neutral-200/50 transition-all motion-reduce:transition-none duration-500 flex flex-col justify-between"
-              >
-                <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
-                  <Image
-                    src={getAssetPath('/portfolio/images/websites/31_tv-bracket-shop/01_tv-bracket-shop.png')}
-                    alt="Websites Preview (TV브라켓 쇼핑몰)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover object-top motion-safe:group-hover:scale-105 transition-transform motion-reduce:transition-none duration-700 opacity-95 group-hover:opacity-100"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/20 to-transparent" />
-                  <div className="absolute top-5 left-5">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-yellow text-neutral-950 shadow-sm">
-                      <Globe className="w-3.5 h-3.5 stroke-[2.2]" />
-                      <span>{websiteProjects.length} Projects</span>
-                    </span>
-                  </div>
-                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
-                    <span className="text-xs font-mono uppercase tracking-wider text-brand-yellow font-semibold">
-                      Category 01
-                    </span>
-                    <h2 className="text-3xl font-bold tracking-tight">Websites</h2>
-                  </div>
-                </div>
-
-                <div className="p-8 space-y-4">
-                  <p className="text-sm md:text-base text-neutral-600 leading-relaxed">
-                    삼성전자·LG전자 B2B 웹사이트 및 카페24, 고도몰, 그누보드 기반 커머스 쇼핑몰 구축 프로젝트입니다.
-                  </p>
-                  <div className="pt-2 flex items-center justify-between">
-                    <div className="flex flex-wrap gap-2">
-                      <span className="px-2.5 py-1 rounded-md text-xs bg-neutral-100 text-neutral-600">삼성전자 B2B</span>
-                      <span className="px-2.5 py-1 rounded-md text-xs bg-neutral-100 text-neutral-600">LG전자 B2B</span>
-                      <span className="px-2.5 py-1 rounded-md text-xs bg-neutral-100 text-neutral-600">쇼핑몰 (고도몰/카페24)</span>
-                    </div>
-                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-neutral-950 group-hover:text-brand-blue motion-safe:group-hover:translate-x-1 transition-all motion-reduce:transition-none">
-                      <span>프로젝트 보기</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                </div>
-              </Link>
-
-              {/* 2. Design Big Card */}
-              <Link
-                href="/projects?cat=design"
-                scroll={false}
-                data-project-category
-                className="group cursor-pointer rounded-[5px] border border-gray-200 bg-white overflow-hidden hover:border-gray-400 hover:shadow-2xl hover:shadow-neutral-200/50 transition-all motion-reduce:transition-none duration-500 flex flex-col justify-between"
-              >
-                <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
-                  <Image
-                    src={getAssetPath('/portfolio/images/print-design/27_lg-purifier-brochure/01_lg-purifier-brochure.jpg')}
-                    alt="Design Works Preview"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover object-top motion-safe:group-hover:scale-105 transition-transform motion-reduce:transition-none duration-700 opacity-95 group-hover:opacity-100"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/20 to-transparent" />
-                  <div className="absolute top-5 left-5">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-iceberg text-neutral-950 shadow-sm">
-                      <Palette className="w-3.5 h-3.5 stroke-[2.2]" />
-                      <span>22 Projects</span>
-                    </span>
-                  </div>
-                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
-                    <span className="text-xs font-mono uppercase tracking-wider text-brand-iceberg font-semibold">
-                      Category 02
-                    </span>
-                    <h2 className="text-3xl font-bold tracking-tight">Design</h2>
-                  </div>
-                </div>
-
-                <div className="p-8 space-y-4">
-                  <p className="text-sm md:text-base text-neutral-600 leading-relaxed">
-                    프로모션 이벤트 배너(10건), 오픈마켓 초장문 상세페이지(8건), LG전자 정수기 브로셔 등 고해상도 인쇄물(4건) 디자인 작업물입니다.
-                  </p>
-                  <div className="pt-2 flex items-center justify-between">
-                    <div className="flex flex-wrap gap-2">
-                      <span className="px-2.5 py-1 rounded-md text-xs bg-neutral-100 text-neutral-600">배너 디자인 (10)</span>
-                      <span className="px-2.5 py-1 rounded-md text-xs bg-neutral-100 text-neutral-600">컨텐츠 상세페이지 (8)</span>
-                      <span className="px-2.5 py-1 rounded-md text-xs bg-neutral-100 text-neutral-600">인쇄물 브로셔 (4)</span>
-                    </div>
-                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-neutral-950 group-hover:text-brand-blue motion-safe:group-hover:translate-x-1 transition-all motion-reduce:transition-none">
-                      <span>프로젝트 보기</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          </div>
+          <ProjectCategoryOverview />
         )}
 
         {/* VIEW 2: WEBSITES DETAIL VIEW */}
@@ -315,7 +247,7 @@ function ProjectsContent() {
                   <div
                     key={project.id}
                     data-project-index-row
-                    className="group relative flex flex-col bg-white border border-gray-200 rounded-[5px] overflow-hidden hover:border-gray-400 hover:shadow-xl hover:shadow-neutral-100 transition-all motion-reduce:transition-none duration-300 cursor-pointer focus-within:ring-2 focus-within:ring-brand-blue"
+                    className="group relative flex flex-col overflow-hidden border border-neutral-950 bg-[var(--surface-raised)] transition-colors duration-200 motion-reduce:transition-none cursor-pointer focus-within:ring-2 focus-within:ring-brand-blue"
                   >
                     <div className="relative aspect-[16/10] bg-neutral-100 overflow-hidden">
                       {imageSrc ? (
@@ -324,7 +256,7 @@ function ProjectsContent() {
                           alt={project.title}
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          className="object-cover object-top motion-safe:group-hover:scale-105 transition-transform motion-reduce:transition-none duration-500"
+                          className="object-cover object-top"
                           loading="lazy"
                         />
                       ) : (
@@ -334,7 +266,7 @@ function ProjectsContent() {
                       )}
 
                       <div className="absolute top-3 right-3 flex flex-wrap gap-1.5 justify-end">
-                        <span className="inline-flex items-center leading-none px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/90 backdrop-blur-md text-neutral-800 shadow-2xs">
+                        <span className="inline-flex items-center leading-none border border-neutral-950 bg-[var(--surface-paper)] px-2.5 py-1 text-[11px] font-medium text-neutral-800">
                           {project.category}
                         </span>
                         {project.cms && (
@@ -443,9 +375,9 @@ function ProjectsContent() {
                     type="button"
                     aria-pressed={isSelected}
                     onClick={() => setDesignFilter(sub)}
-                    className={`min-w-11 min-h-11 px-4 py-2 rounded-full text-xs md:text-sm transition-all motion-reduce:transition-none flex items-center gap-2 cursor-pointer ${
+                    className={`flex min-h-11 min-w-11 items-center gap-2 border border-neutral-950 px-4 py-2 text-xs transition-colors motion-reduce:transition-none md:text-sm cursor-pointer ${
                       isSelected
-                        ? 'bg-neutral-950 text-white font-medium shadow-sm'
+                        ? 'bg-neutral-950 text-white font-medium'
                         : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200 hover:text-neutral-900'
                     }`}
                   >
@@ -473,7 +405,7 @@ function ProjectsContent() {
                   <div
                     key={project.id}
                     data-project-index-row
-                    className="group relative flex flex-col bg-white border border-gray-200 rounded-[5px] overflow-hidden hover:border-gray-400 hover:shadow-xl hover:shadow-neutral-100 transition-all motion-reduce:transition-none duration-300 cursor-pointer focus-within:ring-2 focus-within:ring-brand-blue"
+                    className="group relative flex flex-col overflow-hidden border border-neutral-950 bg-[var(--surface-raised)] transition-colors duration-200 motion-reduce:transition-none cursor-pointer focus-within:ring-2 focus-within:ring-brand-blue"
                   >
                     <div className="relative aspect-[16/10] bg-neutral-100 overflow-hidden">
                       {imageSrc ? (
@@ -482,7 +414,7 @@ function ProjectsContent() {
                           alt={project.title}
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          className="object-cover object-top motion-safe:group-hover:scale-105 transition-transform motion-reduce:transition-none duration-500"
+                          className="object-cover object-top"
                           loading="lazy"
                         />
                       ) : (
@@ -492,13 +424,13 @@ function ProjectsContent() {
                       )}
 
                       <div className="absolute top-3 right-3 flex flex-wrap gap-1.5 justify-end">
-                        <span className="inline-flex items-center leading-none px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/90 backdrop-blur-md text-neutral-800 shadow-2xs">
+                        <span className="inline-flex items-center leading-none border border-neutral-950 bg-[var(--surface-paper)] px-2.5 py-1 text-[11px] font-medium text-neutral-800">
                           {project.category}
                         </span>
                       </div>
 
                       {totalImages > 1 && (
-                        <div className="absolute bottom-3 right-3 px-2 py-1 rounded-md text-[11px] font-mono bg-black/70 backdrop-blur-md text-white flex items-center gap-1 shadow-2xs">
+                        <div className="absolute right-3 bottom-3 flex items-center gap-1 border border-neutral-950 bg-neutral-900 px-2 py-1 text-[11px] text-white">
                           <Layers className="w-3 h-3" />
                           <span>+{totalImages} 장</span>
                         </div>
@@ -537,7 +469,7 @@ function ProjectsContent() {
         <dialog
           ref={dialogRef}
           aria-labelledby="project-dialog-title"
-          className="m-auto w-[calc(100%-2rem)] max-w-5xl max-h-[90dvh] p-0 bg-transparent backdrop:bg-black/70 backdrop:backdrop-blur-sm"
+          className="m-auto w-[calc(100%-2rem)] max-w-5xl max-h-[90dvh] bg-transparent p-0 backdrop:bg-black/70"
           onCancel={(event) => { event.preventDefault(); closeModal(); }}
           onClick={(event) => {
             if (event.target !== event.currentTarget) return;
@@ -622,9 +554,9 @@ function ProjectsContent() {
                           aria-label={`이미지 ${idx + 1} 보기`}
                           aria-current={modalImageIndex === idx ? 'true' : 'false'}
                           onClick={() => setModalImageIndex(idx)}
-                          className={`relative w-20 h-16 rounded-[5px] overflow-hidden shrink-0 border-2 transition-all motion-reduce:transition-none cursor-pointer ${
+                          className={`relative h-16 w-20 shrink-0 overflow-hidden border-2 transition-colors motion-reduce:transition-none cursor-pointer ${
                             modalImageIndex === idx
-                              ? 'border-neutral-900 scale-95 ring-2 ring-neutral-900/20'
+                              ? 'border-neutral-900 ring-2 ring-neutral-900/20'
                               : 'border-gray-200 opacity-70 hover:opacity-100 hover:border-gray-400'
                           }`}
                         >
@@ -699,7 +631,7 @@ function ProjectsContent() {
               {/* Notes & Description */}
               {activeModalProject.text_lines.length > 0 && (
                 <div className="space-y-2">
-                  <h4 className="text-xs uppercase font-semibold text-neutral-600 tracking-wider">
+                  <h4 className="text-xs font-semibold text-neutral-600">
                     프로젝트 설명
                   </h4>
                   <div className="p-4 bg-white border border-gray-100 rounded-xl space-y-1.5 text-sm text-neutral-600">
@@ -735,7 +667,7 @@ function ProjectsContent() {
 
 export default function ProjectsPage() {
   return (
-    <Suspense fallback={<div className="ledger-shell py-12 md:py-20" aria-live="polite"><div className="border-t-[3px] border-neutral-950 pt-5"><p className="ledger-label">Portfolio index</p><h1 className="mt-4 text-5xl font-normal tracking-[-0.04em] text-neutral-950 md:text-7xl">Projects</h1><div className="mt-10 space-y-3" aria-label="프로젝트 불러오는 중"><div className="ledger-skeleton" /><div className="ledger-skeleton" /><div className="ledger-skeleton" /></div></div></div>}>
+    <Suspense fallback={<div className="ledger-shell projects-ledger py-12 md:py-20" aria-busy="true" aria-live="polite"><ProjectsIntroduction /><ProjectCategoryOverview /></div>}>
       <ProjectsContent />
     </Suspense>
   );

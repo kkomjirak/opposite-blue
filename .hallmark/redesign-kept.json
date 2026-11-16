@@ -3,7 +3,15 @@
   "depth": "full",
   "scope": "site",
   "approved_direction": "Portfolio Ledger",
+  "baseline": "e39571eda44fe8c8bb9702aae8c6dc627baca124",
   "routes": ["/", "/about", "/projects", "/contact", "/privacy", "/terms"],
+  "comparison_evidence": {
+    "artifact": ".hallmark/manual-comparison.json",
+    "screenshots": ".hallmark/before/ and .hallmark/shots/final-after/",
+    "compare_html": ".hallmark/compare.html",
+    "matrix": "6 routes × 5 viewports × baseline/final = 60 renders",
+    "measured_at": "390px: headings, figures, images, links, buttons, inputs, dialogs, and overflow"
+  },
   "hero_copy": {
     "headline": "Crafting high-performance websites",
     "description": "Opposite Blue는 쇼핑몰과 웹사이트 구축부터 이커머스 솔루션, 최신 생성형 AI 서비스 인프라 구축까지 비즈니스의 성공적인 디지털 전환을 완벽히 구현합니다."
@@ -14,16 +22,35 @@
     "href": "/projects?cat=websites&project=33",
     "source_image": "portfolio/images/websites/33_design-company/01_design-company.jpeg",
     "production_date": "2026년 10월",
-    "stack": "Next.js 기반 3D 인터랙티브 웹"
+    "stack": "Next.js 기반 3D 인터랙티브 웹",
+    "layout_change_reason": "The project 33 visual is beside the desktop hero so its 3D focal object is visible above a 1280×800 fold; it is omitted from the later selected-work list to prevent duplicate lead content."
   },
-  "brand": {
-    "yellow": "#F2C949",
-    "blue": "#235888",
-    "iceberg": "#68A5D4",
-    "font": "Geist",
-    "mono": "Geist Mono",
-    "color_logo": "/brand/oppositeblue-logo.png",
-    "grayscale_logo": "/brand/oppositeblue-logo-grayscale.png"
+  "content_inventory": {
+    "home_info_paragraphs": {
+      "before": ["고성능 웹 환경", "AI 기반의 자동화 생태계", "쇼핑몰 솔루션(카페24, 고도몰)부터 대기업 B2B 사이트"],
+      "after": "Restored as the ruled Opposite Blue information section."
+    },
+    "service_facts": {
+      "before_count": 9,
+      "after_count": 9,
+      "after": [
+        "삼성·LG B2B 기업/브랜드 웹사이트",
+        "카페24, 고도몰, 그누보드 커스텀",
+        "모바일 반응형 & 웹 표준 최적화",
+        "LLM / RAG 검색 파이프라인",
+        "사내 업무 보조 자율 에이전트",
+        "MCP 및 외부 API 연동 인프라",
+        "초고해상도 커머스 상세페이지",
+        "시즌/이벤트 모션 배너 (GIF)",
+        "LG전자 정수기 등 브로셔 인쇄물"
+      ],
+      "preserved_description": "오픈마켓 롱스크롤 상세페이지(최대 6,600px+)"
+    },
+    "omitted_unverified_claims": ["30+ 완료 프로젝트 — retained only in the e395 baseline; it is not reintroduced because no verified source was supplied."],
+    "intentional_presentational_changes": [
+      "Project index category cards are editorial rows with still images rather than gradient-overlay cards.",
+      "Home project 33 remains the sole priority/LCP project image and moves into the hero column."
+    ]
   },
   "protected": [
     "IDEA.md",
@@ -42,8 +69,24 @@
     "44px touch targets, focus-visible and reduced motion",
     "Current legal copy and metadata facts"
   ],
-  "prohibited_production_copy": [
-    "웹사이트를 잘 만드는 회사"
-  ],
+  "floor": {
+    "status": "corrected",
+    "changes": [
+      "html and body explicitly use overflow-x: clip",
+      "Headings have min-width: 0",
+      "ledger labels use the semantic body font token",
+      "input padding uses spacing tokens",
+      "Projects contains no transition-all, tracked-uppercase category labels, or image hover scale"
+    ]
+  },
+  "reflex": {
+    "status": "corrected where applicable",
+    "changes": ["Mono is restricted to genuine metadata elsewhere; editorial labels use the body family.", "Heading weights stay consistent within the ledger hierarchy."]
+  },
+  "finish": {
+    "status": "manual comparison complete; automated Hallmark sloplint unavailable",
+    "capability_note": "The reviewer-confirmed installed Hallmark directory contains capture.mjs but no sloplint.mjs; this inventory does not claim a sloplint pass."
+  },
+  "prohibited_production_copy": ["웹사이트를 잘 만드는 회사"],
   "deletions": []
 }

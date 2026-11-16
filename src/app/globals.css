@@ -1,4 +1,4 @@
-/* Hallmark: Opposite Blue Portfolio Ledger — verified brand tokens only. */
+/* Hallmark: Opposite Blue Portfolio Ledger. Critique: images remain still; contrast, footprint, and semantic copy take priority over decoration. */
 @import "tailwindcss";
 
 @theme {
@@ -41,27 +41,39 @@
   --z-feedback: 70;
 }
 
-* { border-color: color-mix(in srgb, var(--text-strong) 22%, transparent); }
-html { scroll-padding-top: 5rem; scrollbar-color: var(--text-muted) var(--surface-subtle); scrollbar-width: thin; }
-body {
-  background: var(--surface-paper);
-  color: var(--text-body);
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  -webkit-font-smoothing: antialiased;
-  overflow-wrap: break-word;
-}
+@layer base {
+  html {
+    overflow-x: clip;
+    scroll-padding-top: 5rem;
+    scrollbar-color: var(--text-muted) var(--surface-subtle);
+    scrollbar-width: thin;
+  }
 
-h1, h2, h3 { color: var(--text-strong); text-wrap: balance; }
-button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
-button:not(:disabled), a { touch-action: manipulation; }
-input, textarea { caret-color: var(--signal-blue); }
-input::placeholder, textarea::placeholder { color: var(--text-muted); opacity: 1; }
-:focus-visible { outline: var(--rule-strong) solid var(--signal-blue); outline-offset: 3px; }
-::selection { color: var(--text-strong); background: var(--signal-yellow); }
-::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: var(--surface-subtle); }
-::-webkit-scrollbar-thumb { background: var(--text-muted); }
-::-webkit-scrollbar-thumb:hover { background: var(--signal-blue); }
+  body {
+    overflow-x: clip;
+    background: var(--surface-paper);
+    color: var(--text-body);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    min-width: 0;
+    text-wrap: balance;
+  }
+
+  button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
+  button:not(:disabled), a { touch-action: manipulation; }
+  input, textarea { caret-color: var(--signal-blue); }
+  input::placeholder, textarea::placeholder { color: var(--text-muted); opacity: 1; }
+  :focus-visible { outline: var(--rule-strong) solid var(--signal-blue); outline-offset: 3px; }
+  ::selection { color: var(--text-strong); background: var(--signal-yellow); }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: var(--surface-subtle); }
+  ::-webkit-scrollbar-thumb { background: var(--text-muted); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--signal-blue); }
+}
 
 .skip-link {
   position: fixed; top: var(--space-3); left: var(--space-4); z-index: var(--z-feedback);
@@ -72,7 +84,7 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); opacity: 1
 .ledger-shell { width: min(100%, var(--container)); margin-inline: auto; padding-inline: var(--gutter); }
 .ledger-rule { border-top: var(--rule-hair) solid var(--text-strong); }
 .ledger-rule-strong { border-top: var(--rule-strong) solid var(--text-strong); }
-.ledger-label { color: var(--text-muted); font-family: var(--font-geist-mono), ui-monospace, monospace; font-size: 0.75rem; line-height: 1.4; }
+.ledger-label { color: var(--text-muted); font-family: var(--font-sans); font-size: 0.75rem; line-height: 1.4; }
 .ledger-button { display: inline-flex; min-height: 2.75rem; align-items: center; justify-content: center; gap: var(--space-2); border: var(--rule-hair) solid var(--text-strong); padding: var(--space-3) var(--space-6); color: var(--text-strong); font-size: 0.875rem; font-weight: 600; transition: background-color 160ms ease, color 160ms ease; }
 .ledger-button:hover { background: var(--signal-yellow); }
 .ledger-button:active { background: var(--text-strong); color: var(--surface-paper); }
@@ -82,7 +94,7 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); opacity: 1
 .ledger-button:disabled { cursor: not-allowed; opacity: 0.55; }
 .ledger-prose { max-width: 72ch; font-size: 1rem; line-height: 1.7; }
 .ledger-prose > * + * { margin-top: var(--space-4); }
-.ledger-input { width: 100%; min-height: 2.75rem; border: var(--rule-hair) solid var(--text-strong); border-radius: 0; background: var(--surface-paper); padding: 0.75rem 1rem; color: var(--text-strong); font-size: 1rem; }
+.ledger-input { width: 100%; min-height: 2.75rem; border: var(--rule-hair) solid var(--text-strong); border-radius: 0; background: var(--surface-paper); padding: var(--space-3) var(--space-4); color: var(--text-strong); font-size: 1rem; }
 .ledger-input:focus { background: var(--surface-raised); }
 .ledger-choice { display: flex; min-height: 2.75rem; align-items: center; gap: var(--space-3); border: var(--rule-hair) solid var(--text-strong); padding: var(--space-2) var(--space-3); color: var(--text-strong); }
 .ledger-choice:hover, .ledger-choice:has(input:checked) { background: var(--signal-yellow); }
@@ -94,10 +106,8 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); opacity: 1
 .projects-ledger .rounded-full, .projects-ledger .rounded-3xl, .projects-ledger .rounded-2xl, .projects-ledger .rounded-xl, .projects-ledger .rounded-lg, .projects-ledger .rounded-md, .projects-ledger .rounded-\[5px\] { border-radius: 0; }
 .projects-ledger [data-project-category] { display: grid; grid-template-columns: minmax(0, 1fr); border: 0; border-bottom: var(--rule-hair) solid var(--text-strong); background: transparent; box-shadow: none; }
 .projects-ledger [data-project-category]:hover { border-color: var(--text-strong); background: var(--signal-yellow); box-shadow: none; }
-.projects-ledger [data-project-category] .group-hover\:scale-105 { transform: none; }
 .projects-ledger [data-project-index-row] { border-color: var(--text-strong); box-shadow: none; }
 .projects-ledger [data-project-index-row]:hover { background: var(--signal-yellow); border-color: var(--text-strong); }
-.projects-ledger [data-project-index-row] .group-hover\:scale-105 { transform: none; }
 .projects-ledger dialog { border: var(--rule-strong) solid var(--text-strong); }
 .projects-ledger dialog > div { border-radius: 0; box-shadow: none; }
 .projects-ledger dialog::backdrop { background: color-mix(in srgb, var(--text-strong) 72%, transparent); }
@@ -110,5 +120,4 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); opacity: 1
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
   .animate-pulse { animation: none; }
-  .group:hover .group-hover\:scale-105 { transform: none; }
 }
