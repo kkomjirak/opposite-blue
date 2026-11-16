@@ -56,6 +56,36 @@ test('network failure is uncertain, focused, and never automatically retried', a
   expect(calls).toBe(1);
 });
 
+for (const width of [320, 390]) {
+  test(`network recovery control fully reflows at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/contact');
+    await fillInquiry(page);
+    await page.getByRole('button', { name: '견적 문의 전송하기' }).click();
+
+    const native = page.locator('[data-native="true"]');
+    await expect(native).toBeVisible();
+    const metrics = await native.evaluate(button => {
+      const rect = button.getBoundingClientRect();
+      return {
+        left: rect.left,
+        right: rect.right,
+        width: rect.width,
+        clientWidth: button.clientWidth,
+        scrollWidth: button.scrollWidth,
+        whiteSpace: getComputedStyle(button).whiteSpace,
+        viewportWidth: window.innerWidth,
+      };
+    });
+
+    expect(metrics.left).toBeGreaterThanOrEqual(0);
+    expect(metrics.right).toBeLessThanOrEqual(metrics.viewportWidth);
+    expect(metrics.width).toBeLessThanOrEqual(metrics.viewportWidth);
+    expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.clientWidth);
+    expect(metrics.whiteSpace).not.toBe('nowrap');
+  });
+}
+
 test('stalled requests abort after 15 seconds with input retained and no resend', async ({ page }) => {
   let calls = 0;
   await page.route(provider, () => { calls++; });

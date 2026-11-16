@@ -35,7 +35,7 @@
       "R4": "Corrected: overflow, minimum-width, token spacing, label font, and prohibited visual-pattern changes are recorded under floor.",
       "R5": "Corrected: category images do not scale on normal motion; reviewer probe records transform and scale as none.",
       "R6_comparison": "Complete as manual evidence: manual-comparison.json records the real 6-route × 5-viewport × baseline/final 60-render matrix.",
-      "R6_automated_sloplint": "Open capability gate: no installed compatible sloplint.mjs was found; no pass is claimed and owner acceptance or a provisioned compatible tool is required."
+      "R6_automated_sloplint": "Resolved for the authorized static-kept sweep: the provisioned Hallmark sloplint.mjs command passed with 0 FAIL, 0 REFLEX, and 0 WARN. Its Puppeteer render sub-tier remains unavailable because puppeteer-core is not installed; no render-tier pass is claimed."
     },
     "copy_and_heading_disposition": {
       "method": "Manual source cross-read against baseline e39571e plus the recorded 60-render comparison; this is a disposition record, not an assertion of exhaustive dynamic identity auditing.",
@@ -157,8 +157,8 @@
     "exception_policy": "No typography exception is claimed for the resolved targets. Any future display-heading exception requires explicit Lead Orchestrator/brand-owner approval and a concrete reason recorded in hallmark_finish_record.copy_and_heading_disposition.typography_reflex."
   },
   "finish": {
-    "status": "manual comparison complete; automated Hallmark sloplint unavailable",
-    "capability_note": "The reviewer-confirmed installed Hallmark directory contains capture.mjs but no sloplint.mjs; this inventory does not claim a sloplint pass."
+    "status": "manual comparison complete; authorized static-kept Hallmark sloplint passed; Puppeteer render sub-tier unavailable",
+    "capability_note": "The authorized static-kept command passed with 0 FAIL, 0 REFLEX, and 0 WARN. The optional Puppeteer render sub-tier did not run because puppeteer-core is not installed; this inventory does not claim a render-tier pass."
   },
   "prohibited_production_copy": ["웹사이트를 잘 만드는 회사"],
   "deletions": []

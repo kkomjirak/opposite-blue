@@ -9,7 +9,7 @@
 /* Hallmark · typography reflex: /projects, /about, and Footer entry/closing headings share their parent 400 display weight; 600 section headings are a separate hierarchy tier. Future exception owner: Lead Orchestrator/brand owner with explicit approval recorded in .hallmark/redesign-kept.json. */
 /* Hallmark · finish: R1 contrast/cascade, R2 fallback geometry/CLS, R3 retained information, R4 Floor, and R5 still imagery were independently rechecked. R6 manual 60-render evidence is recorded; automated sloplint is run separately and no unavailable render tier is claimed as passed. */
 /* Hallmark · dismissed 19 · Footer copyright identifies the rights holder and is retained as an ownership notice. */
-/* Hallmark · dismissed 49 · The network-recovery control explicitly declares whitespace-nowrap beside its shared dynamic button classes, which the static class extractor cannot resolve. */
+/* Hallmark · dismissed 49 · The network-recovery control explicitly uses width-constrained whitespace-normal text beside its shared dynamic button classes, preserving its full border and text at 320px. */
 /* Hallmark · dismissed 74 · Existing Tailwind neutral utilities map to the documented Portfolio Ledger paper and ink surfaces; a token rename would not improve the rendered system. */
 @import "tailwindcss";
 
