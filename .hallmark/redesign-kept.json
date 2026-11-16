@@ -46,7 +46,8 @@
       ],
       "reworded": [
         "Home heading 'Featured Projects' is presented as 'Selected projects'; its project destinations remain intact.",
-        "Project category cards and home project treatment are re-presented as ruled Portfolio Ledger layouts without changing the retained destinations."
+        "Project category cards and home project treatment are re-presented as ruled Portfolio Ledger layouts without changing the retained destinations.",
+        "Projects category switch labels change from 'Design (22) →' and 'Websites (<count>) →' to text-plus-icon actions; category-change handlers and their destinations are unchanged."
       ],
       "dropped": [
         "The unsupported baseline phrase '30+ 완료 프로젝트' is not carried forward.",

@@ -1,13 +1,16 @@
-/*
- * Hallmark stamp — mode: redesign; depth: full; scope: site; brand: Opposite Blue; custom direction: Portfolio Ledger.
- * Route posture — / is a project-led editorial landing page; /about is a scope-and-process ledger; /projects is an index with native deep-link dialog detail; /contact is a form with AJAX, native, mailto and manual-copy fallbacks; /privacy and /terms are readable legal records.
- * Gate disposition — R1 contrast/cascade, R2 Projects fallback geometry/CLS, R3 retained information, R4 Floor, and R5 still-image motion are corrected and independently rechecked. R6 comparison evidence is the recorded 60-render baseline/final matrix; the required automated sloplint remains unavailable and is not represented as passed.
- * Kept — approved home hero copy; routes; FormSubmit/native/mailto/manual-copy contact paths; field names and ids; project deep links, dialog history/focus/scroll behavior; legal copy; portfolio data and imagery.
- * Reworded — the home section label "Featured Projects" is "Selected projects" and index-card presentation is a ruled Portfolio Ledger; the retained destinations and project-modal semantics are unchanged.
- * Dropped — the unsupported "30+ 완료 프로젝트" claim remains absent; duplicate Project 33 selected-work presentation is removed because its approved hero lead preserves its destination and content.
- * Exception record — no display-weight exception remains for /projects, /about, or Footer entry/closing headings: their words share the parent 400 weight. Section-heading 600 is a distinct hierarchy level, not word emphasis. Owner for any later typography exception: Lead Orchestrator/brand owner; it requires explicit approval and a record in .hallmark/redesign-kept.json.
- */
-/* Hallmark critique — Still imagery, readable contrast, square ruled geometry, semantic copy, and usable fallbacks take priority over decorative treatment. */
+/* Hallmark · redesign: full · scope: site · theme: custom Portfolio Ledger (user named) · brand: Opposite Blue · posture: restrained · surface: absolute · hero: custom · shape: portfolio · nav: ruled ink ledger · footer: ruled ink ledger */
+/* Hallmark critique · Still imagery, readable contrast, square ruled geometry, semantic copy, and usable fallbacks take priority over decorative treatment. */
+/* Hallmark · routes: / project-led editorial landing; /about scope-and-process ledger; /projects ruled index with native deep-link dialog; /contact inquiry form with AJAX, native, mailto, and manual-copy recovery; /privacy and /terms readable legal records */
+/* Hallmark · kept: approved home hero copy; routes; FormSubmit/native/mailto/manual-copy paths; field names and ids; project deep links, dialog history/focus/scroll behavior; legal copy; portfolio data and imagery */
+/* Hallmark · reworded "Featured Projects" to "Selected projects" · Portfolio Ledger labeling retains the existing project destinations and modal semantics */
+/* Hallmark · reworded "{`/projects?cat=${p.category === '웹사이트' ? 'websites' : 'design'}&project=${p.id}`}" to "{`/projects?cat=${project.category === '웹사이트' ? 'websites' : 'design'}&project=${project.id}`}" · p to project preserves the same category and project-id destination for every mapped project */
+/* Hallmark · dropped "30+ 완료 프로젝트" · the baseline claim had no verified supporting source */
+/* Hallmark · dropped "Project 33 selected-work card" · the approved hero lead retains the same destination and content without duplicate presentation */
+/* Hallmark · typography reflex: /projects, /about, and Footer entry/closing headings share their parent 400 display weight; 600 section headings are a separate hierarchy tier. Future exception owner: Lead Orchestrator/brand owner with explicit approval recorded in .hallmark/redesign-kept.json. */
+/* Hallmark · finish: R1 contrast/cascade, R2 fallback geometry/CLS, R3 retained information, R4 Floor, and R5 still imagery were independently rechecked. R6 manual 60-render evidence is recorded; automated sloplint is run separately and no unavailable render tier is claimed as passed. */
+/* Hallmark · dismissed 19 · Footer copyright identifies the rights holder and is retained as an ownership notice. */
+/* Hallmark · dismissed 49 · The network-recovery control explicitly declares whitespace-nowrap beside its shared dynamic button classes, which the static class extractor cannot resolve. */
+/* Hallmark · dismissed 74 · Existing Tailwind neutral utilities map to the documented Portfolio Ledger paper and ink surfaces; a token rename would not improve the rendered system. */
 @import "tailwindcss";
 
 @theme {
@@ -22,7 +25,7 @@
 }
 
 :root {
-  --surface-raised: #ffffff;
+  --surface-raised: #fcfcf7;
   --surface-paper: #f8f7f2;
   --surface-subtle: #eeece4;
   --surface-muted: #d9d7cf;

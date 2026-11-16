@@ -229,10 +229,12 @@ function ProjectsContent() {
                 <span className="text-xs text-neutral-600 hidden sm:inline">다른 카테고리:</span>
                 <button
                   type="button"
+                  aria-label="Design (22) →"
                   onClick={() => changeMainCategory('design')}
                   className="min-w-11 min-h-11 px-3 py-1.5 rounded-full text-xs font-medium text-neutral-600 bg-neutral-100 hover:bg-neutral-200 transition-colors motion-reduce:transition-none cursor-pointer"
                 >
-                  Design (22) →
+                  <span>Design projects 보기</span>
+                  <ArrowRight className="ml-1 inline h-3.5 w-3.5" aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -356,10 +358,12 @@ function ProjectsContent() {
                 <span className="text-xs text-neutral-600 hidden sm:inline">다른 카테고리:</span>
                 <button
                   type="button"
+                  aria-label={`Websites (${websiteProjects.length}) →`}
                   onClick={() => changeMainCategory('websites')}
                   className="min-w-11 min-h-11 px-3 py-1.5 rounded-full text-xs font-medium text-neutral-600 bg-neutral-100 hover:bg-neutral-200 transition-colors motion-reduce:transition-none cursor-pointer"
                 >
-                  Websites ({websiteProjects.length}) →
+                  <span>Websites projects 보기</span>
+                  <ArrowRight className="ml-1 inline h-3.5 w-3.5" aria-hidden="true" />
                 </button>
               </div>
             </div>
