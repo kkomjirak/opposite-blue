@@ -1,291 +1,89 @@
 import Image from '@/components/PortfolioImage';
 import Link from 'next/link';
-import { ArrowUpRight, CheckCircle, Cpu, Globe, Layers } from 'lucide-react';
+import { ArrowUpRight, Cpu, Globe, Layers } from 'lucide-react';
 import portfolioRaw from '@/data/portfolio_data.json';
 import { PortfolioItem } from '@/types/portfolio';
 import { getAssetPath } from '@/lib/utils';
 
 const portfolioData = portfolioRaw as PortfolioItem[];
 
-// Pick top 4 featured projects for the homepage (newest / flagship works)
-const featuredIds = [32, 30, 31, 27];
+const leadProject = portfolioData.find((project) => project.id === 33);
+const featuredIds = [33, 32, 30, 31, 27];
 const featuredProjects = featuredIds
   .map((id) => portfolioData.find((p) => p.id === id))
   .filter((p): p is PortfolioItem => Boolean(p));
+const serviceLedgers = [
+  { title: 'Web & Commerce Development', description: '삼성전자·LG전자 B2B 웹사이트 구축 경험을 기반으로, 카페24·고도몰 쇼핑몰 및 최신 반응형 웹 플랫폼을 제작합니다.', Icon: Globe },
+  { title: 'AI Service Environment', description: '비즈니스에 최적화된 LLM 연동, 사내 데이터 기반 맞춤형 AI 에이전트, 업무 자동화 워크플로우를 완벽하게 구축합니다.', Icon: Cpu },
+  { title: 'Creative & Content Design', description: '오픈마켓 롱스크롤 상세페이지, 모션 프로모션 배너, 오프라인 브로셔 및 인쇄물까지 토탈 디자인을 책임집니다.', Icon: Layers },
+];
 
 export default function HomePage() {
+  if (!leadProject) return null;
+  const leadImage = leadProject.images[0];
+  const leadImageSrc = leadImage ? getAssetPath(`/portfolio/${leadImage.relative_path}`) : '';
+
   return (
-    <div className="space-y-0">
-      {/* 1. HERO SECTION */}
-      <section className="max-w-7xl mx-auto px-6 md:px-12 pt-16 md:pt-24 pb-16 md:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Hero Typography */}
-          <div className="lg:col-span-7 space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-neutral-100 text-neutral-800 border border-neutral-200">
-              <span className="w-2.5 h-2.5 rounded-full bg-brand-yellow ring-2 ring-brand-yellow/50 animate-pulse" />
-              <span>Web Agency & AI Service Solutions</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-neutral-900 leading-[1.12]">
-              Crafting <span className="font-semibold text-neutral-950">high-performance websites</span>
-            </h1>
-
-            <p className="text-base sm:text-lg text-neutral-500 max-w-xl leading-relaxed font-normal">
-              Opposite Blue는 쇼핑몰과 웹사이트 구축부터 이커머스 솔루션, 최신 생성형 AI 서비스 인프라 구축까지 비즈니스의 성공적인 디지털 전환을 완벽히 구현합니다.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Link
-                href="/projects"
-                className="min-h-12 px-6 py-3.5 text-sm font-medium text-white bg-neutral-900 hover:bg-neutral-800 rounded-full transition-all flex items-center gap-2 shadow-sm hover:shadow"
-              >
-                <span>프로젝트 살펴보기</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/contact"
-                className="min-h-12 px-6 py-3.5 text-sm font-medium text-neutral-800 bg-neutral-100 hover:bg-neutral-200 rounded-full transition-colors flex items-center gap-2"
-              >
-                <span>견적 문의하기</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
+    <div>
+      <section className="ledger-shell py-12 md:py-20">
+        <div className="grid gap-10 border-t-[3px] border-neutral-950 pt-5 lg:grid-cols-12 lg:gap-12">
+          <div className="space-y-8 lg:col-span-7">
+            <p className="ledger-label">Opposite Blue / Seoul, KR</p>
+            <h1 className="max-w-4xl text-5xl font-normal leading-[0.96] tracking-[-0.04em] text-neutral-950 sm:text-6xl md:text-7xl">Crafting high-performance websites</h1>
+            <p className="ledger-prose text-lg text-neutral-700">Opposite Blue는 쇼핑몰과 웹사이트 구축부터 이커머스 솔루션, 최신 생성형 AI 서비스 인프라 구축까지 비즈니스의 성공적인 디지털 전환을 완벽히 구현합니다.</p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/projects" className="ledger-button ledger-button--ink">프로젝트 살펴보기 <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
+              <Link href="/contact" className="ledger-button">견적 문의하기 <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
             </div>
           </div>
+          <aside className="border-t border-neutral-950 pt-4 lg:col-span-5 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
+            <p className="ledger-label">Current scope</p>
+            <dl className="mt-4 divide-y divide-neutral-950 border-y border-neutral-950">
+              <div className="grid grid-cols-[5rem_1fr] gap-3 py-3"><dt className="ledger-label">Web</dt><dd className="text-sm text-neutral-800">기업·브랜드 웹사이트와 카페24·고도몰 쇼핑몰</dd></div>
+              <div className="grid grid-cols-[5rem_1fr] gap-3 py-3"><dt className="ledger-label">Commerce</dt><dd className="text-sm text-neutral-800">기존 솔루션 검토와 커스텀 구축</dd></div>
+              <div className="grid grid-cols-[5rem_1fr] gap-3 py-3"><dt className="ledger-label">AI</dt><dd className="text-sm text-neutral-800">사내 데이터 검색, 업무 보조 에이전트, 외부 API 연동</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </section>
 
-          {/* Right Hero Visual Card */}
-          <div className="lg:col-span-5">
-            <div className="relative rounded-[5px] overflow-hidden border border-gray-200 bg-neutral-50 shadow-xl shadow-neutral-100 group">
-              <div className="aspect-[4/3] relative overflow-hidden bg-neutral-900">
-                <Image
-                  src={getAssetPath('/portfolio/images/websites/31_tv-bracket-shop/01_tv-bracket-shop.png')}
-                  alt="TV브라켓 쇼핑몰 (수퍼브샵)"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 42vw"
-                  className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6 text-white space-y-1.5">
-                  <div className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-white/20 backdrop-blur-md">
-                    Featured Commerce
-                  </div>
-                  <h2 className="text-xl font-bold tracking-tight">TV브라켓 쇼핑몰</h2>
-                  <p className="text-xs text-neutral-300">SaaS 기반 이커머스 솔루션(고도몰) • TV 거치대/브라켓 전문 쇼핑몰</p>
-                </div>
-              </div>
-
-              {/* Stat Pills */}
-              <div className="p-6 bg-white grid grid-cols-3 gap-4 text-center divide-x divide-gray-100">
-                <div>
-                  <span className="block text-2xl font-bold text-neutral-950">30+</span>
-                  <span className="text-[11px] text-neutral-600">완료 프로젝트</span>
-                </div>
-                <div>
-                  <span className="block text-2xl font-bold text-neutral-950">WEB</span>
-                  <span className="text-[11px] text-neutral-600">웹사이트/쇼핑몰</span>
-                </div>
-                <div>
-                  <span className="block text-2xl font-bold text-neutral-950">AI</span>
-                  <span className="text-[11px] text-neutral-600">서비스 환경 구축</span>
-                </div>
-              </div>
+      <section className="ledger-shell pb-16 md:pb-24">
+        <Link href="/projects?cat=websites&project=33" className="group block border-y-[3px] border-neutral-950 py-4 hover:bg-brand-yellow focus-visible:bg-brand-yellow">
+          <div className="mb-4 flex flex-wrap items-baseline justify-between gap-3"><p className="ledger-label">Selected project / 33</p><p className="ledger-label">{leadProject.production_date}</p></div>
+          <div className="grid gap-5 lg:grid-cols-12">
+            <div className="relative aspect-[1849/949] overflow-hidden bg-[var(--surface-muted)] lg:col-span-8">
+              {leadImage && <Image src={encodeURI(leadImageSrc)} alt={leadProject.title} fill priority fetchPriority="high" sizes="(max-width: 1024px) 100vw, 66vw" className="object-cover object-top" />}
             </div>
+            <div className="flex flex-col justify-between lg:col-span-4">
+              <div><h2 className="text-3xl font-semibold tracking-[-0.03em] text-neutral-950">{leadProject.title}</h2><p className="mt-3 text-base leading-relaxed text-neutral-700">{leadProject.cms}</p></div>
+              <span className="mt-8 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-neutral-950 underline decoration-brand-yellow decoration-[3px] underline-offset-4">프로젝트 상세 보기 <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></span>
+            </div>
+          </div>
+        </Link>
+      </section>
+
+      <section className="border-y border-neutral-950 bg-[var(--surface-subtle)]">
+        <div className="ledger-shell py-16 md:py-24">
+          <div className="grid gap-8 md:grid-cols-12"><div className="md:col-span-4"><h2 className="text-3xl font-semibold tracking-[-0.03em] md:text-5xl">주요 핵심 역량</h2></div><p className="ledger-prose text-neutral-700 md:col-span-8">디자인, 프론트엔드/백엔드 개발, 커머스 커스터마이징, 최신 AI 에이전트 인프라까지 전 과정을 원스톱으로 제공합니다.</p></div>
+          <div className="mt-10 border-t border-neutral-950">
+            {serviceLedgers.map(({ title, description, Icon }, index) => <article key={title} className="grid gap-4 border-b border-neutral-950 py-6 md:grid-cols-12 md:gap-8"><div className="flex items-center gap-3 md:col-span-4"><span className="ledger-label">0{index + 1}</span><Icon className="h-5 w-5" aria-hidden="true" /><h3 className="font-semibold text-neutral-950">{title}</h3></div><p className="text-sm leading-relaxed text-neutral-700 md:col-span-8">{description}</p></article>)}
           </div>
         </div>
       </section>
 
-      {/* 2. SECTION: INFO (01 / Info) */}
-      <section className="border-t border-gray-100 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-            <div className="md:col-span-4">
-              <span className="text-xs uppercase tracking-widest font-mono text-neutral-600">
-                01 / Info
-              </span>
-              <h2 className="text-2xl font-semibold text-neutral-900 mt-2">Opposite Blue</h2>
-            </div>
-            <div className="md:col-span-8 space-y-6">
-              <p className="text-xl md:text-2xl font-light text-neutral-800 leading-relaxed">
-                우리는 단순한 웹페이지 제작을 넘어, 비즈니스가 안정적으로 성장하고 고객과 소통할 수 있는{' '}
-                <strong className="font-semibold text-neutral-950">고성능 웹 환경</strong>과{' '}
-                <strong className="font-semibold text-neutral-950">AI 기반의 자동화 생태계</strong>를 함께 구축합니다.
-              </p>
-              <p className="text-base text-neutral-500 leading-relaxed">
-                쇼핑몰 솔루션(카페24, 고도몰)부터 대기업 B2B 사이트, 전환율 최적화 상세페이지, 그리고 사내 업무 효율을 극대화하는 맞춤형 AI 서비스 환경까지 올인원으로 지원합니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. SECTION: SERVICES (02 / Services) */}
-      <section className="border-t border-gray-100 py-16 md:py-24 bg-neutral-50/40">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-12">
-            <div className="md:col-span-4">
-              <span className="text-xs uppercase tracking-widest font-mono text-neutral-600">
-                02 / Services
-              </span>
-              <h2 className="text-2xl font-semibold text-neutral-900 mt-2">주요 핵심 역량</h2>
-            </div>
-            <div className="md:col-span-8">
-              <p className="text-base text-neutral-500 leading-relaxed">
-                디자인, 프론트엔드/백엔드 개발, 커머스 커스터마이징, 최신 AI 에이전트 인프라까지 전 과정을 원스톱으로 제공합니다.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Service 1 */}
-            <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all space-y-6 flex flex-col justify-between">
-              <div className="space-y-4">
-                <span className="text-xs font-mono text-neutral-600">001</span>
-                <div className="w-12 h-12 rounded-2xl bg-brand-yellow text-neutral-950 flex items-center justify-center shadow-sm">
-                  <Globe className="w-6 h-6 stroke-[2.2]" />
-                </div>
-                <h3 className="text-xl font-bold text-neutral-900">Web & Commerce Development</h3>
-                <p className="text-sm text-neutral-500 leading-relaxed">
-                  삼성전자·LG전자 B2B 웹사이트 구축 경험을 기반으로, 카페24·고도몰 쇼핑몰 및 최신 반응형 웹 플랫폼을 제작합니다.
-                </p>
-              </div>
-              <ul className="space-y-2 text-xs text-neutral-600 pt-4 border-t border-gray-100">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-brand-yellow shrink-0" /> 삼성·LG B2B 기업/브랜드 웹사이트
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-brand-yellow shrink-0" /> 카페24, 고도몰, 그누보드 커스텀
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-brand-yellow shrink-0" /> 모바일 반응형 & 웹 표준 최적화
-                </li>
-              </ul>
-            </div>
-
-            {/* Service 2 */}
-            <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all space-y-6 flex flex-col justify-between">
-              <div className="space-y-4">
-                <span className="text-xs font-mono text-neutral-600">002</span>
-                <div className="w-12 h-12 rounded-2xl bg-brand-blue text-white flex items-center justify-center shadow-sm">
-                  <Cpu className="w-6 h-6 stroke-[2.2]" />
-                </div>
-                <h3 className="text-xl font-bold text-neutral-900">AI Service Environment</h3>
-                <p className="text-sm text-neutral-500 leading-relaxed">
-                  비즈니스에 최적화된 LLM 연동, 사내 데이터 기반 맞춤형 AI 에이전트, 업무 자동화 워크플로우를 완벽하게 구축합니다.
-                </p>
-              </div>
-              <ul className="space-y-2 text-xs text-neutral-600 pt-4 border-t border-gray-100">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-white fill-brand-blue shrink-0" /> LLM / RAG 검색 파이프라인
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-white fill-brand-blue shrink-0" /> 사내 업무 보조 자율 에이전트
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-white fill-brand-blue shrink-0" /> MCP 및 외부 API 연동 인프라
-                </li>
-              </ul>
-            </div>
-
-            {/* Service 3 */}
-            <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all space-y-6 flex flex-col justify-between">
-              <div className="space-y-4">
-                <span className="text-xs font-mono text-neutral-600">003</span>
-                <div className="w-12 h-12 rounded-2xl bg-brand-iceberg text-neutral-950 flex items-center justify-center shadow-sm">
-                  <Layers className="w-6 h-6 stroke-[2.2]" />
-                </div>
-                <h3 className="text-xl font-bold text-neutral-900">Creative & Content Design</h3>
-                <p className="text-sm text-neutral-500 leading-relaxed">
-                  오픈마켓 롱스크롤 상세페이지(최대 6,600px+), 모션 프로모션 배너, 오프라인 브로셔 및 인쇄물까지 토탈 디자인을 책임집니다.
-                </p>
-              </div>
-              <ul className="space-y-2 text-xs text-neutral-600 pt-4 border-t border-gray-100">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-brand-iceberg shrink-0" /> 초고해상도 커머스 상세페이지
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-brand-iceberg shrink-0" /> 시즌/이벤트 모션 배너 (GIF)
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-neutral-950 fill-brand-iceberg shrink-0" /> LG전자 정수기 등 브로셔 인쇄물
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. SECTION: SELECTED WORK (03 / Work) */}
-      <section className="border-t border-gray-100 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-              <span className="text-xs uppercase tracking-widest font-mono text-neutral-600">
-                03 / Selected Work
-              </span>
-              <h2 className="text-3xl md:text-4xl font-normal tracking-tight text-neutral-900 mt-2">
-                Featured <span className="font-semibold text-neutral-950">Projects</span>
-              </h2>
-            </div>
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-neutral-900 hover:text-brand-blue transition-colors"
-            >
-              전체 {portfolioData.length}개 프로젝트 보기 <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {featuredProjects.map((p) => {
-              const firstImg = p.images[0];
-              const imgSrc = firstImg ? getAssetPath(`/portfolio/${firstImg.relative_path}`) : '';
-              return (
-                <Link
-                  key={p.id}
-                  href={`/projects?cat=${p.category === '웹사이트' ? 'websites' : 'design'}&project=${p.id}`}
-                  className="group block rounded-[5px] overflow-hidden border border-gray-200 hover:border-gray-400 bg-white hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="aspect-[16/10] bg-neutral-100 overflow-hidden relative">
-                    <Image
-                      src={encodeURI(imgSrc)}
-                      alt={p.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-4 left-4 right-4 flex flex-wrap gap-2 justify-end">
-                      {p.status === '운영 중단' && (
-                        <span className="inline-flex items-center leading-none px-3 py-1 rounded-full text-xs font-medium bg-white text-neutral-800 shadow-2xs">운영 중단</span>
-                      )}
-                      <span className="inline-flex items-center leading-none px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-md text-neutral-800 shadow-2xs">
-                        {p.category}
-                      </span>
-                      {p.cms && (
-                        <span className="inline-flex items-center leading-none px-2.5 py-1 rounded-full text-xs font-medium bg-neutral-900 text-white shadow-2xs">
-                          {p.cms}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  <div className="p-6 space-y-2">
-                    <h3 className="text-xl font-bold text-neutral-900 group-hover:text-brand-blue transition-colors">
-                      {p.title}
-                    </h3>
-                    <div className="flex items-center justify-between gap-2 text-xs">
-                      <span className="text-neutral-500 line-clamp-1">
-                        {p.text_lines[0] || 'Opposite Blue 프로젝트'}
-                      </span>
-                      {p.production_date && (
-                        <span className="text-neutral-600 shrink-0 font-normal">
-                          {p.production_date}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+      <section className="ledger-shell py-16 md:py-24">
+        <div className="flex flex-wrap items-end justify-between gap-5 border-t-[3px] border-neutral-950 pt-5"><h2 className="text-4xl font-semibold tracking-[-0.03em] md:text-5xl">Selected projects</h2><Link href="/projects" className="ledger-button">전체 프로젝트 보기 <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link></div>
+        <div className="mt-8 border-t border-neutral-950">
+          {featuredProjects.map((project, index) => {
+            const firstImage = project.images[0];
+            const imageSrc = firstImage ? getAssetPath(`/portfolio/${firstImage.relative_path}`) : null;
+            return <Link key={project.id} href={`/projects?cat=${project.category === '웹사이트' ? 'websites' : 'design'}&project=${project.id}`} className="group grid gap-4 border-b border-neutral-950 py-4 hover:bg-brand-yellow md:grid-cols-12 md:items-center md:gap-6">
+              <span className="ledger-label md:col-span-1">{String(index + 1).padStart(2, '0')}</span>
+              <div className="relative aspect-[16/9] overflow-hidden bg-[var(--surface-muted)] md:col-span-3">{imageSrc ? <Image src={encodeURI(imageSrc)} alt={project.title} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover object-top" loading="lazy" /> : <span className="flex h-full items-center justify-center text-sm text-neutral-700">이미지 없음</span>}</div>
+              <div className="md:col-span-5"><h3 className="text-xl font-semibold tracking-[-0.02em] text-neutral-950">{project.title}</h3><p className="mt-1 text-sm text-neutral-700">{project.cms || project.text_lines[0] || project.category}</p>{project.status === '운영 중단' && <span className="mt-2 inline-flex border border-neutral-950 px-2 py-1 text-xs text-neutral-800">운영 중단</span>}</div>
+              <span className="ledger-label md:col-span-2">{project.production_date || project.category}</span><ArrowUpRight className="h-5 w-5 justify-self-end text-neutral-950 md:col-span-1" aria-hidden="true" />
+            </Link>;
+          })}
         </div>
       </section>
     </div>

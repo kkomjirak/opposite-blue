@@ -48,35 +48,35 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-3 flex items-center justify-between gap-4">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-5">
-          <Link href="/" onClick={() => setMobileMenuOpen(false)} aria-label="Opposite Blue" className="min-h-11 inline-flex items-center gap-2 text-lg font-semibold tracking-tight text-neutral-900 transition-colors hover:text-brand-blue">
+    <header className="sticky top-0 z-40 border-b-[3px] border-neutral-950 bg-[var(--surface-paper)]">
+      <div className="ledger-shell flex items-center justify-between gap-4 py-2">
+        <div className="flex flex-col gap-0.5 sm:flex-row sm:items-center sm:gap-5">
+          <Link href="/" onClick={() => setMobileMenuOpen(false)} aria-label="Opposite Blue" className="inline-flex min-h-11 items-center gap-2 text-lg font-semibold tracking-[-0.03em] text-neutral-950 transition-colors hover:text-brand-blue active:text-brand-blue">
             <Image src="/brand/oppositeblue-logo.png" alt="" width={28} height={28} className="h-7 w-7 shrink-0" />
             Opposite Blue<span className="text-brand-yellow font-bold" aria-hidden="true">.</span>
           </Link>
-          <span className="text-xs font-mono text-neutral-600 tracking-tight">{timeString || 'Seoul, KR'}</span>
+          <span className="ledger-label">{timeString || 'Seoul, KR'}</span>
         </div>
-        <nav aria-label="주 메뉴" className="hidden md:flex items-center gap-8 text-sm">
+        <nav aria-label="주 메뉴" className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} aria-current={pathname === link.href ? 'page' : undefined}
-              className={`min-h-11 inline-flex items-center relative transition-colors ${pathname === link.href ? 'text-neutral-950 font-semibold underline decoration-brand-yellow decoration-2 underline-offset-8' : 'text-neutral-600 hover:text-brand-blue'}`}>
+              className={`inline-flex min-h-11 items-center border-l border-neutral-950 px-4 text-sm transition-colors ${pathname === link.href ? 'bg-brand-yellow font-semibold text-neutral-950' : 'text-neutral-700 hover:bg-neutral-950 hover:text-white active:bg-brand-blue'}`}>
               {link.name}
             </Link>
           ))}
         </nav>
         <button ref={menuButton} type="button" onClick={() => setMobileMenuOpen((open) => !open)}
-          className="md:hidden inline-flex min-w-11 min-h-11 items-center justify-center rounded-lg text-neutral-800 hover:bg-neutral-100"
+          className="inline-flex min-h-11 min-w-11 items-center justify-center border border-neutral-950 text-neutral-950 hover:bg-brand-yellow active:bg-neutral-950 active:text-white md:hidden"
           aria-label={mobileMenuOpen ? '메뉴 닫기' : '메뉴 열기'} aria-expanded={mobileMenuOpen} aria-controls="mobile-navigation">
           {mobileMenuOpen ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
         </button>
       </div>
       <nav id="mobile-navigation" aria-label="모바일 메뉴" hidden={!mobileMenuOpen}
-        className="md:hidden border-t border-gray-200 bg-white px-6 py-3">
+        className="ledger-shell border-t border-neutral-950 bg-[var(--surface-paper)] py-2 md:hidden">
         {[{ name: 'Home', href: '/' }, ...navLinks].map((link) => (
           <Link key={link.href} href={link.href} onClick={() => setMobileMenuOpen(false)}
             aria-current={pathname === link.href ? 'page' : undefined}
-            className={`flex min-h-11 items-center rounded-md px-2 text-base hover:bg-neutral-50 ${pathname === link.href ? 'text-brand-blue font-semibold' : 'text-neutral-700'}`}>
+            className={`flex min-h-11 items-center border-b border-neutral-950 px-2 text-base ${pathname === link.href ? 'bg-brand-yellow font-semibold text-neutral-950' : 'text-neutral-700 hover:bg-neutral-950 hover:text-white active:bg-brand-blue'}`}>
             {link.name}
           </Link>
         ))}

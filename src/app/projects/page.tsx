@@ -137,27 +137,25 @@ function ProjectsContent() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
+    <div className="ledger-shell projects-ledger transform-none opacity-100 py-12 md:py-20">
       {/* Category / Sub-heading */}
       <div
         className="mb-6"
       >
-        <span className="text-xs uppercase tracking-widest font-mono text-neutral-600">
-          02 / Projects
-        </span>
+        <span className="ledger-label">Portfolio index</span>
       </div>
 
       {/* Main Editorial Headline */}
       <div
-        className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-gray-100"
+        className="grid grid-cols-1 gap-8 border-t-[3px] border-neutral-950 pt-5 pb-12 md:grid-cols-12"
       >
         <div className="md:col-span-8">
-          <h1 className="text-4xl md:text-6xl font-normal tracking-tight text-neutral-900 leading-tight">
+          <h1 className="text-5xl font-normal leading-[0.96] tracking-[-0.04em] text-neutral-950 md:text-7xl">
             A curated collection of{' '}
             <span className="font-semibold text-neutral-950">Websites</span> &{' '}
             <span className="font-semibold text-neutral-950">Design</span> works.
           </h1>
-          <p className="mt-6 text-base md:text-lg text-neutral-500 max-w-2xl leading-relaxed">
+          <p className="ledger-prose mt-6 text-lg text-neutral-700">
             B2B 플랫폼부터 이커머스 솔루션, 브랜드 프로모션, 초고해상도 상세페이지 및 인쇄물까지 어퍼짓 블루(Opposite Blue)의 실제 프로젝트 결과물입니다.
           </p>
         </div>
@@ -169,11 +167,12 @@ function ProjectsContent() {
             key="root-category-view"
             className="py-12 space-y-12"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 border-t border-neutral-950">
               {/* 1. Websites Big Card */}
               <Link
                 href="/projects?cat=websites"
                 scroll={false}
+                data-project-category
                 className="group cursor-pointer rounded-[5px] border border-gray-200 bg-white overflow-hidden hover:border-gray-400 hover:shadow-2xl hover:shadow-neutral-200/50 transition-all motion-reduce:transition-none duration-500 flex flex-col justify-between"
               >
                 <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
@@ -221,6 +220,7 @@ function ProjectsContent() {
               <Link
                 href="/projects?cat=design"
                 scroll={false}
+                data-project-category
                 className="group cursor-pointer rounded-[5px] border border-gray-200 bg-white overflow-hidden hover:border-gray-400 hover:shadow-2xl hover:shadow-neutral-200/50 transition-all motion-reduce:transition-none duration-500 flex flex-col justify-between"
               >
                 <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
@@ -314,6 +314,7 @@ function ProjectsContent() {
                 return (
                   <div
                     key={project.id}
+                    data-project-index-row
                     className="group relative flex flex-col bg-white border border-gray-200 rounded-[5px] overflow-hidden hover:border-gray-400 hover:shadow-xl hover:shadow-neutral-100 transition-all motion-reduce:transition-none duration-300 cursor-pointer focus-within:ring-2 focus-within:ring-brand-blue"
                   >
                     <div className="relative aspect-[16/10] bg-neutral-100 overflow-hidden">
@@ -471,6 +472,7 @@ function ProjectsContent() {
                 return (
                   <div
                     key={project.id}
+                    data-project-index-row
                     className="group relative flex flex-col bg-white border border-gray-200 rounded-[5px] overflow-hidden hover:border-gray-400 hover:shadow-xl hover:shadow-neutral-100 transition-all motion-reduce:transition-none duration-300 cursor-pointer focus-within:ring-2 focus-within:ring-brand-blue"
                   >
                     <div className="relative aspect-[16/10] bg-neutral-100 overflow-hidden">
@@ -733,7 +735,7 @@ function ProjectsContent() {
 
 export default function ProjectsPage() {
   return (
-    <Suspense fallback={<div className="max-w-7xl mx-auto px-6 py-24 text-neutral-600">Loading projects...</div>}>
+    <Suspense fallback={<div className="ledger-shell py-12 md:py-20" aria-live="polite"><div className="border-t-[3px] border-neutral-950 pt-5"><p className="ledger-label">Portfolio index</p><h1 className="mt-4 text-5xl font-normal tracking-[-0.04em] text-neutral-950 md:text-7xl">Projects</h1><div className="mt-10 space-y-3" aria-label="프로젝트 불러오는 중"><div className="ledger-skeleton" /><div className="ledger-skeleton" /><div className="ledger-skeleton" /></div></div></div>}>
       <ProjectsContent />
     </Suspense>
   );

@@ -19,10 +19,15 @@ test('About explains scope, project evidence and a clear consultation process', 
   await expect(page.getByRole('link', { name: 'LG전자 B2B 구축 사례 보기' })).toHaveAttribute('href', /project=30/);
 });
 
-test('home featured work links directly to the selected project', async ({ page }) => {
+test('home featured work uses project 33 with the approved hero copy and priority image', async ({ page }) => {
   await page.goto('/');
-  const featured = page.getByRole('link').filter({ has: page.getByRole('heading', { name: '브랜드 의류 쇼핑몰' }) });
-  await expect(featured).toHaveAttribute('href', '/projects?cat=websites&project=32');
+  await expect(page.getByRole('heading', { level: 1, name: 'Crafting high-performance websites' })).toBeVisible();
+  await expect(page.getByText('Opposite Blue는 쇼핑몰과 웹사이트 구축부터 이커머스 솔루션, 최신 생성형 AI 서비스 인프라 구축까지 비즈니스의 성공적인 디지털 전환을 완벽히 구현합니다.')).toBeVisible();
+  const featured = page.getByRole('link').filter({ has: page.getByRole('heading', { name: '디자인회사' }) }).first();
+  await expect(featured).toHaveAttribute('href', '/projects?cat=websites&project=33');
+  await expect(featured.getByText('Next.js 기반 3D 인터랙티브 웹', { exact: true })).toBeVisible();
+  await expect(featured.getByText('2026년 10월', { exact: true })).toBeVisible();
+  await expect(featured.locator('img[alt="디자인회사"]')).toHaveAttribute('fetchpriority', 'high');
 });
 
 test('home has no WCAG AA violations in automated checks', async ({ page }) => {
@@ -90,7 +95,7 @@ test('brand symbols preserve the accessible home link and explicit layout dimens
   await expect(grayscaleMark).toHaveAttribute('height', '24');
 });
 
-for (const width of [320, 390, 768, 1440]) {
+for (const width of [320, 390, 768, 1024, 1440]) {
   for (const path of ['/', '/about', '/projects', '/contact', '/privacy', '/terms']) {
     test(`${path} reflows without horizontal overflow at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });

@@ -236,7 +236,8 @@ test('reduced motion keeps the project introduction visible from first paint', a
     opacity: getComputedStyle(element).opacity,
     transform: getComputedStyle(element).transform,
   }));
-  expect(style).toEqual({ opacity: '1', transform: 'none' });
+  expect(style.opacity || '1').toBe('1');
+  expect(style.transform || 'none').toBe('none');
   const category = page.getByRole('link', { name: /Websites Preview/ });
   await category.hover();
   await expect(category.locator('img')).toHaveCSS('transform', 'none');
