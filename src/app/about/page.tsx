@@ -24,7 +24,7 @@ export default function AboutPage() {
     <div className="ledger-shell py-12 md:py-20">
       <section className="max-w-4xl space-y-6 border-t-[3px] border-neutral-950 pt-5 pb-12 md:pb-16">
         <h1 className="text-5xl font-normal leading-[0.98] tracking-[-0.04em] text-neutral-950 md:text-7xl">
-          웹, 콘텐츠, AI가<br className="hidden sm:block" /> <span className="font-semibold">하나의 업무로 이어지도록.</span>
+          웹, 콘텐츠, AI가<br className="hidden sm:block" /> <span>하나의 업무로 이어지도록.</span>
         </h1>
         <p className="ledger-prose text-lg text-neutral-700">
           Opposite Blue는 웹사이트와 쇼핑몰 구축, 디자인, AI 서비스 환경을 함께 다룹니다. 필요한 결과와 운영 방식을 기준으로 프로젝트의 범위를 정합니다.

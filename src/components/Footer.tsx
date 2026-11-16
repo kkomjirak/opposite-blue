@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
           <div className="md:col-span-8 space-y-5">
             <h2 className="text-3xl font-normal leading-tight tracking-[-0.03em] text-neutral-950 md:text-5xl">
-              다음 프로젝트를<br /><span className="font-semibold">함께 구체화해 볼까요?</span>
+              다음 프로젝트를<br /><span>함께 구체화해 볼까요?</span>
             </h2>
             <p className="max-w-xl text-base leading-relaxed text-neutral-700">웹사이트와 커머스, 디자인, AI 서비스 환경. 필요한 범위와 현재 상황부터 이야기해 주세요.</p>
             <Link href="/contact" className="ledger-button ledger-button--signal">

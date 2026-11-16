@@ -1,4 +1,13 @@
-/* Hallmark: Opposite Blue Portfolio Ledger. Critique: images remain still; contrast, footprint, and semantic copy take priority over decoration. */
+/*
+ * Hallmark stamp — mode: redesign; depth: full; scope: site; brand: Opposite Blue; custom direction: Portfolio Ledger.
+ * Route posture — / is a project-led editorial landing page; /about is a scope-and-process ledger; /projects is an index with native deep-link dialog detail; /contact is a form with AJAX, native, mailto and manual-copy fallbacks; /privacy and /terms are readable legal records.
+ * Gate disposition — R1 contrast/cascade, R2 Projects fallback geometry/CLS, R3 retained information, R4 Floor, and R5 still-image motion are corrected and independently rechecked. R6 comparison evidence is the recorded 60-render baseline/final matrix; the required automated sloplint remains unavailable and is not represented as passed.
+ * Kept — approved home hero copy; routes; FormSubmit/native/mailto/manual-copy contact paths; field names and ids; project deep links, dialog history/focus/scroll behavior; legal copy; portfolio data and imagery.
+ * Reworded — the home section label "Featured Projects" is "Selected projects" and index-card presentation is a ruled Portfolio Ledger; the retained destinations and project-modal semantics are unchanged.
+ * Dropped — the unsupported "30+ 완료 프로젝트" claim remains absent; duplicate Project 33 selected-work presentation is removed because its approved hero lead preserves its destination and content.
+ * Exception record — no display-weight exception remains for /projects, /about, or Footer entry/closing headings: their words share the parent 400 weight. Section-heading 600 is a distinct hierarchy level, not word emphasis. Owner for any later typography exception: Lead Orchestrator/brand owner; it requires explicit approval and a record in .hallmark/redesign-kept.json.
+ */
+/* Hallmark critique — Still imagery, readable contrast, square ruled geometry, semantic copy, and usable fallbacks take priority over decorative treatment. */
 @import "tailwindcss";
 
 @theme {

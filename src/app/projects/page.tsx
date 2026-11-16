@@ -46,7 +46,7 @@ function ProjectsIntroduction() {
     <div className="border-t-[3px] border-neutral-950 pt-5 pb-12 md:grid md:grid-cols-12">
       <div className="md:col-span-8">
         <h1 className="text-5xl font-normal leading-[0.96] tracking-[-0.04em] text-neutral-950 md:text-7xl">
-          A curated collection of <span className="font-semibold text-neutral-950">Websites</span> & <span className="font-semibold text-neutral-950">Design</span> works.
+          A curated collection of <span className="text-neutral-950">Websites</span> & <span className="text-neutral-950">Design</span> works.
         </h1>
         <p className="ledger-prose mt-6 text-lg text-neutral-700">
           B2B 플랫폼부터 이커머스 솔루션, 브랜드 프로모션, 초고해상도 상세페이지 및 인쇄물까지 어퍼짓 블루(Opposite Blue)의 실제 프로젝트 결과물입니다.

@@ -12,6 +12,77 @@
     "matrix": "6 routes × 5 viewports × baseline/final = 60 renders",
     "measured_at": "390px: headings, figures, images, links, buttons, inputs, dialogs, and overflow"
   },
+  "hallmark_finish_record": {
+    "stamp": {
+      "mode": "redesign",
+      "depth": "full",
+      "scope": "site",
+      "brand": "Opposite Blue",
+      "custom_direction": "Portfolio Ledger"
+    },
+    "route_posture": {
+      "/": "Project-led editorial landing page with the approved hero and Project 33 lead.",
+      "/about": "Scope-and-process ledger for web, AI, and creative services.",
+      "/projects": "Ruled project index with category navigation and native-dialog deep-link detail.",
+      "/contact": "Accessible inquiry form with AJAX, native FormSubmit, mailto, and manual-copy recovery paths.",
+      "/privacy": "Readable privacy record with its existing external and contact paths.",
+      "/terms": "Readable terms record with its existing privacy and contact paths."
+    },
+    "gate_disposition": {
+      "R1": "Corrected: explicit token/base cascade preserves contrast and rules.",
+      "R2": "Corrected: the Projects Suspense fallback shares the resolved index geometry; reviewer cold-route probes recorded CLS 0.",
+      "R3": "Corrected: Info content and nine service facts are restored; the unverified 30+ claim is intentionally absent.",
+      "R4": "Corrected: overflow, minimum-width, token spacing, label font, and prohibited visual-pattern changes are recorded under floor.",
+      "R5": "Corrected: category images do not scale on normal motion; reviewer probe records transform and scale as none.",
+      "R6_comparison": "Complete as manual evidence: manual-comparison.json records the real 6-route × 5-viewport × baseline/final 60-render matrix.",
+      "R6_automated_sloplint": "Open capability gate: no installed compatible sloplint.mjs was found; no pass is claimed and owner acceptance or a provisioned compatible tool is required."
+    },
+    "copy_and_heading_disposition": {
+      "method": "Manual source cross-read against baseline e39571e plus the recorded 60-render comparison; this is a disposition record, not an assertion of exhaustive dynamic identity auditing.",
+      "kept": [
+        "The approved home hero headline and Korean description remain exact.",
+        "All six route subjects and the existing legal, service, project, contact, and fallback content remain represented.",
+        "The nine concrete service facts and the 6,600px+ long-scroll detail-page description are retained/restored."
+      ],
+      "reworded": [
+        "Home heading 'Featured Projects' is presented as 'Selected projects'; its project destinations remain intact.",
+        "Project category cards and home project treatment are re-presented as ruled Portfolio Ledger layouts without changing the retained destinations."
+      ],
+      "dropped": [
+        "The unsupported baseline phrase '30+ 완료 프로젝트' is not carried forward.",
+        "The duplicate Project 33 selected-work card is removed because the same approved project is the dedicated hero lead with its retained deep link."
+      ],
+      "typography_reflex": {
+        "status": "resolved in source",
+        "rule": "The /projects, /about, and Footer entry/closing headings use the parent 400 display weight without selected-word emphasis; their 600 section headings remain a separate hierarchy tier.",
+        "verified_targets": [
+          "/projects h1 and its Websites/Design spans",
+          "/about h1 and its continuation span",
+          "Footer h2 and its continuation span"
+        ],
+        "future_exception_owner": "Lead Orchestrator/brand owner",
+        "future_exception_requirement": "Any later mixed-weight display-heading exception requires explicit owner approval and a specific recorded rationale; no blanket 'corrected' claim substitutes for that approval."
+      }
+    },
+    "wiring_identity_continuity": {
+      "source": ".hallmark/shots/reviewer-rereview-t_d4336e24/kept-ast.json",
+      "method_and_limit": "The reviewer-supplied AST attribute comparison covers tracked TSX literal/JSX identity attributes. It establishes the listed continuity and exceptions, but is not labeled an exhaustive audit of runtime-generated identities or all dynamic copy.",
+      "covered_attributes": ["href", "id", "name", "type", "action", "method", "target", "formAction", "formMethod", "formTarget", "onSubmit", "onChange", "onClick", "onCancel", "aria-labelledby", "aria-controls", "key"],
+      "retained": [
+        "Contact retains onSubmit=handleSubmit, the FormSubmit action/method/target, native-submit overrides, field names, generated field ids, message/privacy/manual-copy ids, change handlers, submit/copy/reset handlers, and mailto/privacy hrefs.",
+        "Projects retains category/deep-link/live-link hrefs, category/filter/modal handlers, dialog cancel/close/image handlers, project-dialog-title, and data-project-list-heading focus hook.",
+        "About retains scope-title/process-title ids, aria-labelledby bindings, and route hrefs; Header retains mobile-navigation id/aria-controls/menu handlers; Footer and legal routes retain their recorded hrefs.",
+        "The only pre-existing test/behavior hooks identified in baseline and final tracked TSX are data-native and data-project-list-heading; both remain. New data-project-category and data-project-index-row markers support presentational regression targeting without replacing those hooks."
+      ],
+      "approved_or_presentational_differences": [
+        "src/app/page.tsx dynamic href variable p → project is semantically equivalent: both resolve /projects?cat=<websites|design>&project=<id>.",
+        "The literal Project 33 hero href /projects?cat=websites&project=33 is an approved addition.",
+        "src/app/projects/page.tsx removes only the root-category-view React key; it is presentational and does not remove a DOM id, destination, handler, or test hook.",
+        "Additional React keys in the home ledger support new presentational mapped content and do not replace retained behavior identity."
+      ],
+      "runtime_confirmation": "The reviewer found no runtime wiring loss; independent route/browser checks and current project regression coverage remain the behavioral evidence."
+    }
+  },
   "hero_copy": {
     "headline": "Crafting high-performance websites",
     "description": "Opposite Blue는 쇼핑몰과 웹사이트 구축부터 이커머스 솔루션, 최신 생성형 AI 서비스 인프라 구축까지 비즈니스의 성공적인 디지털 전환을 완벽히 구현합니다."
@@ -80,8 +151,9 @@
     ]
   },
   "reflex": {
-    "status": "corrected where applicable",
-    "changes": ["Mono is restricted to genuine metadata elsewhere; editorial labels use the body family.", "Heading weights stay consistent within the ledger hierarchy."]
+    "status": "resolved for the previously flagged display-heading cases",
+    "changes": ["Mono is restricted to genuine metadata elsewhere; editorial labels use the body family.", "The /projects, /about, and Footer entry/closing display headings now use their parent 400 weight without selected-word emphasis; 600 remains reserved for lower hierarchy section headings."],
+    "exception_policy": "No typography exception is claimed for the resolved targets. Any future display-heading exception requires explicit Lead Orchestrator/brand-owner approval and a concrete reason recorded in hallmark_finish_record.copy_and_heading_disposition.typography_reflex."
   },
   "finish": {
     "status": "manual comparison complete; automated Hallmark sloplint unavailable",
