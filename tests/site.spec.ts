@@ -95,6 +95,40 @@ test('new brand signatures preserve the accessible home link and explicit layout
   await expect(lineMark).toHaveAttribute('height', '900');
 });
 
+test('mobile header prioritizes the logo and footer navigation uses equal horizontal columns', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 844 });
+  await page.goto('/');
+
+  const banner = page.getByRole('banner');
+  const time = banner.locator('.ledger-label');
+  await expect(time).toBeHidden();
+
+  const logo = banner.locator('img[src="/brand/oppositeblue-horizontal-colored.png"]');
+  const logoBox = await logo.boundingBox();
+  expect(logoBox!.height).toBeGreaterThanOrEqual(32);
+
+  const footerNavigation = page.getByRole('contentinfo').getByRole('navigation', { name: '하단 메뉴' });
+  const links = footerNavigation.getByRole('link');
+  const linkBoxes = await Promise.all((await links.all()).map((link) => link.boundingBox()));
+  expect(linkBoxes).toHaveLength(3);
+  expect(new Set(linkBoxes.map((box) => Math.round(box!.y))).size).toBe(1);
+  expect(Math.max(...linkBoxes.map((box) => box!.width)) - Math.min(...linkBoxes.map((box) => box!.width))).toBeLessThanOrEqual(1);
+  for (const box of linkBoxes) {
+    expect(box!.height).toBeGreaterThanOrEqual(44);
+  }
+
+  await page.setViewportSize({ width: 768, height: 900 });
+  const footerLineCounts = await links.evaluateAll((elements) => elements.map((element) => {
+    const range = document.createRange();
+    range.selectNodeContents(element);
+    return range.getClientRects().length;
+  }));
+  expect(footerLineCounts).toEqual([1, 1, 1]);
+
+  await page.setViewportSize({ width: 1024, height: 900 });
+  await expect(time).toBeVisible();
+});
+
 for (const width of [320, 390, 768, 1024, 1440]) {
   for (const path of ['/', '/about', '/projects', '/contact', '/privacy', '/terms']) {
     test(`${path} reflows without horizontal overflow at ${width}px`, async ({ page }) => {

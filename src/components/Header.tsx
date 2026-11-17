@@ -50,18 +50,18 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b-[3px] border-neutral-950 bg-[var(--surface-paper)]">
       <div className="ledger-shell flex items-center justify-between gap-4 py-2">
-        <div className="flex flex-col gap-0.5 sm:flex-row sm:items-center sm:gap-5">
+        <div className="flex items-center gap-5">
           <Link href="/" onClick={() => setMobileMenuOpen(false)} aria-label="Opposite Blue" className="inline-flex min-h-11 items-center">
             <Image
               src="/brand/oppositeblue-horizontal-colored.png"
               alt=""
               width={900}
               height={143}
-              className="h-6 w-auto shrink-0"
+              className="h-8 w-auto shrink-0 md:h-6"
               priority
             />
           </Link>
-          <span className="ledger-label">{timeString || 'Seoul, KR'}</span>
+          <span className="ledger-label hidden md:inline-flex">{timeString || 'Seoul, KR'}</span>
         </div>
         <nav aria-label="주 메뉴" className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (

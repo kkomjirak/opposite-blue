@@ -18,10 +18,10 @@ export default function Footer() {
           </div>
           <div className="md:col-span-4 space-y-7">
             <nav aria-label="하단 메뉴">
-              <ul className="grid border-t border-neutral-950 text-sm text-neutral-800">
-                <li><Link href="/about" className="inline-flex min-h-11 items-center border-b border-neutral-950 hover:bg-brand-yellow">About us</Link></li>
-                <li><Link href="/projects" className="inline-flex min-h-11 items-center border-b border-neutral-950 hover:bg-brand-yellow">Projects</Link></li>
-                <li><Link href="/contact" className="inline-flex min-h-11 items-center border-b border-neutral-950 hover:bg-brand-yellow">Contact</Link></li>
+              <ul className="grid grid-cols-3 border-y border-neutral-950 text-sm text-neutral-800">
+                <li className="border-r border-neutral-950"><Link href="/about" className="flex min-h-11 w-full items-center justify-center whitespace-nowrap px-1 text-center hover:bg-brand-yellow lg:px-2">About us</Link></li>
+                <li className="border-r border-neutral-950"><Link href="/projects" className="flex min-h-11 w-full items-center justify-center whitespace-nowrap px-1 text-center hover:bg-brand-yellow lg:px-2">Projects</Link></li>
+                <li><Link href="/contact" className="flex min-h-11 w-full items-center justify-center whitespace-nowrap px-1 text-center hover:bg-brand-yellow lg:px-2">Contact</Link></li>
               </ul>
             </nav>
             <div className="space-y-1">
