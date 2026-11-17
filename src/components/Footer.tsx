@@ -34,7 +34,13 @@ export default function Footer() {
         </div>
         <div className="mt-10 flex flex-col justify-between gap-3 border-t border-neutral-950 pt-5 text-xs text-neutral-700 sm:flex-row sm:items-center">
           <div className="flex items-center gap-2">
-            <Image src="/brand/oppositeblue-logo-grayscale.png" alt="" width={24} height={24} className="h-6 w-6 shrink-0" />
+            <Image
+              src="/brand/oppositeblue-square-line.png"
+              alt=""
+              width={900}
+              height={900}
+              className="h-7 w-7 shrink-0"
+            />
             <p>© {new Date().getFullYear()} Opposite Blue. All rights reserved.</p>
           </div>
           <div className="flex flex-wrap gap-x-6">

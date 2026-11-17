@@ -74,7 +74,7 @@ test('brand assets, favicon, and manifest are published from the static export',
   ]));
 });
 
-test('brand symbols preserve the accessible home link and explicit layout dimensions', async ({ page }) => {
+test('new brand signatures preserve the accessible home link and explicit layout dimensions', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
 
@@ -84,15 +84,15 @@ test('brand symbols preserve the accessible home link and explicit layout dimens
   expect(homeBox!.width).toBeGreaterThanOrEqual(44);
   expect(homeBox!.height).toBeGreaterThanOrEqual(44);
 
-  const colorMark = homeLink.locator('img[src="/brand/oppositeblue-logo.png"]');
-  await expect(colorMark).toBeVisible();
-  await expect(colorMark).toHaveAttribute('width', '28');
-  await expect(colorMark).toHaveAttribute('height', '28');
+  const colorSignature = homeLink.locator('img[src="/brand/oppositeblue-horizontal-colored.png"]');
+  await expect(colorSignature).toBeVisible();
+  await expect(colorSignature).toHaveAttribute('width', '900');
+  await expect(colorSignature).toHaveAttribute('height', '143');
 
-  const grayscaleMark = page.getByRole('contentinfo').locator('img[src="/brand/oppositeblue-logo-grayscale.png"]');
-  await expect(grayscaleMark).toBeVisible();
-  await expect(grayscaleMark).toHaveAttribute('width', '24');
-  await expect(grayscaleMark).toHaveAttribute('height', '24');
+  const lineMark = page.getByRole('contentinfo').locator('img[src="/brand/oppositeblue-square-line.png"]');
+  await expect(lineMark).toBeVisible();
+  await expect(lineMark).toHaveAttribute('width', '900');
+  await expect(lineMark).toHaveAttribute('height', '900');
 });
 
 for (const width of [320, 390, 768, 1024, 1440]) {
